@@ -1,6 +1,12 @@
-help: develop
+VERSION=0.3.0
 
-develop:
+build:
+	python setup.py bdist_egg
+
+install:
+	easy_install dist/bluebutton-$(VERSION)-*.egg
+
+help:
 	@echo To setup the development environment, run the following commands:
 	@echo ''
 	@echo 'brew list nodejs || brew install nodejs'
@@ -9,7 +15,7 @@ develop:
 	@echo python setup.py develop
 	@echo git clone https://github.com/blue-button/bluebutton.js
 	@echo cd bluebutton.js
-	@echo git checkout 0.3.0
+	@echo git checkout $(VERSION)
 	@echo npm install
 	@echo bower install
 	@echo grunt test --force
@@ -23,4 +29,4 @@ clean:
 	find bluebutton -name '*.pyc' | xargs rm
 	find tests -name '*.pyc' | xargs rm
 	rm -rf cover/ coverage.xml .coverage nosetests.xml
-	rm -rf .eggs/
+	rm -rf .eggs/ dist/ build/
