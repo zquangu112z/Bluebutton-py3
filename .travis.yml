@@ -7,7 +7,7 @@ before_install:
     - pushd bluebutton.js
     - npm install
     - bower install
-    - grunt build
+    - grunt
     - popd
 install:
     - pip install -e .
