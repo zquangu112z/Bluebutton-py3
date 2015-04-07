@@ -6,6 +6,8 @@ before_install:
     - git checkout 0.3.0
     - "bash -c 'cd bluebutton.js; npm install; bower install; grunt'"
 install:
+    - ls -al
+    - pwd
     - pip install -e .
 script:
     - make test
