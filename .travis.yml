@@ -4,12 +4,8 @@ python:
 before_install:
     - git clone https://github.com/blue-button/bluebutton.js
     - git checkout 0.3.0
-    - pushd bluebutton.js
-    - npm install
-    - bower install
-    - grunt
-    - popd
+    - "bash -c 'cd bluebutton.js; npm install; bower install; grunt'"
 install:
     - pip install -e .
 script:
-    - make test || python setup.py nosetests
+    - make test
