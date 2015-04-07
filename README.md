@@ -1,6 +1,8 @@
 BlueButton.py: Blue Button Python Library
 =========================================
 
+[![Build Status](https://travis-ci.org/ctsit/bluebutton.py.svg)](https://travis-ci.org/ctsit/bluebutton.py)
+
 BlueButton.py helps developers and non-developers alike to parse and extract
 information from C-CDA files without the need to understand the [entire
 specification][1].
