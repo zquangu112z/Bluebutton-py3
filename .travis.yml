@@ -2,8 +2,9 @@ language: python
 python:
     - "2.7"
 before_install:
-    - git clone https://github.com/blue-button/bluebutton.js
-    - git checkout 0.3.0
+    - ls -al
+    - pwd
+    - git clone --branch 0.3.0 https://github.com/blue-button/bluebutton.js
     - "bash -c 'cd bluebutton.js; npm install; bower install; grunt'"
 install:
     - ls -al
