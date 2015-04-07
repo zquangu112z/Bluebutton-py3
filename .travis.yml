@@ -3,5 +3,11 @@ python:
     - "2.7"
 install:
     - pip install -e .
+    - git clone https://github.com/blue-button/bluebutton.js
+    - cd bluebutton.js
+    - npm install
+    - bower install
+    - grunt test --force
+    - cd ..
 script:
     - make test
