@@ -1,14 +1,9 @@
 language: python
 python:
     - "2.7"
+before_install:
+    - make bluebutton.js
 install:
     - pip install -e .
-    - git clone https://github.com/blue-button/bluebutton.js
-    - git checkout 0.3.0
-    - cd bluebutton.js
-    - npm install
-    - bower install
-    - grunt test --force
-    - cd ..
 script:
     - make test
