@@ -2,7 +2,7 @@ language: python
 python:
     - "2.7"
 before_install:
-    - make prereqs
+    - make bluebutton.js
 install:
     - pip install -e .
 script:
