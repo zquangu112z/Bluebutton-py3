@@ -25,6 +25,14 @@ help:
 test:
 	python setup.py nosetests
 
+bluebutton.js:
+    git clone --branch 0.3.0 https://github.com/blue-button/bluebutton.js
+    cd bluebutton.js
+	sed -i\'.bak\' -e \'s/git@github.com:chb/https:\/\/github.com\/chb/\' bower.json
+	npm install
+	bower install
+	grunt
+
 clean:
 	find bluebutton -name '*.pyc' | xargs rm
 	find tests -name '*.pyc' | xargs rm

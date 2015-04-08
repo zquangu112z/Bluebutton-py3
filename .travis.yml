@@ -2,14 +2,8 @@ language: python
 python:
     - "2.7"
 before_install:
-    - ls -al
-    - pwd
-    - git clone --branch 0.3.0 https://github.com/blue-button/bluebutton.js
-    - "bash -c 'cd bluebutton.js; sed -i\'.bak\' -e \'s/git@github.com:chb/https:\/\/github.com\/chb/\' bower.json; npm install; bower install; grunt'"
-    - ls bluebutton.js/sample_ccdas
+    - make prereqs
 install:
-    - ls -al
-    - pwd
     - pip install -e .
 script:
     - make test
