@@ -74,11 +74,16 @@ class PortTests(unittest.TestCase):
     def test_compare_vitals(self):
         self.python_output_is_same_as_javascript('vitals')
 
+    def test_sample_allscripts_mu2(self):
+        testfile = ('/bluebutton.js/bower_components/sample_ccdas/'
+                    'Allscripts Samples/Internal Test with MU 2 data/'
+                    '170.314B2_Amb_CCD.xml')
+        self.python_output_is_same_as_javascript(testfile=self.prefix+testfile)
+
     def test_samples(self):
         def check(t):
             self.python_output_is_same_as_javascript(testfile=self.prefix+t)
 
-        check('/bluebutton.js/bower_components/sample_ccdas/Allscripts Samples/Internal Test with MU 2 data/170.314B2_Amb_CCD.xml')
         check('/bluebutton.js/bower_components/sample_ccdas/Allscripts Samples/Professional EHR/Encounter Based C-CDA CCD - 08-06-2012 [Jones, Isabella - 170314E2].xml')
         check('/bluebutton.js/bower_components/sample_ccdas/HL7 Samples/CCD.sample.xml')
         check('/bluebutton.js/bower_components/sample_ccdas/NIST Samples/CCDA_CCD_b1_Ambulatory_v2.xml')
