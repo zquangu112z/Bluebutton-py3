@@ -6,7 +6,7 @@ import setuptools
 
 setuptools.setup(
     name='bluebutton',
-    version='0.3.0.post1',
+    version='0.4.1.post0',
     packages=setuptools.find_packages(),
     description='The Blue Button Python Library',
     author='Taeber Rapczak',

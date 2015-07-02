@@ -1,4 +1,4 @@
-VERSION=0.3.0
+VERSION=0.4.1
 
 build:
 	python setup.py bdist_egg
@@ -26,7 +26,7 @@ test:
 	python setup.py nosetests
 
 bluebutton.js:
-	git clone --branch 0.3.0 https://github.com/blue-button/bluebutton.js
+	git clone --branch $(VERSION) https://github.com/blue-button/bluebutton.js
 	sed -i'.bak' -e 's/git@github.com:chb/https:\/\/github.com\/chb/' bluebutton.js/bower.json
 	cd bluebutton.js; npm install; bower install; grunt
 

@@ -19,18 +19,19 @@ Medications:
 ```python
 from bluebutton import BlueButton
 
-ccd = BlueButton('CCD.sample.xml')
+with open('CCD.sample.xml') as fp:
+   ccd = BlueButton(fp.read())
 
-ccd.type   # The document type ('ccda', 'c32', and such)
-ccd.source # The parsed source data (XML) with added querying methods
-ccd.data   # The final parsed document data
+   ccd.type   # The document type ('ccda', 'c32', and such)
+   ccd.source # The parsed source data (XML) with added querying methods
+   ccd.data   # The final parsed document data
 
-name = ccd.data.demographics.name
-print name.prefix, name.given, name.family
+   name = ccd.data.demographics.name
+   print name.prefix, name.given, name.family
 
-print 'Medications:'
-for medication in ccd.data.medications:
-	print medication.product.name
+   print 'Medications:'
+   for medication in ccd.data.medications:
+      print medication.product.name
 ```
 
 
