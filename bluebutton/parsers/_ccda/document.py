@@ -22,6 +22,7 @@ def document(ccda):
     doc = ccda.section('document')
 
     date = parse_date(doc.tag('effectiveTime').attr('value'))
+    title = core.strip_whitespace(doc.tag('title').val())
 
     author = doc.tag('author')
     el = author.tag('assignedPerson').tag('name')
@@ -59,6 +60,7 @@ def document(ccda):
 
     data = wrappers.ObjectWrapper(
         date=date,
+        title=title,
         author=wrappers.ObjectWrapper(
             name=name_dict,
             address=address_dict,

@@ -46,6 +46,7 @@ def demographics(ccda):
 
     el = patient.tag('guardian')
     guardian_relationship = el.tag('code').attr('displayName')
+    guardian_relationship_code = el.tag('code').attr('code')
     guardian_home = el.tag('telecom').attr('value')
 
     el = el.tag('guardianPerson').tag('name')
@@ -87,6 +88,7 @@ def demographics(ccda):
                 family=guardian_name_dict.family
             ),
             relationship=guardian_relationship,
+            relationship_code=guardian_relationship_code,
             address=guardian_address_dict,
             phone=wrappers.ObjectWrapper(
                 home=guardian_home

@@ -9,6 +9,7 @@ Parser for the CCDA procedures section
 """
 
 from ...core import wrappers
+from ... import core
 from ... import documents
 
 
@@ -30,6 +31,9 @@ def procedures(ccda):
         code = el.attr('code')
         code_system = el.attr('codeSystem')
 
+        if not name:
+            name = core.strip_whitespace(entry.tag('originalText').val())
+
         # 'specimen' tag not always present
         specimen_name = None
         specimen_code = None
@@ -44,7 +48,7 @@ def procedures(ccda):
         performer_dict.phone = phone
 
         # participant => device
-        el = entry.tag('participant').tag('code')
+        el = entry.template('2.16.840.1.113883.10.20.22.4.37').tag('code')
         device_name = el.attr('displayName')
         device_code = el.attr('code')
         device_code_system = el.attr('codeSystem')

@@ -41,8 +41,10 @@ def problems(ccda):
         el = entry.template('2.16.840.1.113883.10.20.22.4.6')
         status = el.tag('value').attr('displayName')
 
+        age = None
         el = entry.template('2.16.840.1.113883.10.20.22.4.31')
-        age = wrappers.parse_number(el.tag('value').attr('value'))
+        if not el.is_empty():
+            age = wrappers.parse_number(el.tag('value').attr('value'))
 
         el = entry.template('2.16.840.1.113883.10.20.22.4.64')
         comment = core.strip_whitespace(el.tag('text').val())

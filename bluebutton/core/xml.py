@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 import logging
-from xml.etree import ElementTree
+from xml.etree import ElementTree as etree
 
 from . import wrappers
 from . import _core as core
@@ -21,7 +21,7 @@ def parse(data):
         return None
 
     try:
-        root = ElementTree.fromstring(data)
+        root = etree.fromstring(data)
     except:
         logging.info('BB Error: Could not parse XML')
         return None
@@ -34,7 +34,6 @@ class _Element(object):
         self._element = element
         self._root = root
 
-
     def __setattr__(self, key, value):
         val = value.__get__(self, self.__class__) if callable(value) else value
         object.__setattr__(self, key, val)
@@ -46,7 +45,10 @@ class _Element(object):
         name = attribute_name.replace(
             'xsi:', '{http://www.w3.org/2001/XMLSchema-instance}')
 
-        return self._element.get(name)
+        attr_val = self._element.get(name)
+        if attr_val:
+            return _unescape_special_chars(attr_val)
+        return None
 
     def bool_attr(self, attribute_name):
         raw_attr = self.attr(attribute_name)
@@ -74,6 +76,16 @@ class _Element(object):
             el = _tag_attr_val(self._element, 'td', 'ID', content_id)
 
         if el is None:
+            # Ugh, Epic uses really non-standard locations.
+            el = _tag_attr_val(self._element, 'caption', 'ID', content_id)
+            if el is None:
+                el = _tag_attr_val(self._element, 'paragraph', 'ID', content_id)
+            if el is None:
+                el = _tag_attr_val(self._element, 'tr', 'ID', content_id)
+            if el is None:
+                el = _tag_attr_val(self._element, 'item', 'ID', content_id)
+
+        if el is None:
             return _Element.empty()
         else:
             return self._wrap_element(el)
@@ -85,7 +97,7 @@ class _Element(object):
 
     @classmethod
     def empty(cls):
-        return cls(ElementTree.Element('empty'), root=None)
+        return cls(etree.Element('empty'), root=None)
 
     def is_empty(self):
         return self._element.tag.lower() == 'empty'
@@ -156,7 +168,7 @@ class _Element(object):
             elif len(self._element) == 3 and self._element[1].tag.endswith('reference'):
                 content_id = self._element[1].get('value')
             else:
-                return text_context
+                return _unescape_special_chars(text_context)
 
             if content_id and content_id[0] == '#':
                 content_id = content_id[1:]
@@ -164,7 +176,7 @@ class _Element(object):
                 content_tag = doc_root.content(content_id)
                 return content_tag.val()
 
-        return text_context
+        return _unescape_special_chars(text_context)
 
     @classmethod
     def wrap_root(cls, root):
@@ -210,4 +222,14 @@ def _text_content(element):
     if not portions:
         return None
 
-    return ' '.join([p for p in portions if p])
+    return ''.join([p for p in portions if p])
+
+
+def _unescape_special_chars(s):
+    if not s:
+        return s
+    return s.replace('&lt;', '<') \
+            .replace('&gt;', '>') \
+            .replace('&amp;', '&') \
+            .replace('&quot;', '"') \
+            .replace('&apos;', "'")

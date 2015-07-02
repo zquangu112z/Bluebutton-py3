@@ -29,7 +29,7 @@ def results(ccda):
         panel_code_system_name = el.attr('codeSystemName')
 
         # observation
-        tests = entry.els_by_tag('component')
+        tests = entry.els_by_tag('observation')
         tests_data = wrappers.ListWrapper()
 
         for observation in tests:
@@ -42,9 +42,25 @@ def results(ccda):
             code_system = el.attr('codeSystem')
             code_system_name = el.attr('codeSystemName')
 
+            if not name:
+                name = core.strip_whitespace(observation.tag('text').val())
+
+            el = observation.tag('translation')
+            translation_name = el.attr('displayName')
+            translation_code = el.attr('code')
+            translation_code_system = el.attr('codeSystem')
+            translation_code_system_name = el.attr('codeSystemName')
+
             el = observation.tag('value')
-            value = wrappers.parse_number(el.attr('value'))
+            value = el.attr('value')
             unit = el.attr('unit')
+            # We could look for xsi:type="PQ" (physical quantity) but it seems
+            # better not to trust that that field has been used correctly...
+            if value and wrappers.parse_number(value):
+                value = wrappers.parse_number(value)
+
+            if not value:
+                value = el.val() # look for free-text values
 
             el = observation.tag('referenceRange')
             reference_range_text = core.strip_whitespace(el.tag('observationRange').tag('text').val())
@@ -61,6 +77,12 @@ def results(ccda):
                 code=code,
                 code_system=code_system,
                 code_system_name=code_system_name,
+                translation=wrappers.ObjectWrapper(
+                    name=translation_name,
+                    code=translation_code,
+                    code_system=translation_code_system,
+                    code_system_name=translation_code_system_name
+                ),
                 reference_range=wrappers.ObjectWrapper(
                     text=reference_range_text,
                     low_unit=reference_range_low_unit,

@@ -90,6 +90,10 @@ class PortTests(unittest.TestCase):
         check('/bluebutton.js/bower_components/sample_ccdas/NIST Samples/CCDA_CCD_b1_InPatient_v2.xml')
         check('/bluebutton.js/bower_components/sample_ccdas/Transitions of Care Samples/ToC_CCDA_CCD_CompGuideSample_FullXML.xml')
 
+    # def test_text_content(self):
+    #     self.python_output_is_same_as_javascript(testfile=self.prefix+t)
+    #     "CLARITHROMYCIN, 500MG (Oral Tablet) 1 (one) Tablet two times daily for 7 days Quantity: 14 Refills: 0 Ordered :6-Aug-2012 Seven, Henry  Started 6-Aug-2012Active",
+
     def python_output_is_same_as_javascript(self, section_name=None,
                                             testfile=None):
         """ Compares JavaScript output to Python """

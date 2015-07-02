@@ -10,6 +10,7 @@ Parser for the CCDA allergies section
 
 from ...documents import parse_date
 from ...core import wrappers
+from ... import core
 
 
 def allergies(ccda):
@@ -60,6 +61,11 @@ def allergies(ccda):
             el = entry.tag('participant').tag('name')
             if not el.is_empty():
                 allergen_name = el.val()
+
+        if not allergen_name:
+            el = entry.template('2.16.840.1.113883.10.20.22.4.7').tag('originalText')
+            if not el.is_empty():
+                allergen_name = core.strip_whitespace(el.val())
 
         # status
         el = entry.template('2.16.840.1.113883.10.20.22.4.28').tag('value')

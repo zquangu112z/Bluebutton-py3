@@ -23,7 +23,7 @@ def medications(ccda):
     for entry in medications.entries():
 
         el = entry.tag('text')
-        text = core.strip_whitespace(el.val())
+        sig = core.strip_whitespace(el.val())
 
         effective_times = entry.els_by_tag('effectiveTime')
 
@@ -64,10 +64,13 @@ def medications(ccda):
         product_code = el.attr('code')
         product_code_system = el.attr('codeSystem')
 
-        if not product_name:
-            el = entry.tag('manufacturedProduct').tag('originalText')
-            if not el.is_empty():
-                product_name = core.strip_whitespace(el.val())
+        product_original_text = None
+        el = entry.tag('manufacturedProduct').tag('originalText')
+        if not el.is_empty():
+            product_original_text = core.strip_whitespace(el.val())
+        # if we don't have a product name yet, try the originalText version
+        if not product_name and product_original_text:
+            product_name = product_original_text
 
         el = entry.tag('manufacturedProduct').tag('translation')
         translation_name = el.attr('displayName')
@@ -99,9 +102,13 @@ def medications(ccda):
         route_code_system = el.attr('codeSystem')
         route_code_system_name = el.attr('codeSystemName')
 
-        # participant => vehicle
-        el = entry.tag('participant').tag('code')
-        vehicle_name = el.attr('displayName')
+        # participant/playingEntity => vehicle
+        el = entry.tag('participant').tag('playingEntity')
+        vehicle_name = el.tag('name').val()
+
+        el = el.tag('code')
+        # prefer the code vehicle_name but fall back to the non-coded one
+        vehicle_name = el.attr('displayName') or vehicle_name
         vehicle_code = el.attr('code')
         vehicle_code_system = el.attr('codeSystem')
         vehicle_code_system_name = el.attr('codeSystemName')
@@ -122,11 +129,12 @@ def medications(ccda):
                 start=start_date,
                 end=end_date
             ),
-            text=text,
+            text=sig,
             product=wrappers.ObjectWrapper(
                 name=product_name,
                 code=product_code,
                 code_system=product_code_system,
+                text=product_original_text,
                 translation=wrappers.ObjectWrapper(
                     name=translation_name,
                     code=translation_code,

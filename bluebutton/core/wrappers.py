@@ -51,8 +51,6 @@ class JSONEncoder(json.JSONEncoder):
     def default(self, o):
         if isinstance(o, datetime.datetime):
             utc = (o - o.utcoffset()).replace(tzinfo=FixedOffset.UTC())
-            if utc.hour == 0 and utc.minute == 0 and utc.second == 0:
-                return self.default(datetime.date(utc.year, utc.month, utc.day))
             return utc.isoformat().replace('+00:00', 'Z')
         elif isinstance(o, datetime.date):
             return o.strftime("%m/%d/%Y")

@@ -18,7 +18,7 @@ help:
 	@echo git checkout $(VERSION)
 	@echo npm install
 	@echo bower install
-	@echo grunt test --force
+	@echo grunt test
 	@echo 'cd ../ && make test'
 	@echo ''
 
