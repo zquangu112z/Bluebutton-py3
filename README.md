@@ -1,7 +1,13 @@
-# BlueButton.py3: a python3-based version of BlueButton.py
-=========================================
-Example
--------
+## BlueButton.py3: a python3-based version of BlueButton.py
+
+
+### Initially, install the library:
+
+```bash
+make install
+```
+
+### Example
 
 ```python
 from bluebutton import BlueButton

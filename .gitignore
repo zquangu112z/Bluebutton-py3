@@ -5,3 +5,8 @@ bluebutton/documents/__pycache__/
 bluebutton/parsers/__pycache__/
 bluebutton/parsers/_ccda/__pycache__/
 mytest.py
+setup_old.py
+BlueButton.py3.egg-info/
+build/
+dist/
+

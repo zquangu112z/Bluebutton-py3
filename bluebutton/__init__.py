@@ -10,6 +10,8 @@ from . import parsers
 # import documents.ccda
 # import parsers.ccda
 
+__version__ = '0.4.1'
+
 
 class BlueButton(object):
     def __init__(self, source, options=None):
