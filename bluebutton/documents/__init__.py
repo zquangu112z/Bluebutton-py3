@@ -5,8 +5,8 @@
 ###############################################################################
 
 import datetime
-
 from ..core import wrappers
+from . import ccda
 
 
 def detect(data):
@@ -72,7 +72,7 @@ def parse_date(string):
     The syntax is "YYYYMMDDHHMMSS.UUUU[+|-ZZzz]" where digits can be omitted
     the right side to express less precision
     """
-    if not isinstance(string, basestring):
+    if not isinstance(string, str):
         return None
 
     # ex. value="1999" translates to 1 Jan 1999

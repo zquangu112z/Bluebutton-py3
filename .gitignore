@@ -1,0 +1,7 @@
+CDA.xml
+bluebutton/__pycache__/
+bluebutton/core/__pycache__/
+bluebutton/documents/__pycache__/
+bluebutton/parsers/__pycache__/
+bluebutton/parsers/_ccda/__pycache__/
+mytest.py

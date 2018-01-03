@@ -6,8 +6,9 @@
 
 from . import core
 from . import documents
-import documents.ccda
-import parsers.ccda
+from . import parsers
+# import documents.ccda
+# import parsers.ccda
 
 
 class BlueButton(object):

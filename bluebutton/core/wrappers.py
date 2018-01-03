@@ -62,7 +62,7 @@ class JSONEncoder(json.JSONEncoder):
 
 class ObjectWrapper(object):
     def __init__(self, **kwargs):
-        for keyword, value in kwargs.iteritems():
+        for keyword, value in kwargs.items():
             setattr(self, keyword, value)
 
     def __setattr__(self, key, value):

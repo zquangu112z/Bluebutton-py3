@@ -16,13 +16,13 @@ logging.getLogger(__name__).addHandler(logging.NullHandler())
 
 
 def parse(data):
-    if not data or not isinstance(data, basestring):
+    if not data or not isinstance(data, str):
         logging.info('BB Error: XML data is not a string')
         return None
 
     try:
         root = etree.fromstring(data)
-    except:
+    except Exception as e:
         logging.info('BB Error: Could not parse XML')
         return None
 
@@ -79,7 +79,8 @@ class _Element(object):
             # Ugh, Epic uses really non-standard locations.
             el = _tag_attr_val(self._element, 'caption', 'ID', content_id)
             if el is None:
-                el = _tag_attr_val(self._element, 'paragraph', 'ID', content_id)
+                el = _tag_attr_val(
+                    self._element, 'paragraph', 'ID', content_id)
             if el is None:
                 el = _tag_attr_val(self._element, 'tr', 'ID', content_id)
             if el is None:
@@ -126,10 +127,12 @@ class _Element(object):
             return _Element.empty()
         else:
             if not hasattr(el, 'parent'):
-                # TODO: replace with lxml .parent so we don't have to traverse a sub-tree *every* time we call this function
+                # TODO: replace with lxml .parent so we don't have to traverse
+                # a sub-tree *every* time we call this function
                 parent_map = {c: p for p in self._element.iter() for c in p}
-                el.parent = parent_map[el]
-            return self._wrap_element(el.parent)
+                # el.parent = parent_map[el] # python2
+                el.set("parent", parent_map[el])  # python3
+            return self._wrap_element(el.get("parent"))
 
     def val(self):
         """
