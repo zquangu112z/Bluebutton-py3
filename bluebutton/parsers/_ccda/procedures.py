@@ -30,6 +30,7 @@ def procedures(ccda):
         name = el.attr('displayName')
         code = el.attr('code')
         code_system = el.attr('codeSystem')
+        code_system_name = el.attr('codeSystemName')
 
         if not name:
             name = core.strip_whitespace(entry.tag('originalText').val())
@@ -58,6 +59,7 @@ def procedures(ccda):
             name=name,
             code=code,
             code_system=code_system,
+            code_system_name=code_system_name,
             specimen=wrappers.ObjectWrapper(
                 name=specimen_name,
                 code=specimen_code,

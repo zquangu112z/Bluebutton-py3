@@ -20,6 +20,7 @@ class BlueButton(object):
         if options is None:
             opts = dict()
 
+        # parsed_data is an instance of core/xml.py/_Element
         parsed_data = core.parse_data(source)
 
         if 'parser' in opts:
