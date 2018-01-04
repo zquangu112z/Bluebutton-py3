@@ -1,5 +1,5 @@
 from __future__ import print_function, absolute_import, division
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 version = '0.4.1'
@@ -12,7 +12,7 @@ setup(
     version=version,
     author='zquangu112z',
     package_dir={'bluebutton': 'bluebutton'},
-    packages=packages,
+    packages=find_packages(),
     url='https://github.com/zquangu112z/bluebutton.py3',
     description='A package for parsing CCD data',
     license='Apache License, Version 2.0',

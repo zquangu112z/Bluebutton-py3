@@ -7,6 +7,8 @@
 import json as std_json
 import logging
 
+# from .xml import *
+# from ._core import *
 from . import xml
 from . import _core
 
@@ -42,3 +44,5 @@ strip_whitespace = _core.strip_whitespace
 def trim():
     # I don't think this is needed with the standard JSONEncoder
     raise NotImplementedError()
+
+# __all__ = ('parse_data')

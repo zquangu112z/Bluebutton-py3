@@ -9,4 +9,12 @@ setup_old.py
 BlueButton.py3.egg-info/
 build/
 dist/
+bluebutton/*.pyc
+bluebutton/core/*.pyc
+bluebutton/core/*.pyc
+bluebutton/core/*.pyc
+bluebutton/core/*.pyc
+bluebutton/documents/*.pyc
+bluebutton/documents/*.pyc
+
 
