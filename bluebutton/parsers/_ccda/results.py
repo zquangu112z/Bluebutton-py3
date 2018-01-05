@@ -60,16 +60,22 @@ def results(ccda):
                 value = wrappers.parse_number(value)
 
             if not value:
-                value = el.val() # look for free-text values
+                value = el.val()  # look for free-text values
 
             el = observation.tag('referenceRange')
-            reference_range_text = core.strip_whitespace(el.tag('observationRange').tag('text').val())
-            reference_range_low_unit = el.tag('observationRange').tag('low').attr('unit')
-            reference_range_low_value = el.tag('observationRange').tag('low').attr('value')
-            reference_range_high_unit = el.tag('observationRange').tag('high').attr('unit')
-            reference_range_high_value = el.tag('observationRange').tag('high').attr('value')
+            reference_range_text = core.strip_whitespace(
+                el.tag('observationRange').tag('text').val())
+            reference_range_low_unit = el.tag(
+                'observationRange').tag('low').attr('unit')
+            reference_range_low_value = el.tag(
+                'observationRange').tag('low').attr('value')
+            reference_range_high_unit = el.tag(
+                'observationRange').tag('high').attr('unit')
+            reference_range_high_value = el.tag(
+                'observationRange').tag('high').attr('value')
 
             tests_data.append(wrappers.ObjectWrapper(
+                source_line=observation._element.sourceline,
                 date=date,
                 name=name,
                 value=value,

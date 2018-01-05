@@ -22,20 +22,25 @@ def json():
 
 
 def parse_data(source):
-    source_stripped = strip_whitespace(source)
-
-    if source_stripped.startswith('<?xml'):
-        return xml.parse(source)
-
     try:
-        return std_json.loads(source)
-    except:
-        logging.error(
-            "Error: Cannot parse this file. BB.js only accepts valid XML (for "
-            "parsing) or JSON (for generation). If you are attempting to "
-            "provide XML or JSON, please run your data through a validator to "
-            "see if it is malformed.\n")
-        raise
+        return xml.parse(source)
+    except Exception as e:
+        assert e
+
+    # source_stripped = strip_whitespace(source)
+
+    # if source_stripped.startswith('<?xml'):
+    #     return xml.parse(source)
+
+    # try:
+    #     return std_json.loads(source)
+    # except:
+    #     logging.error(
+    #         "Error: Cannot parse this file. BB.js only accepts valid XML (for "
+    #         "parsing) or JSON (for generation). If you are attempting to "
+    #         "provide XML or JSON, please run your data through a validator to "
+    #         "see if it is malformed.\n")
+    #     raise
 
 
 strip_whitespace = _core.strip_whitespace

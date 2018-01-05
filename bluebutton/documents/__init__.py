@@ -7,6 +7,7 @@
 import datetime
 from ..core import wrappers
 from . import ccda
+import logging
 
 
 def detect(data):
@@ -18,6 +19,9 @@ def detect(data):
 
     if not data.template('2.16.840.1.113883.10.20.22.1.1').is_empty():
         return 'ccda'
+    logging.warning("type: unknow")
+
+    return 'unknow'
 
 
 def entries(element):

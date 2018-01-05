@@ -40,6 +40,7 @@ def vitals(ccda):
             unit = el.attr('unit')
 
             results_data.append(wrappers.ObjectWrapper(
+                source_line=result._element.sourceline,
                 name=name,
                 code=code,
                 code_system=code_system,

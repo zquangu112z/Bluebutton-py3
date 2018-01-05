@@ -131,6 +131,7 @@ def medications(ccda):
             ),
             text=sig,
             product=wrappers.ObjectWrapper(
+                source_line=entry._element.sourceline,
                 name=product_name,
                 code=product_code,
                 code_system=product_code_system,

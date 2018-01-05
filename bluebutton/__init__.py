@@ -7,6 +7,7 @@
 from . import core
 from . import documents
 from . import parsers
+import logging
 # import documents.ccda
 # import parsers.ccda
 
@@ -27,8 +28,11 @@ class BlueButton(object):
             parsed_document = opts['parser']()
         else:
             type = documents.detect(parsed_data)
+            if type == 'unknow':
+                logging.warning("type: unknow")
 
             if 'c32' == type:
+                logging.warning("c32")
                 # TODO: add support for legacy C32
                 # parsed_data = documents.C32.process(parsed_data)
                 # parsed_document = parsers.C32.run(parsed_data)
@@ -37,6 +41,7 @@ class BlueButton(object):
                 parsed_data = documents.ccda.process(parsed_data)
                 parsed_document = parsers.ccda.run(parsed_data)
             elif 'json' == type:
+                logging.warning("json")
                 # TODO: add support for JSON
                 pass
 

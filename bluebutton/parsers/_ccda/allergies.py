@@ -83,17 +83,20 @@ def allergies(ccda):
             status=status,
             severity=severity,
             reaction=wrappers.ObjectWrapper(
+                source_line=entry._element.sourceline,
                 name=reaction_name,
                 code=reaction_code,
                 code_system=reaction_code_system
             ),
             reaction_type=wrappers.ObjectWrapper(
+                source_line=entry._element.sourceline,
                 name=reaction_type_name,
                 code=reaction_type_code,
                 code_system=reaction_type_code_system,
                 code_system_name=reaction_type_code_system_name
             ),
             allergen=wrappers.ObjectWrapper(
+                source_line=entry._element.sourceline,
                 name=allergen_name,
                 code=allergen_code,
                 code_system=allergen_code_system,

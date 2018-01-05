@@ -29,6 +29,7 @@ def instructions(ccda):
 
         data.append(wrappers.ObjectWrapper(
             text=text,
+            source_line=entry._element.sourceline,
             name=name,
             code=code,
             code_system=code_system,

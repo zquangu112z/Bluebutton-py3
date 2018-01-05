@@ -38,6 +38,7 @@ def problems(ccda):
                 start=start_date,
                 end=end_date
             ),
+            source_line=entry._element.sourceline,
             name=name,
             code=code,
             code_system=code_system,

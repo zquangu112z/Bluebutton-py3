@@ -59,6 +59,7 @@ def document(ccda):
         encounter_date = parse_date(el.attr('value'))
 
     data = wrappers.ObjectWrapper(
+        source_line=doc._element.sourceline,
         date=date,
         title=title,
         author=wrappers.ObjectWrapper(

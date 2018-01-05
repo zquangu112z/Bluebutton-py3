@@ -20,6 +20,7 @@ def demographics(ccda):
     patient = demographics.tag('patientRole')
     el = patient.tag('patient').tag('name')
     patient_name_dict = parse_name(el)
+    sourceline = el._element.sourceline
 
     el = patient.tag('patient')
     dob = parse_date(el.tag('birthTime').attr('value'))
@@ -62,6 +63,7 @@ def demographics(ccda):
     provider_address_dict = parse_address(el.tag('addr'))
 
     return wrappers.ObjectWrapper(
+        source_line=sourceline,
         name=patient_name_dict,
         dob=dob,
         gender=gender,

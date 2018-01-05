@@ -41,6 +41,7 @@ def smoking_status(ccda):
         entry_date = parse_date(el.attr('value'))
 
         el = smoking_status_.tag('value')
+        source_line = el._element.sourceline
         name = el.attr('displayName')
         code = el.attr('code')
         code_system = el.attr('codeSystem')
@@ -51,6 +52,7 @@ def smoking_status(ccda):
 
     data = wrappers.ObjectWrapper(
         date=entry_date,
+        source_line=source_line,
         name=name,
         code=code,
         code_system=code_system,

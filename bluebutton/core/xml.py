@@ -6,7 +6,8 @@
 
 from __future__ import absolute_import
 import logging
-from xml.etree import ElementTree as etree
+# from xml.etree import ElementTree as etree #change
+from lxml import etree
 
 from . import wrappers
 from . import _core as core
@@ -17,14 +18,19 @@ logging.getLogger(__name__).addHandler(logging.NullHandler())
 
 def parse(data):
     if not data or not isinstance(data, str):
-        logging.info('BB Error: XML data is not a string')
-        return None
+        logging.warning('BB Error: XML data is not a string')
 
     try:
-        root = etree.fromstring(data)
+        p = etree.XMLParser(ns_clean=True, remove_blank_text=True)
+        tree = etree.parse(data, p)
+        root = tree.getroot()
+        # root = etree.ElementTree.fromstring(data)  # in case 'data' is xml content string
+        # in case 'data' is xml file path
+        # root = etree.parse(data)
+        # root = etree.parse(data, parser=XMLParserWithLines())
     except Exception as e:
-        logging.info('BB Error: Could not parse XML')
-        return None
+        logging.warning('BB Error: Could not parse XML')
+        raise Exception("Error when parse")
 
     return _Element.wrap_root(root)
 
@@ -124,15 +130,21 @@ class _Element(object):
         # WARNING: DO NOT use "if not el:"
         # http://effbot.org/zone/element.htm#truth-testing
         if el is None:
+            # logging.warning("el is None")
             return _Element.empty()
         else:
-            if not hasattr(el, 'parent'):
-                # TODO: replace with lxml .parent so we don't have to traverse
-                # a sub-tree *every* time we call this function
-                parent_map = {c: p for p in self._element.iter() for c in p}
-                # el.parent = parent_map[el] # python2
-                el.set("parent", parent_map[el])  # python3
-            return self._wrap_element(el.get("parent"))
+            # logging.warning("el is not None")
+
+            # old code
+            # if not hasattr(el, 'parent'):
+            # TODO: replace with lxml .parent so we don't have to traverse
+            #     # a sub-tree *every* time we call this function
+            #     parent_map = {c: p for p in self._element.iter() for c in p}
+            #     # el.parent = parent_map[el] # python2 xml
+            #     el.set("parent", parent_map[el])  # python3 xml
+            # return self._wrap_element(el.get("parent"))
+
+            return self._wrap_element(el.getparent())  # change
 
     def val(self):
         """

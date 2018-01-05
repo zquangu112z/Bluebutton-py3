@@ -15,7 +15,7 @@ from ...documents import parse_address, parse_date
 def encounters(ccda):
 
     data = []
-    
+
     encounters = ccda.section('encounters')
 
     for entry in encounters.entries():
@@ -28,28 +28,28 @@ def encounters(ccda):
         code_system = el.attr('codeSystem')
         code_system_name = el.attr('codeSystemName')
         code_system_version = el.attr('codeSystemVersion')
-        
+
         # translation
         el = entry.tag('translation')
         translation_name = el.attr('displayName')
         translation_code = el.attr('code')
         translation_code_system = el.attr('codeSystem')
         translation_code_system_name = el.attr('codeSystemName')
-        
+
         # performer
         el = entry.tag('performer').tag('code')
         performer_name = el.attr('displayName')
         performer_code = el.attr('code')
         performer_code_system = el.attr('codeSystem')
         performer_code_system_name = el.attr('codeSystemName')
-      
+
         # participant => location
         el = entry.tag('participant')
         organization = el.tag('code').attr('displayName')
-        
+
         location_dict = parse_address(el)
         location_dict.organization = organization
-    
+
         # findings
         findings = []
         findings_els = entry.els_by_tag('entryRelationship')
@@ -62,6 +62,7 @@ def encounters(ccda):
             ))
 
         data.append(wrappers.ObjectWrapper(
+            source_line=entry._element.sourceline,
             date=date,
             name=name,
             code=code,

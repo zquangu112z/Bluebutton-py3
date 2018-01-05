@@ -39,6 +39,7 @@ def care_plan(ccda):
 
         data.append(
             wrappers.ObjectWrapper(
+                source_line=entry._element.sourceline,
                 text=text,
                 name=name,
                 code=code,

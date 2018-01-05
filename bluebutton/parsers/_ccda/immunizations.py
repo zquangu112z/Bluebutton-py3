@@ -79,6 +79,7 @@ def immunizations(ccda):
         data.append(wrappers.ObjectWrapper(
             date=date,
             product=wrappers.ObjectWrapper(
+                source_line=entry._element.sourceline,
                 name=product_name,
                 code=product_code,
                 code_system=product_code_system,

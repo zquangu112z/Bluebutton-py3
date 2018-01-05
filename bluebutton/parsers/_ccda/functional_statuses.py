@@ -23,7 +23,8 @@ def functional_statuses(ccda):
         date = parse_date(entry.tag('effectiveTime').attr('value'))
 
         if not date:
-            date = parse_date(entry.tag('effectiveTime').tag('low').attr('value'))
+            date = parse_date(
+                entry.tag('effectiveTime').tag('low').attr('value'))
 
         el = entry.tag('value')
 
@@ -34,6 +35,7 @@ def functional_statuses(ccda):
 
         data.append(wrappers.ObjectWrapper(
             date=date,
+            source_line=entry._element.sourceline,
             name=name,
             code=code,
             code_system=code_system,
