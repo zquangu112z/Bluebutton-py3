@@ -2,13 +2,13 @@ from __future__ import print_function, absolute_import, division
 from setuptools import setup, find_packages
 
 
-version = '0.4.1'
+version = '0.5.1'
 long_description = open('README.md').read()
 
 packages = ['bluebutton']
 
 setup(
-    name='BlueButton.py3',
+    name='BlueButton',
     version=version,
     author='zquangu112z',
     package_dir={'bluebutton': 'bluebutton'},

@@ -16,5 +16,6 @@ bluebutton/core/*.pyc
 bluebutton/core/*.pyc
 bluebutton/documents/*.pyc
 bluebutton/documents/*.pyc
+sandbox/
 
 
