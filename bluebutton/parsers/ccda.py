@@ -25,21 +25,84 @@ from ..core import wrappers
 def run(ccda):
     data = wrappers.ObjectWrapper()
 
-    data.document = document(ccda)
-    data.allergies = allergies(ccda)
-    data.care_plan = care_plan(ccda)
-    data.chief_complaint = free_text(ccda, 'chief_complaint')
-    data.demographics = demographics(ccda)
-    data.encounters = encounters(ccda)
-    data.functional_statuses = functional_statuses(ccda)
-    data.immunizations = immunizations(ccda).administered
-    data.immunization_declines = immunizations(ccda).declined
-    data.instructions = instructions(ccda)
-    data.results = results(ccda)
-    data.medications = medications(ccda)
-    data.problems = problems(ccda)
-    data.procedures = procedures(ccda)
-    data.smoking_status = smoking_status(ccda)
-    data.vitals = vitals(ccda)
+    try:
+        data.document = document(ccda)
+    except Exception as e:
+        data.document = None
+
+    try:
+        data.allergies = allergies(ccda)
+    except Exception as e:
+        data.allergies = None
+
+    try:
+        data.care_plan = care_plan(ccda)
+    except Exception as e:
+        data.care_plan = None
+
+    try:
+        data.chief_complaint = free_text(ccda, 'chief_complaint')
+    except Exception as e:
+        data.chief_complaint = None
+
+    try:
+        data.demographics = demographics(ccda)
+    except Exception as e:
+        data.demographics = None
+
+    try:
+        data.encounters = encounters(ccda)
+    except Exception as e:
+        data.encounters = None
+
+    try:
+        data.functional_statuses = functional_statuses(ccda)
+    except Exception as e:
+        data.functional_statuses = None
+
+    try:
+        data.immunizations = immunizations(ccda).administered
+    except Exception as e:
+        data.immunizations = None
+
+    try:
+        data.immunization_declines = immunizations(ccda).declined
+    except Exception as e:
+        data.immunization_declines = None
+
+    try:
+        data.instructions = instructions(ccda)
+    except Exception as e:
+        data.instructions = None
+
+    try:
+        data.results = results(ccda)
+    except Exception as e:
+        data.results = None
+
+    try:
+        data.medications = medications(ccda)
+    except Exception as e:
+        data.medications = None
+
+    try:
+        data.problems = problems(ccda)
+    except Exception as e:
+        data.problems = None
+
+    try:
+        data.procedures = procedures(ccda)
+    except Exception as e:
+        data.procedures = None
+
+    try:
+        data.smoking_status = smoking_status(ccda)
+    except Exception as e:
+        data.smoking_status = None
+
+    try:
+        data.vitals = vitals(ccda)
+    except Exception as e:
+        data.vitals = None
 
     return data

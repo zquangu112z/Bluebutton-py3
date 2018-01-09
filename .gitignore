@@ -17,5 +17,6 @@ bluebutton/core/*.pyc
 bluebutton/documents/*.pyc
 bluebutton/documents/*.pyc
 sandbox/
+BlueButton.egg-info/
 
 
