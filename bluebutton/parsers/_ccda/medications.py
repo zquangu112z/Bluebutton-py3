@@ -39,8 +39,8 @@ def medications(ccda):
             end_date = parse_date(el.tag('high').attr('value'))
 
         # the second effectiveTime might the schedule period or it might just
-        # be a random effectiveTime from further in the entry... xsi:type should
-        # tell us
+        # be a random effectiveTime from further in the entry... xsi:type
+        # should tell us
         try:
             el = effective_times[1]
         except IndexError:

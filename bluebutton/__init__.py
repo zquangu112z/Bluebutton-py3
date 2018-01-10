@@ -16,7 +16,7 @@ __version__ = '0.4.1'
 
 class BlueButton(object):
     def __init__(self, source, options=None):
-        type, parsed_document, parsed_data = None, None, None
+        cdaType, parsed_document, parsed_data = None, None, None
 
         if options is None:
             opts = dict()
@@ -24,27 +24,37 @@ class BlueButton(object):
         # parsed_data is an instance of core/xml.py/_Element
         parsed_data = core.parse_data(source)
 
+        logging.info('Init BlueButton')
         if 'parser' in opts:
+            logging.info('Init BlueButton in parser')
             parsed_document = opts['parser']()
         else:
-            type = documents.detect(parsed_data)
-            if type == 'unknow':
-                logging.warning("type: unknow")
+            cdaType = documents.detect(parsed_data)
+            if 'c32' == cdaType:
+                logging.info("c32 format")
+                try:
+                    parsed_data = documents.c32.process(parsed_data)
+                except Exception as e:
+                    logging.warning(e)
+                    raise e
 
-            if 'c32' == type:
-                logging.warning("c32")
-                # TODO: add support for legacy C32
-                # parsed_data = documents.C32.process(parsed_data)
-                # parsed_document = parsers.C32.run(parsed_data)
-                pass
-            elif 'ccda' == type:
+                # @TODO: add specific parser for C32
+                try:
+                    parsed_document = parsers.ccda.run(parsed_data)
+                except Exception as e:
+                    logging.warning(e)
+                    raise e
+            elif 'ccda' == cdaType:
+                logging.warning("ccda")
                 parsed_data = documents.ccda.process(parsed_data)
                 parsed_document = parsers.ccda.run(parsed_data)
-            elif 'json' == type:
+            elif 'json' == cdaType:
                 logging.warning("json")
-                # TODO: add support for JSON
+                # @TODO: add support for JSON
                 pass
+            else:
+                logging.warning(cdaType)
 
-        self.type = type
+        self.type = cdaType
         self.data = parsed_document
         self.source = parsed_data

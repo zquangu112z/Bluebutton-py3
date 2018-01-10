@@ -7,6 +7,7 @@
 import datetime
 from ..core import wrappers
 from . import ccda
+from . import c32
 import logging
 
 
@@ -19,9 +20,9 @@ def detect(data):
 
     if not data.template('2.16.840.1.113883.10.20.22.1.1').is_empty():
         return 'ccda'
-    logging.warning("type: unknow")
+    logging.warning("type: unknown")
 
-    return 'unknow'
+    return 'unknown'
 
 
 def entries(element):
@@ -76,32 +77,37 @@ def parse_date(string):
     The syntax is "YYYYMMDDHHMMSS.UUUU[+|-ZZzz]" where digits can be omitted
     the right side to express less precision
     """
-    if not isinstance(string, str):
-        return None
+    try:
+        if not isinstance(string, str):
+            return None
 
-    # ex. value="1999" translates to 1 Jan 1999
-    if len(string) == 4:
-        return datetime.date(int(string), 1, 1)
+        # ex. value="1999" translates to 1 Jan 1999
+        if len(string) == 4:
+            return datetime.date(int(string), 1, 1)
 
-    year = int(string[0:4])
-    month = int(string[4:6])
-    day = int(string[6:8] or 1)
+        year = int(string[0:4])
+        month = int(string[4:6])
+        day = int(string[6:8] or 1)
 
-    # check for time info (the presence of at least hours and mins after the
-    # date)
-    if len(string) >= 12:
-        hour = int(string[8:10])
-        mins = int(string[10:12])
-        secs = string[12:14]
-        secs = int(secs) if secs else 0
+        # check for time info (the presence of at least hours and mins after the
+        # date)
+        if len(string) >= 12:
+            hour = int(string[8:10])
+            mins = int(string[10:12])
+            secs = string[12:14]
+            secs = int(secs) if secs else 0
 
-        # check for timezone info (the presence of chars after the seconds
-        # place)
-        timezone = wrappers.FixedOffset.from_string(string[14:])
-        return datetime.datetime(year, month, day, hour, mins, secs,
-                                 tzinfo=timezone)
+            # check for timezone info (the presence of chars after the seconds
+            # place)
+            timezone = wrappers.FixedOffset.from_string(string[14:])
+            return datetime.datetime(year, month, day, hour, mins, secs,
+                                     tzinfo=timezone)
 
-    return datetime.date(year, month, day)
+        return datetime.date(year, month, day)
+    except ValueError as e:
+        # In case we cannot parse the effectiveTime, return the string
+        logging.warning("Cannnot parse %r to datetime", string)
+        return string
 
 
 def parse_name(name_element):

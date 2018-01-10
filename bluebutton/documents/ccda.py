@@ -68,9 +68,9 @@ def section(ccda, name):
         return el
     if 'medications' == name:
         el = ccda.template('2.16.840.1.113883.10.20.22.2.1.1')
-        el.entries = entries
         if el.is_empty():
             el = ccda.template('2.16.840.1.113883.10.20.22.2.1')
+        el.entries = entries
         return el
     if 'problems' == name:
         el = ccda.template('2.16.840.1.113883.10.20.22.2.5.1')
