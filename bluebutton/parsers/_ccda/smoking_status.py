@@ -25,7 +25,7 @@ def smoking_status(ccda):
     # We can parse all of the social_history sections
     # but in practice, this section seems to be used for
     # smoking status, so we're just going to break that out.
-    # And we're just looking for the first non-empty one.
+    data = wrappers.ListWrapper()
     social_history = ccda.section('social_history')
     entries = social_history.entries()
     for entry in entries:
@@ -47,16 +47,13 @@ def smoking_status(ccda):
         code_system = el.attr('codeSystem')
         code_system_name = el.attr('codeSystemName')
 
-        if name:
-            break
-
-    data = wrappers.ObjectWrapper(
-        date=entry_date,
-        source_line=source_line,
-        name=name,
-        code=code,
-        code_system=code_system,
-        code_system_name=code_system_name
-    )
+        data.append(wrappers.ObjectWrapper(
+            date=entry_date,
+            source_line=source_line,
+            name=name,
+            code=code,
+            code_system=code_system,
+            code_system_name=code_system_name
+        ))
 
     return data
