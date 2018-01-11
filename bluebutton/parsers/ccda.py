@@ -25,84 +25,36 @@ from ..core import wrappers
 def run(ccda):
     data = wrappers.ObjectWrapper()
 
-    try:
-        data.document = document(ccda)
-    except AttributeError as e:
-        data.document = None
+    data.document = document(ccda)
 
-    try:
-        data.allergies = allergies(ccda)
-    except AttributeError as e:
-        data.allergies = None
+    data.allergies = allergies(ccda)
 
-    try:
-        data.care_plan = care_plan(ccda)
-    except AttributeError as e:
-        data.care_plan = None
+    data.care_plan = care_plan(ccda)
 
-    try:
-        data.chief_complaint = free_text(ccda, 'chief_complaint')
-    except AttributeError as e:
-        data.chief_complaint = None
+    data.chief_complaint = free_text(ccda, 'chief_complaint')
 
-    try:
-        data.demographics = demographics(ccda)
-    except AttributeError as e:
-        data.demographics = None
+    data.demographics = demographics(ccda)
 
-    try:
-        data.encounters = encounters(ccda)
-    except AttributeError as e:
-        data.encounters = None
+    data.encounters = encounters(ccda)
 
-    try:
-        data.functional_statuses = functional_statuses(ccda)
-    except AttributeError as e:
-        data.functional_statuses = None
+    data.functional_statuses = functional_statuses(ccda)
 
-    try:
-        data.immunizations = immunizations(ccda).administered
-    except AttributeError as e:
-        data.immunizations = None
+    data.immunizations = immunizations(ccda).administered
 
-    try:
-        data.immunization_declines = immunizations(ccda).declined
-    except AttributeError as e:
-        data.immunization_declines = None
+    data.immunization_declines = immunizations(ccda).declined
 
-    try:
-        data.instructions = instructions(ccda)
-    except AttributeError as e:
-        data.instructions = None
+    data.instructions = instructions(ccda)
 
-    try:
-        data.results = results(ccda)
-    except AttributeError as e:
-        data.results = None
+    data.results = results(ccda)
 
-    try:
-        data.medications = medications(ccda)
-    except AttributeError as e:
-        data.medications = None
+    data.medications = medications(ccda)
 
-    try:
-        data.problems = problems(ccda)
-    except AttributeError as e:
-        data.problems = None
+    data.problems = problems(ccda)
 
-    try:
-        data.procedures = procedures(ccda)
-    except AttributeError as e:
-        data.procedures = None
+    data.procedures = procedures(ccda)
 
-    try:
-        data.smoking_status = smoking_status(ccda)
-    except AttributeError as e:
-        data.smoking_status = None
+    data.smoking_status = smoking_status(ccda)
 
-    try:
-        data.vitals = vitals(ccda)
-    except AttributeError as e:
-        data.vitals = None
+    data.vitals = vitals(ccda)
 
     return data
