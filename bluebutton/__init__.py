@@ -8,10 +8,8 @@ from . import core
 from . import documents
 from . import parsers
 import logging
-# import documents.ccda
-# import parsers.ccda
 
-__version__ = '0.4.1'
+__version__ = '0.5.1'
 
 
 class BlueButton(object):
@@ -24,26 +22,15 @@ class BlueButton(object):
         # parsed_data is an instance of core/xml.py/_Element
         parsed_data = core.parse_data(source)
 
-        logging.info('Init BlueButton')
         if 'parser' in opts:
-            logging.info('Init BlueButton in parser')
             parsed_document = opts['parser']()
         else:
             cdaType = documents.detect(parsed_data)
             if 'c32' == cdaType:
-                logging.info("c32 format")
-                try:
-                    parsed_data = documents.c32.process(parsed_data)
-                except Exception as e:
-                    logging.warning(e)
-                    raise e
-
+                logging.info("c32")
+                parsed_data = documents.c32.process(parsed_data)
                 # @TODO: add specific parser for C32
-                try:
-                    parsed_document = parsers.ccda.run(parsed_data)
-                except Exception as e:
-                    logging.warning(e)
-                    raise e
+                parsed_document = parsers.ccda.run(parsed_data)
             elif 'ccda' == cdaType:
                 logging.warning("ccda")
                 parsed_data = documents.ccda.process(parsed_data)
