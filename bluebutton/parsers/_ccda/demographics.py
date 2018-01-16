@@ -17,6 +17,15 @@ def demographics(ccda):
     demographics = ccda.section('demographics')
 
     patient = demographics.tag('patientRole')
+    els = patient.els_by_tag('id')
+    ids = wrappers.ListWrapper()
+    for e in els:
+        ids.append(wrappers.ObjectWrapper(
+            root=e.attr('root'),
+            extension=e.attr('extension'),
+            assigningAuthorityName=e.attr('assigningAuthorityName')
+        ))
+
     el = patient.tag('patient').tag('name')
     patient_name_dict = parse_name(el)
     sourceline = el._element.sourceline
@@ -66,6 +75,7 @@ def demographics(ccda):
     return wrappers.ObjectWrapper(
         source_line=sourceline,
         name=patient_name_dict,
+        ids=ids,
         dob=dob,
         gender=gender,
         marital_status=marital_status,

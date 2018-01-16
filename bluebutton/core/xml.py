@@ -17,14 +17,15 @@ logging.getLogger(__name__).addHandler(logging.NullHandler())
 
 
 def parse(data):
-    if not data or not isinstance(data, str):
-        logging.warning('BB Error: XML data is not a string')
+    # if not data or not isinstance(data, str): @TODO: check input data
+    #     logging.warning('BB Error: XML data is not a string')
 
     try:
         p = etree.XMLParser(ns_clean=True, remove_blank_text=True)
         tree = etree.parse(data, p)
         root = tree.getroot()
-        # root = etree.ElementTree.fromstring(data)  # in case 'data' is xml content string
+        # in case 'data' is xml content string
+        # root = etree.ElementTree.fromstring(data)
         # in case 'data' is xml file path
         # root = etree.parse(data)
         # root = etree.parse(data, parser=XMLParserWithLines())
