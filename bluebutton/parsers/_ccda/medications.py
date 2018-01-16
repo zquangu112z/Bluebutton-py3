@@ -125,6 +125,7 @@ def medications(ccda):
         prescriber_person = None
 
         data.append(wrappers.ObjectWrapper(
+            section_title=medications.tag('title')._element.text,
             date_range=wrappers.ObjectWrapper(
                 start=start_date,
                 end=end_date

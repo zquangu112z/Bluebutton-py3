@@ -9,7 +9,6 @@ Parser for the CCDA problems section
 """
 
 from ...core import wrappers
-from ... import core
 from ... import documents
 
 
@@ -34,6 +33,7 @@ def problems(ccda):
         code_system_name = el.attr('codeSystemName')
 
         data.append(wrappers.ObjectWrapper(
+            section_title=problems.tag('title')._element.text,
             date_range=wrappers.ObjectWrapper(
                 start=start_date,
                 end=end_date

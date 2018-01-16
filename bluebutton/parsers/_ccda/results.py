@@ -75,6 +75,7 @@ def results(ccda):
                 'observationRange').tag('high').attr('value')
 
             tests_data.append(wrappers.ObjectWrapper(
+                section_title=results.tag('title')._element.text,
                 source_line=observation._element.sourceline,
                 date=date,
                 name=name,

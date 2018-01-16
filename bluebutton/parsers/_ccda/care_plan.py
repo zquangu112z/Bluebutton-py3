@@ -5,8 +5,6 @@
 ###############################################################################
 
 from bluebutton import core
-from bluebutton.core import codes
-from bluebutton import documents
 from ...core import wrappers
 
 
@@ -39,12 +37,13 @@ def care_plan(ccda):
 
         data.append(
             wrappers.ObjectWrapper(
+                section_title=care_plan.tag('title')._element.text,
                 source_line=entry._element.sourceline,
                 text=text,
                 name=name,
                 code=code,
                 code_system=code_system,
                 code_system_name=code_system_name
-                ))
+            ))
 
     return wrappers.ListWrapper(data)

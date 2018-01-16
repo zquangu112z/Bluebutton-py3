@@ -4,7 +4,6 @@
 # Use of this source code is governed by the license found in the LICENSE file.
 ###############################################################################
 
-from bluebutton import core
 from bluebutton.core import codes
 from bluebutton import documents
 from ...core import wrappers
@@ -25,7 +24,8 @@ def demographics(ccda):
     el = patient.tag('patient')
     dob = parse_date(el.tag('birthTime').attr('value'))
     gender = codes.gender(el.tag('administrativeGenderCode').attr('code'))
-    marital_status = codes.marital_status(el.tag('maritalStatusCode').attr('code'))
+    marital_status = codes.marital_status(
+        el.tag('maritalStatusCode').attr('code'))
 
     el = patient.tag('addr')
     patient_address_dict = parse_address(el)
@@ -37,7 +37,8 @@ def demographics(ccda):
 
     email = None
 
-    language = patient.tag('languageCommunication').tag('languageCode').attr('code')
+    language = patient.tag('languageCommunication').tag(
+        'languageCode').attr('code')
     race = patient.tag('raceCode').attr('displayName')
     ethnicity = patient.tag('ethnicGroupCode').attr('displayName')
     religion = patient.tag('religiousAffiliationCode').attr('displayName')

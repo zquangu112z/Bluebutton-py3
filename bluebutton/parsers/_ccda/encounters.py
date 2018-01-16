@@ -62,6 +62,7 @@ def encounters(ccda):
             ))
 
         data.append(wrappers.ObjectWrapper(
+            section_title=encounters.tag('title')._element.text,
             source_line=entry._element.sourceline,
             date=date,
             name=name,

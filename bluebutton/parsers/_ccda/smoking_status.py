@@ -48,6 +48,7 @@ def smoking_status(ccda):
         code_system_name = el.attr('codeSystemName')
 
         data.append(wrappers.ObjectWrapper(
+            section_title=social_history.tag('title')._element.text,
             date=entry_date,
             source_line=source_line,
             name=name,

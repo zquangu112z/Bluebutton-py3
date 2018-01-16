@@ -63,7 +63,8 @@ def allergies(ccda):
                 allergen_name = el.val()
 
         if not allergen_name:
-            el = entry.template('2.16.840.1.113883.10.20.22.4.7').tag('originalText')
+            el = entry.template(
+                '2.16.840.1.113883.10.20.22.4.7').tag('originalText')
             if not el.is_empty():
                 allergen_name = core.strip_whitespace(el.val())
 
@@ -72,6 +73,7 @@ def allergies(ccda):
         status = el.attr('displayName')
 
         data.append(wrappers.ObjectWrapper(
+            section_title=allergies.tag('title')._element.text,
             date_range=wrappers.ObjectWrapper(
                 start=start_date,
                 end=end_date

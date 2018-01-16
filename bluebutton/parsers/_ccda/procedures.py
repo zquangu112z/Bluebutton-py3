@@ -55,6 +55,7 @@ def procedures(ccda):
         device_code_system = el.attr('codeSystem')
 
         data.append(wrappers.ObjectWrapper(
+            section_title=procedures.tag('title')._element.text,
             source_line=entry._element.sourceline,
             date=date,
             name=name,

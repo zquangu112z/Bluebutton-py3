@@ -30,7 +30,7 @@ def parse(data):
         # root = etree.parse(data, parser=XMLParserWithLines())
     except Exception as e:
         logging.warning('BB Error: Could not parse XML')
-        raise Exception("Error when parse")
+        raise e
 
     return _Element.wrap_root(root)
 

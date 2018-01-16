@@ -28,6 +28,7 @@ def instructions(ccda):
         text = core.strip_whitespace(entry.tag('text').val())
 
         data.append(wrappers.ObjectWrapper(
+            section_title=instructions.tag('title')._element.text,
             text=text,
             source_line=entry._element.sourceline,
             name=name,

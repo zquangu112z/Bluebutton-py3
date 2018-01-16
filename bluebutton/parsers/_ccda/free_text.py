@@ -17,6 +17,7 @@ def free_text(ccda, section_name):
     text = core.strip_whitespace(doc.tag('text').val())
 
     return wrappers.ObjectWrapper(
+        section_title=doc.tag('title')._element.text,
         source_line=doc._element.sourceline,
         text=text
     )

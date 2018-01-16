@@ -77,6 +77,7 @@ def immunizations(ccda):
 
         data = declined_data if declined else administered_data
         data.append(wrappers.ObjectWrapper(
+            section_title=immunizations.tag('title')._element.text,
             date=date,
             product=wrappers.ObjectWrapper(
                 source_line=entry._element.sourceline,
