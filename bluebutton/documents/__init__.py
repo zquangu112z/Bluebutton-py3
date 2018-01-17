@@ -10,6 +10,8 @@ from . import ccda
 from . import c32
 import logging
 
+unstructerdValueTypes = ["ST", "ED"]
+
 
 def detect(data):
     if not hasattr(data, 'template'):
@@ -121,3 +123,28 @@ def parse_name(name_element):
         given=given,
         family=family
     )
+
+
+def extractUnit(string):
+    words = str.split(string, " ")
+    if len(words) > 1 and is_number(words[0]) and not is_number(words[1]):
+        return words[0], words[1]
+    else:
+        return string, None
+
+
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        pass
+
+    try:
+        import unicodedata
+        unicodedata.numeric(s)
+        return True
+    except (TypeError, ValueError):
+        pass
+
+    return False

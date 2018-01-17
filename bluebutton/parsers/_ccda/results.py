@@ -52,12 +52,22 @@ def results(ccda):
             translation_code_system_name = el.attr('codeSystemName')
 
             el = observation.tag('value')
-            value = el.attr('value')
-            unit = el.attr('unit')
+            # value = el.attr('value')  # old code
+            # unit = el.attr('unit')
+
+            # if el.val() is not None and el.attr('unit') is None and el.attr("xsi:type") in documents.unstructerdValueTypes :
+            if el.attr("xsi:type") in documents.unstructerdValueTypes and el.val() is not None:
+                # manual parse value tag
+                value, unit = documents.extractUnit(el.val())
+            else:
+                value = el.attr('value')
+                unit = el.attr('unit')
+
+            # old code
             # We could look for xsi:type="PQ" (physical quantity) but it seems
             # better not to trust that that field has been used correctly...
-            if value and wrappers.parse_number(value):
-                value = wrappers.parse_number(value)
+            # if value and wrappers.parse_number(value):
+            #     value = wrappers.parse_number(value)
 
             if not value:
                 value = el.val()  # look for free-text values
