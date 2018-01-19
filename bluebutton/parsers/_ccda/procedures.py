@@ -35,6 +35,12 @@ def procedures(ccda):
         if not name:
             name = core.strip_whitespace(entry.tag('originalText').val())
 
+        el = entry.tag('code').tag('translation')
+        translation_name = el.attr('displayName')
+        translation_code = el.attr('code')
+        translation_code_system = el.attr('codeSystem')
+        translation_code_system_name = el.attr('codeSystemName')
+
         # 'specimen' tag not always present
         specimen_name = None
         specimen_code = None
@@ -62,6 +68,12 @@ def procedures(ccda):
             code=code,
             code_system=code_system,
             code_system_name=code_system_name,
+            translation=wrappers.ObjectWrapper(
+                    name=translation_name,
+                    code=translation_code,
+                    code_system=translation_code_system,
+                    code_system_name=translation_code_system_name
+                    ),
             specimen=wrappers.ObjectWrapper(
                 name=specimen_name,
                 code=specimen_code,
