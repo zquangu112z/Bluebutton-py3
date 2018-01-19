@@ -33,6 +33,8 @@ def allergies(ccda):
 
         # value => reaction_type
         el = entry.template('2.16.840.1.113883.10.20.22.4.7').tag('value')
+        if el.is_empty():  # c32
+            el = entry.template('1.3.6.1.4.1.19376.1.5.3.1.4.6').tag('value')
         reaction_type_name = el.attr('displayName')
         reaction_type_code = el.attr('code')
         reaction_type_code_system = el.attr('codeSystem')
