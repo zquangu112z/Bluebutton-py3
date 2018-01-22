@@ -33,7 +33,9 @@ def procedures(ccda):
         code_system_name = el.attr('codeSystemName')
 
         if not name:
-            name = core.strip_whitespace(entry.tag('originalText').val())
+            # if we'd like to get content only, use val() instead
+            name = core.strip_whitespace(
+                entry.tag('originalText').val_tostring())
 
         el = entry.tag('code').tag('translation')
         translation_name = el.attr('displayName')

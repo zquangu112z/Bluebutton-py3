@@ -67,7 +67,8 @@ def medications(ccda):
         product_original_text = None
         el = entry.tag('manufacturedProduct').tag('originalText')
         if not el.is_empty():
-            product_original_text = core.strip_whitespace(el.val())
+            # if we'd like to get content only, use val() instead
+            product_original_text = core.strip_whitespace(el.val_tostring())
         # if we don't have a product name yet, try the originalText version
         if not product_name and product_original_text:
             product_name = product_original_text

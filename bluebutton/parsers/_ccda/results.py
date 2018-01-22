@@ -43,7 +43,9 @@ def results(ccda):
             code_system_name = el.attr('codeSystemName')
 
             if not name:
-                name = core.strip_whitespace(observation.tag('text').val())
+                # if we'd like to get content only, use val() instead
+                name = core.strip_whitespace(
+                    observation.tag('text').val_tostring())
 
             el = observation.tag('translation')
             translation_name = el.attr('displayName')
@@ -54,9 +56,9 @@ def results(ccda):
             el = observation.tag('value')
             # value = el.attr('value')  # old code
             # unit = el.attr('unit')
-
             # if el.val() is not None and el.attr('unit') is None and el.attr("xsi:type") in documents.unstructerdValueTypes :
-            if el.attr("xsi:type") in documents.unstructerdValueTypes and el.val() is not None:
+            if el.attr("xsi:type") in documents.unstructerdValueTypes and \
+                    el.val() is not None:
                 # manual parse value tag
                 value, unit = documents.extractUnit(el.val())
             else:
