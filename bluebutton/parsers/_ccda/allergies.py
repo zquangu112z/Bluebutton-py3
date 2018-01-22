@@ -33,6 +33,8 @@ def allergies(ccda):
 
         # value => reaction_type
         el = entry.template('2.16.840.1.113883.10.20.22.4.7').tag('value')
+        if el.is_empty():  # c32
+            el = entry.template('1.3.6.1.4.1.19376.1.5.3.1.4.6').tag('value')
         reaction_type_name = el.attr('displayName')
         reaction_type_code = el.attr('code')
         reaction_type_code_system = el.attr('codeSystem')
@@ -63,7 +65,8 @@ def allergies(ccda):
                 allergen_name = el.val()
 
         if not allergen_name:
-            el = entry.template('2.16.840.1.113883.10.20.22.4.7').tag('originalText')
+            el = entry.template(
+                '2.16.840.1.113883.10.20.22.4.7').tag('originalText')
             if not el.is_empty():
                 allergen_name = core.strip_whitespace(el.val())
 
@@ -72,6 +75,7 @@ def allergies(ccda):
         status = el.attr('displayName')
 
         data.append(wrappers.ObjectWrapper(
+            section_title=allergies.tag('title')._element.text,
             date_range=wrappers.ObjectWrapper(
                 start=start_date,
                 end=end_date

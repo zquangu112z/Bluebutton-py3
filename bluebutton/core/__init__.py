@@ -25,7 +25,7 @@ def parse_data(source):
     try:
         return xml.parse(source)
     except Exception as e:
-        assert e
+        raise e
 
     # source_stripped = strip_whitespace(source)
 

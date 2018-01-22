@@ -39,6 +39,8 @@ def smoking_status(ccda):
 
         el = smoking_status_.tag('effectiveTime')
         entry_date = parse_date(el.attr('value'))
+        start_date = parse_date(el.tag('low').attr('value'))
+        end_date = parse_date(el.tag('high').attr('value'))
 
         el = smoking_status_.tag('value')
         source_line = el._element.sourceline
@@ -48,7 +50,12 @@ def smoking_status(ccda):
         code_system_name = el.attr('codeSystemName')
 
         data.append(wrappers.ObjectWrapper(
+            section_title=social_history.tag('title')._element.text,
             date=entry_date,
+            date_range=wrappers.ObjectWrapper(
+                start=start_date,
+                end=end_date
+            ),
             source_line=source_line,
             name=name,
             code=code,

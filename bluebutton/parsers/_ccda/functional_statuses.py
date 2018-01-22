@@ -34,6 +34,7 @@ def functional_statuses(ccda):
         code_system_name = el.attr('codeSystemName')
 
         data.append(wrappers.ObjectWrapper(
+            section_title=statuses.tag('title')._element.text,
             date=date,
             source_line=entry._element.sourceline,
             name=name,

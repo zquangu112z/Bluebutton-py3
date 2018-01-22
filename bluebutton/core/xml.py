@@ -17,20 +17,21 @@ logging.getLogger(__name__).addHandler(logging.NullHandler())
 
 
 def parse(data):
-    if not data or not isinstance(data, str):
-        logging.warning('BB Error: XML data is not a string')
+    # if not data or not isinstance(data, str): @TODO: check input data
+    #     logging.warning('BB Error: XML data is not a string')
 
     try:
         p = etree.XMLParser(ns_clean=True, remove_blank_text=True)
         tree = etree.parse(data, p)
         root = tree.getroot()
-        # root = etree.ElementTree.fromstring(data)  # in case 'data' is xml content string
+        # in case 'data' is xml content string
+        # root = etree.ElementTree.fromstring(data)
         # in case 'data' is xml file path
         # root = etree.parse(data)
         # root = etree.parse(data, parser=XMLParserWithLines())
     except Exception as e:
         logging.warning('BB Error: Could not parse XML')
-        raise Exception("Error when parse")
+        raise e
 
     return _Element.wrap_root(root)
 
@@ -193,6 +194,50 @@ class _Element(object):
 
         return _unescape_special_chars(text_context)
 
+    def val_tostring(self):
+        """
+        Retrieve the element's text (the whole tag + content).
+
+        For example, if the element is:
+           <city>Madison</city>
+        Return:
+           "<city>Madison</city>"
+        """
+        if self._element is None:
+            return None
+
+        if self.is_empty():
+            return None
+
+        text_context = _text_content(self._element)
+
+        # if there's no text value here and the only thing inside is a
+        # <reference> tag, see if there's a linked <content> tag we can
+        # get something out of
+        if not core.strip_whitespace(text_context):
+
+            content_id = None
+            # "no text value" might mean there's just a reference tag
+            if len(self._element) == 1 and \
+                    self._element[0].tag.endswith('reference'):
+                content_id = self._element[0].get('value')
+
+            # or maybe a newlines on top/above the reference tag
+            elif len(self._element) == 3 and \
+                    self._element[1].tag.endswith('reference'):
+                content_id = self._element[1].get('value')
+            else:
+                return _unescape_special_chars(text_context)
+
+            if content_id and content_id[0] == '#':
+                content_id = content_id[1:]
+                doc_root = self._get_root()
+                content_tag = doc_root.content(content_id)
+                return etree.tostring(content_tag._element,
+                                      encoding='utf8')
+
+        return _unescape_special_chars(text_context)
+
     @classmethod
     def wrap_root(cls, root):
         return cls(root, root)
@@ -220,24 +265,35 @@ def _text_content(element):
     if element is None:
         return ''
 
-    children_text = [_text_content(child) for child in element]
-    # removes NoneType and empty entries
-    children_text = [c for c in children_text if c]
+    # @TODO: return tag + text as original
+    # try:
+    #     logging.warning(etree.tostring(element))
+    #     return etree.tostring(element)
+    # except Exception:
+    #     pass
 
-    portions = []
-    if element.text is not None:
-        portions.append(element.text)
+    return ''.join(element.itertext())
 
-    if children_text:
-        portions += children_text
+    # old code
 
-    if element.tail is not None:
-        portions.append(core.strip_whitespace(element.tail))
+    # children_text = [_text_content(child) for child in element]
+    # # removes NoneType and empty entries
+    # children_text = [c for c in children_text if c]
 
-    if not portions:
-        return None
+    # portions = []
+    # if element.text is not None:
+    #     portions.append(element.text)
 
-    return ''.join([p for p in portions if p])
+    # if children_text:
+    #     portions += children_text
+
+    # if element.tail is not None:
+    #     portions.append(core.strip_whitespace(element.tail))
+
+    # if not portions:
+    #     return None
+
+    # return ''.join([p for p in portions if p])
 
 
 def _unescape_special_chars(s):
