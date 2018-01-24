@@ -4,12 +4,11 @@
 # Use of this source code is governed by the license found in the LICENSE file.
 ###############################################################################
 
-import datetime
 from ..core import wrappers
 from . import ccda
 from . import c32
-import logging
-
+import logging as logger
+from dateutil.parser import parse
 unstructerdValueTypes = ["ST", "ED"]
 
 
@@ -22,14 +21,15 @@ def detect(data):
 
     if not data.template('2.16.840.1.113883.10.20.22.1.1').is_empty():
         return 'ccda'
-    logging.warning("type: unknown")
+    logger.warning("type: unknown")
 
     return 'unknown'
 
 
 def entries(element):
     """
-    Get entries within an element (with tag name 'entry'), adds an `each` method
+    Get entries within an element (with tag name 'entry'),
+    adds an `each` method
     """
     els = element.els_by_tag('entry')
     els.each = lambda callback: map(callback, els)
@@ -63,52 +63,17 @@ def parse_address(address_element):
 
 def parse_date(string):
     """
-    Parses an HL7 date in String form and creates a new Date object.
-
-    TODO: CCDA dates can be in form:
-        <effectiveTime value="20130703094812"/>
-    ...or:
-        <effectiveTime>
-            <low value="19630617120000"/>
-            <high value="20110207100000"/>
-        </effectiveTime>
-
-    For the latter, parse_date will not be given type `string` and will return
-    `None`.
-
-    The syntax is "YYYYMMDDHHMMSS.UUUU[+|-ZZzz]" where digits can be omitted
-    the right side to express less precision
+    Parses an HL7 date in String form.
+    If the parser failed (i.e wrong format, 'UNK'), return the original text
     """
-    try:
-        if not isinstance(string, str):
+    if not isinstance(string, str):
             return None
 
-        # ex. value="1999" translates to 1 Jan 1999
-        if len(string) == 4:
-            return datetime.date(int(string), 1, 1)
-
-        year = int(string[0:4])
-        month = int(string[4:6])
-        day = int(string[6:8] or 1)
-
-        # check for time info (the presence of at least hours and mins after the
-        # date)
-        if len(string) >= 12:
-            hour = int(string[8:10])
-            mins = int(string[10:12])
-            secs = string[12:14]
-            secs = int(secs) if secs else 0
-
-            # check for timezone info (the presence of chars after the seconds
-            # place)
-            timezone = wrappers.FixedOffset.from_string(string[14:])
-            return datetime.datetime(year, month, day, hour, mins, secs,
-                                     tzinfo=timezone)
-
-        return datetime.date(year, month, day)
+    try:
+        return parse(string).isoformat()
     except ValueError as e:
         # In case we cannot parse the effectiveTime, return the string
-        logging.warning("Cannnot parse %r to datetime", string)
+        logger.warning("Cannnot parse %r to datetime", string)
         return string
 
 
