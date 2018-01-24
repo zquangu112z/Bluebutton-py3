@@ -9,6 +9,7 @@ Parser for the CCDA problems section
 """
 
 from ...core import wrappers
+from ... import core
 from ... import documents
 
 
@@ -32,12 +33,50 @@ def problems(ccda):
         code_system = el.attr('codeSystem')
         code_system_name = el.attr('codeSystemName')
 
+        # Parse entryRelationship parts
+        # findings
+        findings = []
+        for entryRela in entry.els_by_tag('entryRelationship'):
+            entry = entryRela.tag('observation')
+            el = entry.tag('effectiveTime')
+            if el.is_empty():
+                start_date_rela = start_date
+                end_date_rela = end_date
+            else:
+                start_date_rela = parse_date(el.tag('low').attr('value'))
+                end_date_rela = parse_date(el.tag('high').attr('value'))
+
+            el = entry.tag('code')
+            name = el.attr('displayName')
+            code = el.attr('code')
+            code_system = el.attr('codeSystem')
+            code_system_name = el.attr('codeSystemName')
+
+            if not name:
+                # if we'd like to get content only, use val() instead
+                name = core.strip_whitespace(
+                    entry.tag('text').val_tostring())
+
+            findings.append(wrappers.ObjectWrapper(
+                section_title=problems.tag('title')._element.text,
+                date_range=wrappers.ObjectWrapper(
+                    start=start_date_rela,
+                    end=end_date_rela
+                ),
+                source_line=entry._element.sourceline,
+                name=name,
+                code=code,
+                code_system=code_system,
+                code_system_name=code_system_name
+            ))
+
         data.append(wrappers.ObjectWrapper(
             section_title=problems.tag('title')._element.text,
             date_range=wrappers.ObjectWrapper(
                 start=start_date,
                 end=end_date
             ),
+            findings=findings,
             source_line=entry._element.sourceline,
             name=name,
             code=code,
