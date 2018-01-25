@@ -20,7 +20,7 @@ def medications(ccda):
 
     medications = ccda.section('medications')
 
-    for entry in medications.entries():
+    for i, entry in enumerate(medications.entries()):
 
         el = entry.tag('text')
         sig = core.strip_whitespace(el.val())
@@ -73,11 +73,14 @@ def medications(ccda):
         if not product_name and product_original_text:
             product_name = product_original_text
 
-        el = entry.tag('manufacturedProduct').tag('translation')
-        translation_name = el.attr('displayName')
-        translation_code = el.attr('code')
-        translation_code_system = el.attr('codeSystem')
-        translation_code_system_name = el.attr('codeSystemName')
+        translations = []
+        for el in entry.tag('manufacturedProduct').els_by_tag('translation'):
+            translations.append(wrappers.ObjectWrapper(
+                name=el.attr('displayName'),
+                code=el.attr('code'),
+                code_system=el.attr('codeSystem'),
+                code_system_name=el.attr('codeSystemName')
+            ))
 
         el = entry.tag('doseQuantity')
         dose_value = el.attr('value')
@@ -131,6 +134,7 @@ def medications(ccda):
                 start=start_date,
                 end=end_date
             ),
+            entry_index=str(i),
             text=sig,
             product=wrappers.ObjectWrapper(
                 source_line=entry._element.sourceline,
@@ -138,12 +142,7 @@ def medications(ccda):
                 code=product_code,
                 code_system=product_code_system,
                 text=product_original_text,
-                translation=wrappers.ObjectWrapper(
-                    name=translation_name,
-                    code=translation_code,
-                    code_system=translation_code_system,
-                    code_system_name=translation_code_system_name
-                )
+                translations=translations
             ),
             dose_quantity=wrappers.ObjectWrapper(
                 value=dose_value,

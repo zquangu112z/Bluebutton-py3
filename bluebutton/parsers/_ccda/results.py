@@ -19,7 +19,7 @@ def results(ccda):
 
     results = ccda.section('results')
 
-    for entry in results.entries():
+    for i, entry in enumerate(results.entries()):
 
         # panel
         el = entry.tag('code')
@@ -90,6 +90,7 @@ def results(ccda):
                 section_title=results.tag('title')._element.text,
                 source_line=observation._element.sourceline,
                 date=date,
+                entry_index=str(i),
                 name=name,
                 value=value,
                 unit=unit,

@@ -18,7 +18,7 @@ def functional_statuses(ccda):
 
     statuses = ccda.section('functional_statuses')
 
-    for entry in statuses.entries():
+    for i, entry in enumerate(statuses.entries()):
 
         date = parse_date(entry.tag('effectiveTime').attr('value'))
 
@@ -36,6 +36,7 @@ def functional_statuses(ccda):
         data.append(wrappers.ObjectWrapper(
             section_title=statuses.tag('title')._element.text,
             date=date,
+            entry_index=str(i),
             source_line=entry._element.sourceline,
             name=name,
             code=code,

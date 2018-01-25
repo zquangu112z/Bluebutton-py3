@@ -18,7 +18,7 @@ def encounters(ccda):
 
     encounters = ccda.section('encounters')
 
-    for entry in encounters.entries():
+    for i, entry in enumerate(encounters.entries()):
 
         date = parse_date(entry.tag('effectiveTime').attr('value'))
 
@@ -65,6 +65,7 @@ def encounters(ccda):
             section_title=encounters.tag('title')._element.text,
             source_line=entry._element.sourceline,
             date=date,
+            entry_index=str(i),
             name=name,
             code=code,
             code_system=code_system,

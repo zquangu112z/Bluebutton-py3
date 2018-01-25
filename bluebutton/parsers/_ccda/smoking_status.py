@@ -28,7 +28,7 @@ def smoking_status(ccda):
     data = wrappers.ListWrapper()
     social_history = ccda.section('social_history')
     entries = social_history.entries()
-    for entry in entries:
+    for i, entry in enumerate(entries):
 
         smoking_status_ = entry.template('2.16.840.1.113883.10.20.22.4.78')
         if smoking_status_.is_empty():
@@ -56,6 +56,7 @@ def smoking_status(ccda):
                 start=start_date,
                 end=end_date
             ),
+            entry_index=str(i),
             source_line=source_line,
             name=name,
             code=code,

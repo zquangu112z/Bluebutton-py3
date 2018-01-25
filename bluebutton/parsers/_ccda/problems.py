@@ -20,7 +20,7 @@ def problems(ccda):
 
     problems = ccda.section('problems')
 
-    for problem_entry in problems.entries():
+    for i, problem_entry in enumerate(problems.entries()):
 
         entry = problem_entry.tag('act')
         el = entry.tag('effectiveTime')
@@ -63,6 +63,7 @@ def problems(ccda):
                     start=start_date_rela,
                     end=end_date_rela
                 ),
+                entry_index=str(i),
                 source_line=entry._element.sourceline,
                 name=name,
                 code=code,
@@ -76,6 +77,7 @@ def problems(ccda):
                 start=start_date,
                 end=end_date
             ),
+            entry_index=str(i),
             findings=findings,
             source_line=entry._element.sourceline,
             name=name,

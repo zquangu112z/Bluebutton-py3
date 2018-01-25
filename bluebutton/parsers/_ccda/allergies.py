@@ -19,7 +19,7 @@ def allergies(ccda):
 
     allergies = ccda.section('allergies')
 
-    for entry in allergies.entries():
+    for i, entry in enumerate(allergies.entries()):
 
         el = entry.tag('effectiveTime')
         start_date = parse_date(el.tag('low').attr('value'))
@@ -80,6 +80,7 @@ def allergies(ccda):
                 start=start_date,
                 end=end_date
             ),
+            entry_index=str(i),
             name=name,
             code=code,
             code_system=code_system,

@@ -20,7 +20,7 @@ def immunizations(ccda):
 
     immunizations = ccda.section('immunizations')
 
-    for entry in immunizations.entries():
+    for i, entry in enumerate(immunizations.entries()):
 
         # date
         el = entry.tag('effectiveTime')
@@ -79,6 +79,7 @@ def immunizations(ccda):
         data.append(wrappers.ObjectWrapper(
             section_title=immunizations.tag('title')._element.text,
             date=date,
+            entry_index=str(i),
             product=wrappers.ObjectWrapper(
                 source_line=entry._element.sourceline,
                 name=product_name,

@@ -21,7 +21,7 @@ def procedures(ccda):
 
     procedures = ccda.section('procedures')
 
-    for entry in procedures.entries():
+    for i, entry in enumerate(procedures.entries()):
 
         el = entry.tag('effectiveTime')
         date = parse_date(el.attr('value'))
@@ -66,6 +66,7 @@ def procedures(ccda):
             section_title=procedures.tag('title')._element.text,
             source_line=entry._element.sourceline,
             date=date,
+            entry_index=str(i),
             name=name,
             code=code,
             code_system=code_system,

@@ -14,7 +14,7 @@ def care_plan(ccda):
 
     care_plan = ccda.section('care_plan')
 
-    for entry in care_plan.entries():
+    for i, entry in enumerate(care_plan.entries()):
 
         name = None
         code = None
@@ -38,6 +38,7 @@ def care_plan(ccda):
         data.append(
             wrappers.ObjectWrapper(
                 section_title=care_plan.tag('title')._element.text,
+                entry_index=str(i),
                 source_line=entry._element.sourceline,
                 text=text,
                 name=name,

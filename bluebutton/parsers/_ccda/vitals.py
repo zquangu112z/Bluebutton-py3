@@ -19,7 +19,7 @@ def vitals(ccda):
 
     vitals = ccda.section('vitals')
 
-    for entry in vitals.entries():
+    for i, entry in enumerate(vitals.entries()):
 
         el = entry.tag('effectiveTime')
         entry_date = parse_date(el.attr('value'))
@@ -42,6 +42,8 @@ def vitals(ccda):
             results_data.append(wrappers.ObjectWrapper(
                 section_title=vitals.tag('title')._element.text,
                 source_line=result._element.sourceline,
+                date=entry_date,
+                entry_index=str(i),
                 name=name,
                 code=code,
                 code_system=code_system,
@@ -52,6 +54,7 @@ def vitals(ccda):
 
         data.append(wrappers.ObjectWrapper(
             date=entry_date,
+            entry_index=str(i),
             results=results_data
         ))
 

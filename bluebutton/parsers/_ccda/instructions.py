@@ -17,7 +17,7 @@ def instructions(ccda):
 
     instructions = ccda.section('instructions')
 
-    for entry in instructions.entries():
+    for i, entry in enumerate(instructions.entries()):
 
         el = entry.tag('code')
         name = el.attr('displayName')
@@ -29,6 +29,7 @@ def instructions(ccda):
 
         data.append(wrappers.ObjectWrapper(
             section_title=instructions.tag('title')._element.text,
+            entry_index=str(i),
             text=text,
             source_line=entry._element.sourceline,
             name=name,
