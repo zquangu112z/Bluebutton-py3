@@ -47,12 +47,6 @@ def results(ccda):
                 name = core.strip_whitespace(
                     observation.tag('text').val_tostring())
 
-            # el = observation.tag('translation')
-            # translation_name = el.attr('displayName')
-            # translation_code = el.attr('code')
-            # translation_code_system = el.attr('codeSystem')
-            # translation_code_system_name = el.attr('codeSystemName')
-
             translations = []
             for el in observation.els_by_tag('translation'):
                 translations.append(wrappers.ObjectWrapper(

@@ -37,12 +37,6 @@ def procedures(ccda):
             name = core.strip_whitespace(
                 entry.tag('originalText').val_tostring())
 
-        # el = entry.tag('code').tag('translation')
-        # translation_name = el.attr('displayName')
-        # translation_code = el.attr('code')
-        # translation_code_system = el.attr('codeSystem')
-        # translation_code_system_name = el.attr('codeSystemName')
-
         translations = []
         for el in entry.tag('code').els_by_tag('translation'):
             translations.append(wrappers.ObjectWrapper(

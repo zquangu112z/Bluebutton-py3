@@ -41,12 +41,7 @@ def immunizations(ccda):
         product_code_system = el.attr('codeSystem')
         product_code_system_name = el.attr('codeSystemName')
 
-        # translations @TODO: remove it
-        # el = product.tag('translation')
-        # translation_name = el.attr('displayName')
-        # translation_code = el.attr('code')
-        # translation_code_system = el.attr('codeSystem')
-        # translation_code_system_name = el.attr('codeSystemName')
+        # translations
         translations = []
         for el in product.els_by_tag('translation'):
             translations.append(wrappers.ObjectWrapper(
