@@ -37,11 +37,20 @@ def procedures(ccda):
             name = core.strip_whitespace(
                 entry.tag('originalText').val_tostring())
 
-        el = entry.tag('code').tag('translation')
-        translation_name = el.attr('displayName')
-        translation_code = el.attr('code')
-        translation_code_system = el.attr('codeSystem')
-        translation_code_system_name = el.attr('codeSystemName')
+        # el = entry.tag('code').tag('translation')
+        # translation_name = el.attr('displayName')
+        # translation_code = el.attr('code')
+        # translation_code_system = el.attr('codeSystem')
+        # translation_code_system_name = el.attr('codeSystemName')
+
+        translations = []
+        for el in entry.tag('code').els_by_tag('translation'):
+            translations.append(wrappers.ObjectWrapper(
+                name=el.attr('displayName'),
+                code=el.attr('code'),
+                code_system=el.attr('codeSystem'),
+                code_system_name=el.attr('codeSystemName')
+            ))
 
         # 'specimen' tag not always present
         specimen_name = None
@@ -66,17 +75,16 @@ def procedures(ccda):
             section_title=procedures.tag('title')._element.text,
             source_line=entry._element.sourceline,
             date=date,
+            date_range=wrappers.ObjectWrapper(
+                start=date,
+                end=date
+            ),
             entry_index=str(i),
             name=name,
             code=code,
             code_system=code_system,
             code_system_name=code_system_name,
-            translation=wrappers.ObjectWrapper(
-                    name=translation_name,
-                    code=translation_code,
-                    code_system=translation_code_system,
-                    code_system_name=translation_code_system_name
-                    ),
+            translations=translations,
             specimen=wrappers.ObjectWrapper(
                 name=specimen_name,
                 code=specimen_code,

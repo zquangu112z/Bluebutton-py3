@@ -30,11 +30,19 @@ def encounters(ccda):
         code_system_version = el.attr('codeSystemVersion')
 
         # translation
-        el = entry.tag('translation')
-        translation_name = el.attr('displayName')
-        translation_code = el.attr('code')
-        translation_code_system = el.attr('codeSystem')
-        translation_code_system_name = el.attr('codeSystemName')
+        # el = entry.tag('translation')
+        # translation_name = el.attr('displayName')
+        # translation_code = el.attr('code')
+        # translation_code_system = el.attr('codeSystem')
+        # translation_code_system_name = el.attr('codeSystemName')
+        translations = []
+        for el in entry.els_by_tag('translation'):
+            translations.append(wrappers.ObjectWrapper(
+                name=el.attr('displayName'),
+                code=el.attr('code'),
+                code_system=el.attr('codeSystem'),
+                code_system_name=el.attr('codeSystemName')
+            ))
 
         # performer
         el = entry.tag('performer').tag('code')
@@ -65,6 +73,10 @@ def encounters(ccda):
             section_title=encounters.tag('title')._element.text,
             source_line=entry._element.sourceline,
             date=date,
+            date_range=wrappers.ObjectWrapper(
+                start=date,
+                end=date
+            ),
             entry_index=str(i),
             name=name,
             code=code,
@@ -72,12 +84,7 @@ def encounters(ccda):
             code_system_name=code_system_name,
             code_system_version=code_system_version,
             findings=findings,
-            translation=wrappers.ObjectWrapper(
-                name=translation_name,
-                code=translation_code,
-                code_system=translation_code_system,
-                code_system_name=translation_code_system_name
-            ),
+            translations=translations,
             performer=wrappers.ObjectWrapper(
                 name=performer_name,
                 code=performer_code,

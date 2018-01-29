@@ -47,11 +47,20 @@ def results(ccda):
                 name = core.strip_whitespace(
                     observation.tag('text').val_tostring())
 
-            el = observation.tag('translation')
-            translation_name = el.attr('displayName')
-            translation_code = el.attr('code')
-            translation_code_system = el.attr('codeSystem')
-            translation_code_system_name = el.attr('codeSystemName')
+            # el = observation.tag('translation')
+            # translation_name = el.attr('displayName')
+            # translation_code = el.attr('code')
+            # translation_code_system = el.attr('codeSystem')
+            # translation_code_system_name = el.attr('codeSystemName')
+
+            translations = []
+            for el in observation.els_by_tag('translation'):
+                translations.append(wrappers.ObjectWrapper(
+                    name=el.attr('displayName'),
+                    code=el.attr('code'),
+                    code_system=el.attr('codeSystem'),
+                    code_system_name=el.attr('codeSystemName')
+                ))
 
             el = observation.tag('value')
             # value = el.attr('value')  # old code
@@ -90,6 +99,10 @@ def results(ccda):
                 section_title=results.tag('title')._element.text,
                 source_line=observation._element.sourceline,
                 date=date,
+                date_range=wrappers.ObjectWrapper(
+                    start=date,
+                    end=date
+                ),
                 entry_index=str(i),
                 name=name,
                 value=value,
@@ -97,12 +110,7 @@ def results(ccda):
                 code=code,
                 code_system=code_system,
                 code_system_name=code_system_name,
-                translation=wrappers.ObjectWrapper(
-                    name=translation_name,
-                    code=translation_code,
-                    code_system=translation_code_system,
-                    code_system_name=translation_code_system_name
-                ),
+                translations=translations,
                 reference_range=wrappers.ObjectWrapper(
                     text=reference_range_text,
                     low_unit=reference_range_low_unit,

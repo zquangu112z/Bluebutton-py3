@@ -41,12 +41,20 @@ def immunizations(ccda):
         product_code_system = el.attr('codeSystem')
         product_code_system_name = el.attr('codeSystemName')
 
-        # translation
-        el = product.tag('translation')
-        translation_name = el.attr('displayName')
-        translation_code = el.attr('code')
-        translation_code_system = el.attr('codeSystem')
-        translation_code_system_name = el.attr('codeSystemName')
+        # translations @TODO: remove it
+        # el = product.tag('translation')
+        # translation_name = el.attr('displayName')
+        # translation_code = el.attr('code')
+        # translation_code_system = el.attr('codeSystem')
+        # translation_code_system_name = el.attr('codeSystemName')
+        translations = []
+        for el in product.els_by_tag('translation'):
+            translations.append(wrappers.ObjectWrapper(
+                name=el.attr('displayName'),
+                code=el.attr('code'),
+                code_system=el.attr('codeSystem'),
+                code_system_name=el.attr('codeSystemName')
+            ))
 
         # misc product details
         el = product.tag('lotNumberText')
@@ -79,6 +87,10 @@ def immunizations(ccda):
         data.append(wrappers.ObjectWrapper(
             section_title=immunizations.tag('title')._element.text,
             date=date,
+            date_range=wrappers.ObjectWrapper(
+                start=date,
+                end=date
+            ),
             entry_index=str(i),
             product=wrappers.ObjectWrapper(
                 source_line=entry._element.sourceline,
@@ -86,12 +98,7 @@ def immunizations(ccda):
                 code=product_code,
                 code_system=product_code_system,
                 code_system_name=product_code_system_name,
-                translation=wrappers.ObjectWrapper(
-                    name=translation_name,
-                    code=translation_code,
-                    code_system=translation_code_system,
-                    code_system_name=translation_code_system_name,
-                ),
+                translations=translations,
                 lot_number=lot_number,
                 manufacturer_name=manufacturer_name,
             ),

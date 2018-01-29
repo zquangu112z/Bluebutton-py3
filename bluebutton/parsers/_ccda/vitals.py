@@ -43,6 +43,10 @@ def vitals(ccda):
                 section_title=vitals.tag('title')._element.text,
                 source_line=result._element.sourceline,
                 date=entry_date,
+                date_range=wrappers.ObjectWrapper(
+                    start=entry_date,
+                    end=entry_date
+                ),
                 entry_index=str(i),
                 name=name,
                 code=code,

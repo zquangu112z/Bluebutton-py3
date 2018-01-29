@@ -39,8 +39,12 @@ def smoking_status(ccda):
 
         el = smoking_status_.tag('effectiveTime')
         entry_date = parse_date(el.attr('value'))
-        start_date = parse_date(el.tag('low').attr('value'))
-        end_date = parse_date(el.tag('high').attr('value'))
+        if not entry_date:
+            start_date = parse_date(el.tag('low').attr('value'))
+            end_date = parse_date(el.tag('high').attr('value'))
+        else:
+            start_date = entry_date
+            end_date = entry_date
 
         el = smoking_status_.tag('value')
         source_line = el._element.sourceline

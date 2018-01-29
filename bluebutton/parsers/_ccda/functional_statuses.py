@@ -36,6 +36,10 @@ def functional_statuses(ccda):
         data.append(wrappers.ObjectWrapper(
             section_title=statuses.tag('title')._element.text,
             date=date,
+            date_range=wrappers.ObjectWrapper(
+                start=date,
+                end=date
+            ),
             entry_index=str(i),
             source_line=entry._element.sourceline,
             name=name,

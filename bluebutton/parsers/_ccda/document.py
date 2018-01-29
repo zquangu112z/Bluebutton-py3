@@ -61,6 +61,10 @@ def document(ccda):
     data = wrappers.ObjectWrapper(
         source_line=doc._element.sourceline,
         date=date,
+        date_range=wrappers.ObjectWrapper(
+            start=date,
+            end=date
+        ),
         title=title,
         author=wrappers.ObjectWrapper(
             name=name_dict,
