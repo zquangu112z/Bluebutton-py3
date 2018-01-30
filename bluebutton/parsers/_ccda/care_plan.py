@@ -4,8 +4,8 @@
 # Use of this source code is governed by the license found in the LICENSE file.
 ###############################################################################
 
-from bluebutton import core
-from ...core import wrappers, ccda_enum
+from ...core import wrappers, ccda_enum, strip_whitespace
+from ... import documents
 
 
 def care_plan(ccda):
@@ -21,23 +21,28 @@ def care_plan(ccda):
         code_system = None
         code_system_name = None
 
-        # Plan of care encounters, which have no other details
-        el = entry.template('2.16.840.1.113883.10.20.22.4.40')
-        if not el.is_empty():
-            name = 'encounter'
-        else:
-            el = entry.tag('code')
+        el = entry.tag('code')
+        name = el.attr('displayName')
+        code = el.attr('code')
+        code_system = el.attr('codeSystem')
+        code_system_name = el.attr('codeSystemName')
 
-            name = el.attr('displayName')
-            code = el.attr('code')
-            code_system = el.attr('codeSystem')
-            code_system_name = el.attr('codeSystemName')
+        text = strip_whitespace(entry.tag('text').val())
 
-        text = core.strip_whitespace(entry.tag('text').val())
+        el = entry.tag('effectiveTime')
+        start_date, end_date = documents.parse_effectiveTime(el)
+
+        # Parse entryRelationship parts
+        findings = documents.parse_findings(entry, start_date, end_date)
 
         data.append(
             wrappers.ObjectWrapper(
                 section_title=care_plan.tag('title')._element.text,
+                date_range=wrappers.ObjectWrapper(
+                    start=start_date,
+                    end=end_date
+                ),
+                findings=findings,
                 entry_index=str(i),
                 source_line=entry._element.sourceline,
                 text=text,

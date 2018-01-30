@@ -8,14 +8,11 @@
 Parser for the CCDA medications section
 """
 
-from ...core import wrappers, ccda_enum
-from ... import core
+from ...core import wrappers, ccda_enum, strip_whitespace
 from ... import documents
 
 
 def medications(ccda):
-
-    parse_date = documents.parse_date
     data = wrappers.ListWrapper()
 
     medications = ccda.section('medications')
@@ -23,7 +20,7 @@ def medications(ccda):
     for i, entry in ccda_enum(medications.entries(), ccda):
 
         el = entry.tag('text')
-        sig = core.strip_whitespace(el.val())
+        sig = strip_whitespace(el.val())
 
         effective_times = entry.els_by_tag('effectiveTime')
 
@@ -35,8 +32,7 @@ def medications(ccda):
         start_date = None
         end_date = None
         if el:
-            start_date = parse_date(el.tag('low').attr('value'))
-            end_date = parse_date(el.tag('high').attr('value'))
+            start_date, end_date = documents.parse_effectiveTime(el)
 
         # the second effectiveTime might the schedule period or it might just
         # be a random effectiveTime from further in the entry... xsi:type
@@ -68,7 +64,7 @@ def medications(ccda):
         el = entry.tag('manufacturedProduct').tag('originalText')
         if not el.is_empty():
             # if we'd like to get content only, use val() instead
-            product_original_text = core.strip_whitespace(el.val_tostring())
+            product_original_text = strip_whitespace(el.val_tostring())
         # if we don't have a product name yet, try the originalText version
         if not product_name and product_original_text:
             product_name = product_original_text
@@ -128,6 +124,9 @@ def medications(ccda):
         prescriber_organization = el.tag('name').val()
         prescriber_person = None
 
+        # Parse entryRelationship parts
+        findings = documents.parse_findings(entry, start_date, end_date)
+
         data.append(wrappers.ObjectWrapper(
             section_title=medications.tag('title')._element.text,
             date_range=wrappers.ObjectWrapper(
@@ -142,7 +141,8 @@ def medications(ccda):
                 code=product_code,
                 code_system=product_code_system,
                 text=product_original_text,
-                translations=translations
+                translations=translations,
+                findings=findings
             ),
             dose_quantity=wrappers.ObjectWrapper(
                 value=dose_value,

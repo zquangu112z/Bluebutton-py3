@@ -8,13 +8,10 @@
 Parser for the CCDA immunizations section
 """
 from ... import documents
-from ...core import wrappers, ccda_enum
-from ... import core
+from ...core import wrappers, ccda_enum, strip_whitespace
 
 
 def immunizations(ccda):
-
-    parse_date = documents.parse_date
     administered_data = wrappers.ListWrapper()
     declined_data = wrappers.ListWrapper()
 
@@ -24,9 +21,7 @@ def immunizations(ccda):
 
         # date
         el = entry.tag('effectiveTime')
-        date = parse_date(el.attr('value'))
-        if not date:
-            date = parse_date(el.tag('low').attr('value'))
+        start_date, end_date = documents.parse_effectiveTime(el)
 
         # if 'declined' is true, this is a record that this vaccine WASN'T
         # administered
@@ -67,7 +62,7 @@ def immunizations(ccda):
 
         # instructions
         el = entry.template('2.16.840.1.113883.10.20.22.4.20')
-        instructions_text = core.strip_whitespace(el.tag('text').val())
+        instructions_text = strip_whitespace(el.tag('text').val())
         el = el.tag('code')
         education_name = el.attr('displayName')
         education_code = el.attr('code')
@@ -78,13 +73,15 @@ def immunizations(ccda):
         dose_value = el.attr('value')
         dose_unit = el.attr('unit')
 
+        # Parse entryRelationship parts
+        findings = documents.parse_findings(entry, start_date, end_date)
+
         data = declined_data if declined else administered_data
         data.append(wrappers.ObjectWrapper(
             section_title=immunizations.tag('title')._element.text,
-            date=date,
             date_range=wrappers.ObjectWrapper(
-                start=date,
-                end=date
+                start=start_date,
+                end=end_date
             ),
             entry_index=str(i),
             product=wrappers.ObjectWrapper(
@@ -94,6 +91,7 @@ def immunizations(ccda):
                 code_system=product_code_system,
                 code_system_name=product_code_system_name,
                 translations=translations,
+                findings=findings,
                 lot_number=lot_number,
                 manufacturer_name=manufacturer_name,
             ),

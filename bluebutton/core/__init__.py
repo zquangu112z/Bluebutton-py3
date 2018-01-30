@@ -55,4 +55,5 @@ def ccda_enum(it, ccda):
     for item in it:
         ccda._entry_counter += 1
         yield ccda._entry_counter, item
+
 # __all__ = ('parse_data')

@@ -13,8 +13,6 @@ from ... import documents
 
 
 def results(ccda):
-
-    parse_date = documents.parse_date
     data = wrappers.ListWrapper()
 
     results = ccda.section('results')
@@ -33,8 +31,8 @@ def results(ccda):
         tests_data = wrappers.ListWrapper()
 
         for i, observation in ccda_enum(tests, ccda):
-
-            date = parse_date(observation.tag('effectiveTime').attr('value'))
+            start_date, end_date = documents.parse_effectiveTime(
+                observation.tag('effectiveTime'))
 
             el = observation.tag('code')
             name = el.attr('displayName')
@@ -93,10 +91,9 @@ def results(ccda):
             tests_data.append(wrappers.ObjectWrapper(
                 section_title=results.tag('title')._element.text,
                 source_line=observation._element.sourceline,
-                date=date,
                 date_range=wrappers.ObjectWrapper(
-                    start=date,
-                    end=date
+                    start=start_date,
+                    end=end_date
                 ),
                 entry_index=str(i),
                 name=name,

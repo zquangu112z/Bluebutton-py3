@@ -14,8 +14,6 @@ from ... import documents
 
 
 def procedures(ccda):
-
-    parse_date = documents.parse_date
     parse_address = documents.parse_address
     data = wrappers.ListWrapper()
 
@@ -24,7 +22,7 @@ def procedures(ccda):
     for i, entry in ccda_enum(procedures.entries(), ccda):
 
         el = entry.tag('effectiveTime')
-        date = parse_date(el.attr('value'))
+        start_date, end_date = documents.parse_effectiveTime(el)
 
         el = entry.tag('code')
         name = el.attr('displayName')
@@ -68,10 +66,9 @@ def procedures(ccda):
         data.append(wrappers.ObjectWrapper(
             section_title=procedures.tag('title')._element.text,
             source_line=entry._element.sourceline,
-            date=date,
             date_range=wrappers.ObjectWrapper(
-                start=date,
-                end=date
+                start=start_date,
+                end=end_date
             ),
             entry_index=str(i),
             name=name,

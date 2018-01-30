@@ -8,8 +8,8 @@
 Parser for the CCDA encounters section
 """
 
-from ...core import wrappers, ccda_enum
-from ...documents import parse_address, parse_date
+from ...core import wrappers, ccda_enum, strip_whitespace
+from ... import documents
 
 
 def encounters(ccda):
@@ -20,7 +20,8 @@ def encounters(ccda):
 
     for i, entry in ccda_enum(encounters.entries(), ccda):
 
-        date = parse_date(entry.tag('effectiveTime').attr('value'))
+        el = entry.tag('effectiveTime')
+        start_date, end_date = documents.parse_effectiveTime(el)
 
         el = entry.tag('code')
         name = el.attr('displayName')
@@ -50,27 +51,18 @@ def encounters(ccda):
         el = entry.tag('participant')
         organization = el.tag('code').attr('displayName')
 
-        location_dict = parse_address(el)
+        location_dict = documents.parse_address(el)
         location_dict.organization = organization
 
-        # findings
-        findings = []
-        findings_els = entry.els_by_tag('entryRelationship')
-        for current in findings_els:
-            el = current.tag('value')
-            findings.append(wrappers.ObjectWrapper(
-                name=el.attr('displayName'),
-                code=el.attr('code'),
-                code_system=el.attr('codeSystem'),
-            ))
+        # Parse entryRelationship parts
+        findings = documents.parse_findings(entry, start_date, end_date)
 
         data.append(wrappers.ObjectWrapper(
             section_title=encounters.tag('title')._element.text,
             source_line=entry._element.sourceline,
-            date=date,
             date_range=wrappers.ObjectWrapper(
-                start=date,
-                end=date
+                start=start_date,
+                end=end_date
             ),
             entry_index=str(i),
             name=name,

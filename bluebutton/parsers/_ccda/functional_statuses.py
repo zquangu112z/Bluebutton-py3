@@ -12,19 +12,14 @@ from ...core import wrappers, ccda_enum
 
 
 def functional_statuses(ccda):
-
-    parse_date = documents.parse_date
     data = wrappers.ListWrapper()
 
     statuses = ccda.section('functional_statuses')
 
     for i, entry in ccda_enum(statuses.entries(), ccda):
 
-        date = parse_date(entry.tag('effectiveTime').attr('value'))
-
-        if not date:
-            date = parse_date(
-                entry.tag('effectiveTime').tag('low').attr('value'))
+        el = entry.tag('effectiveTime')
+        start_date, end_date = documents.parse_effectiveTime(el)
 
         el = entry.tag('value')
 
@@ -35,10 +30,9 @@ def functional_statuses(ccda):
 
         data.append(wrappers.ObjectWrapper(
             section_title=statuses.tag('title')._element.text,
-            date=date,
             date_range=wrappers.ObjectWrapper(
-                start=date,
-                end=date
+                start=start_date,
+                end=end_date
             ),
             entry_index=str(i),
             source_line=entry._element.sourceline,
