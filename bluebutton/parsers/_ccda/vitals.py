@@ -57,7 +57,6 @@ def vitals(ccda):
 
         data.append(wrappers.ObjectWrapper(
             date=entry_date,
-            entry_index=str(i),
             results=results_data
         ))
 

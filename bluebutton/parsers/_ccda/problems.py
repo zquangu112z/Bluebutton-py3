@@ -34,7 +34,6 @@ def problems(ccda):
         code_system_name = el.attr('codeSystemName')
 
         # Parse entryRelationship parts
-        # findings
         findings = []
         for entryRela in entry.els_by_tag('entryRelationship'):
             entry = entryRela.tag('observation')
@@ -58,12 +57,10 @@ def problems(ccda):
                     entry.tag('text').val_tostring())
 
             findings.append(wrappers.ObjectWrapper(
-                section_title=problems.tag('title')._element.text,
                 date_range=wrappers.ObjectWrapper(
                     start=start_date_rela,
                     end=end_date_rela
                 ),
-                entry_index=str(i),
                 source_line=entry._element.sourceline,
                 name=name,
                 code=code,
