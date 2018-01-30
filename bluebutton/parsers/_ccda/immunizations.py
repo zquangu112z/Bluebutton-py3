@@ -8,25 +8,20 @@
 Parser for the CCDA immunizations section
 """
 from ... import documents
-from ...core import wrappers
-from ... import core
+from ...core import wrappers, ccda_enum, strip_whitespace
 
 
 def immunizations(ccda):
-
-    parse_date = documents.parse_date
     administered_data = wrappers.ListWrapper()
     declined_data = wrappers.ListWrapper()
 
     immunizations = ccda.section('immunizations')
 
-    for entry in immunizations.entries():
+    for i, entry in ccda_enum(immunizations.entries(), ccda):
 
         # date
         el = entry.tag('effectiveTime')
-        date = parse_date(el.attr('value'))
-        if not date:
-            date = parse_date(el.tag('low').attr('value'))
+        start_date, end_date = documents.parse_effectiveTime(el)
 
         # if 'declined' is true, this is a record that this vaccine WASN'T
         # administered
@@ -41,12 +36,15 @@ def immunizations(ccda):
         product_code_system = el.attr('codeSystem')
         product_code_system_name = el.attr('codeSystemName')
 
-        # translation
-        el = product.tag('translation')
-        translation_name = el.attr('displayName')
-        translation_code = el.attr('code')
-        translation_code_system = el.attr('codeSystem')
-        translation_code_system_name = el.attr('codeSystemName')
+        # translations
+        translations = []
+        for el in product.els_by_tag('translation'):
+            translations.append(wrappers.ObjectWrapper(
+                name=el.attr('displayName'),
+                code=el.attr('code'),
+                code_system=el.attr('codeSystem'),
+                code_system_name=el.attr('codeSystemName')
+            ))
 
         # misc product details
         el = product.tag('lotNumberText')
@@ -64,7 +62,7 @@ def immunizations(ccda):
 
         # instructions
         el = entry.template('2.16.840.1.113883.10.20.22.4.20')
-        instructions_text = core.strip_whitespace(el.tag('text').val())
+        instructions_text = strip_whitespace(el.tag('text').val())
         el = el.tag('code')
         education_name = el.attr('displayName')
         education_code = el.attr('code')
@@ -75,22 +73,25 @@ def immunizations(ccda):
         dose_value = el.attr('value')
         dose_unit = el.attr('unit')
 
+        # Parse entryRelationship parts
+        findings = documents.parse_findings(entry, start_date, end_date)
+
         data = declined_data if declined else administered_data
         data.append(wrappers.ObjectWrapper(
             section_title=immunizations.tag('title')._element.text,
-            date=date,
+            date_range=wrappers.ObjectWrapper(
+                start=start_date,
+                end=end_date
+            ),
+            entry_index=str(i),
             product=wrappers.ObjectWrapper(
                 source_line=entry._element.sourceline,
                 name=product_name,
                 code=product_code,
                 code_system=product_code_system,
                 code_system_name=product_code_system_name,
-                translation=wrappers.ObjectWrapper(
-                    name=translation_name,
-                    code=translation_code,
-                    code_system=translation_code_system,
-                    code_system_name=translation_code_system_name,
-                ),
+                translations=translations,
+                findings=findings,
                 lot_number=lot_number,
                 manufacturer_name=manufacturer_name,
             ),

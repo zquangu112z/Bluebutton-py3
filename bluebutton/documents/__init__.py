@@ -4,12 +4,11 @@
 # Use of this source code is governed by the license found in the LICENSE file.
 ###############################################################################
 
-import datetime
-from ..core import wrappers
-from . import ccda
+from ..core import wrappers, strip_whitespace
 from . import c32
-import logging
-
+from . import ccda
+import logging as logger
+from dateutil.parser import parse
 unstructerdValueTypes = ["ST", "ED"]
 
 
@@ -22,18 +21,58 @@ def detect(data):
 
     if not data.template('2.16.840.1.113883.10.20.22.1.1').is_empty():
         return 'ccda'
-    logging.warning("type: unknown")
+    logger.warning("type: unknown")
 
     return 'unknown'
 
 
 def entries(element):
     """
-    Get entries within an element (with tag name 'entry'), adds an `each` method
+    Get entries within an element (with tag name 'entry'),
+    adds an `each` method
     """
     els = element.els_by_tag('entry')
     els.each = lambda callback: map(callback, els)
     return els
+
+
+def parse_findings(entry, start_date, end_date):
+    # Parse entryRelationship parts
+    findings = []
+    for entryRela in entry.els_by_tag('entryRelationship'):
+        entry = entryRela.tag('observation')
+        el = entry.tag('effectiveTime')
+        if el.is_empty():
+            start_date_rela = start_date
+            end_date_rela = end_date
+        else:
+            start_date_rela, end_date_rela = parse_effectiveTime(
+                el)
+
+        el = entry.tag('code')
+        name = el.attr('displayName')
+        code = el.attr('code')
+        code_system = el.attr('codeSystem')
+        code_system_name = el.attr('codeSystemName')
+
+        if not name:
+            # if we'd like to get content only, use val() instead
+            name = strip_whitespace(
+                entry.tag('text').val_tostring())
+
+        findings.append(wrappers.ObjectWrapper(
+            date_range=wrappers.ObjectWrapper(
+                start=start_date_rela,
+                end=end_date_rela
+            ),
+            source_line=entry._element.sourceline,
+            name=name,
+            code=code,
+            code_system=code_system,
+            code_system_name=code_system_name
+        ))
+
+    return findings
 
 
 def parse_address(address_element):
@@ -61,54 +100,30 @@ def parse_address(address_element):
     )
 
 
+def parse_effectiveTime(effectiveTime_element):
+    entry_date = parse_date(effectiveTime_element.attr('value'))
+    if not entry_date:
+        start_date = parse_date(effectiveTime_element.tag('low').attr('value'))
+        end_date = parse_date(effectiveTime_element.tag('high').attr('value'))
+    else:
+        start_date = entry_date
+        end_date = entry_date
+    return start_date, end_date
+
+
 def parse_date(string):
     """
-    Parses an HL7 date in String form and creates a new Date object.
-
-    TODO: CCDA dates can be in form:
-        <effectiveTime value="20130703094812"/>
-    ...or:
-        <effectiveTime>
-            <low value="19630617120000"/>
-            <high value="20110207100000"/>
-        </effectiveTime>
-
-    For the latter, parse_date will not be given type `string` and will return
-    `None`.
-
-    The syntax is "YYYYMMDDHHMMSS.UUUU[+|-ZZzz]" where digits can be omitted
-    the right side to express less precision
+    Parses an HL7 date in String form.
+    If the parser failed (i.e wrong format, 'UNK'), return the original text
     """
+    if not isinstance(string, str):
+        return None
+
     try:
-        if not isinstance(string, str):
-            return None
-
-        # ex. value="1999" translates to 1 Jan 1999
-        if len(string) == 4:
-            return datetime.date(int(string), 1, 1)
-
-        year = int(string[0:4])
-        month = int(string[4:6])
-        day = int(string[6:8] or 1)
-
-        # check for time info (the presence of at least hours and mins after the
-        # date)
-        if len(string) >= 12:
-            hour = int(string[8:10])
-            mins = int(string[10:12])
-            secs = string[12:14]
-            secs = int(secs) if secs else 0
-
-            # check for timezone info (the presence of chars after the seconds
-            # place)
-            timezone = wrappers.FixedOffset.from_string(string[14:])
-            return datetime.datetime(year, month, day, hour, mins, secs,
-                                     tzinfo=timezone)
-
-        return datetime.date(year, month, day)
+        return parse(string).isoformat()
     except ValueError as e:
         # In case we cannot parse the effectiveTime, return the string
-        logging.warning("Cannnot parse %r to datetime", string)
+        logger.warning("Cannnot parse %r to datetime", string)
         return string
 
 
@@ -125,7 +140,8 @@ def parse_name(name_element):
     )
 
 
-def extractUnit(string):
+def extract_uom(string):
+    ''' Extract unit of measure from text '''
     words = str.split(string, " ")
     if len(words) > 1 and is_number(words[0]) and not is_number(words[1]):
         return words[0], words[1]

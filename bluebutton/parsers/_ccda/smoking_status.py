@@ -8,19 +8,15 @@
 Parser for the CCDA smoking status in social history section
 """
 
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import documents
 
 
 def smoking_status(ccda):
-
-    parse_date = documents.parse_date
-
     name = None
     code = None
     code_system = None
     code_system_name = None
-    entry_date = None
 
     # We can parse all of the social_history sections
     # but in practice, this section seems to be used for
@@ -28,7 +24,7 @@ def smoking_status(ccda):
     data = wrappers.ListWrapper()
     social_history = ccda.section('social_history')
     entries = social_history.entries()
-    for entry in entries:
+    for i, entry in ccda_enum(entries, ccda):
 
         smoking_status_ = entry.template('2.16.840.1.113883.10.20.22.4.78')
         if smoking_status_.is_empty():
@@ -38,9 +34,7 @@ def smoking_status(ccda):
             continue
 
         el = smoking_status_.tag('effectiveTime')
-        entry_date = parse_date(el.attr('value'))
-        start_date = parse_date(el.tag('low').attr('value'))
-        end_date = parse_date(el.tag('high').attr('value'))
+        start_date, end_date = documents.parse_effectiveTime(el)
 
         el = smoking_status_.tag('value')
         source_line = el._element.sourceline
@@ -51,11 +45,11 @@ def smoking_status(ccda):
 
         data.append(wrappers.ObjectWrapper(
             section_title=social_history.tag('title')._element.text,
-            date=entry_date,
             date_range=wrappers.ObjectWrapper(
                 start=start_date,
                 end=end_date
             ),
+            entry_index=str(i),
             source_line=source_line,
             name=name,
             code=code,

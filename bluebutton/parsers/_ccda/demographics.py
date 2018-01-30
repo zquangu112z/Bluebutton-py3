@@ -19,7 +19,10 @@ def demographics(ccda):
     patient = demographics.tag('patientRole')
     els = patient.els_by_tag('id')
     ids = wrappers.ListWrapper()
+    SSN = None
     for e in els:
+        if e.attr('root') == "2.16.840.1.113883.4.1":  # SSN root
+            SSN = e.attr('extension')
         ids.append(wrappers.ObjectWrapper(
             root=e.attr('root'),
             extension=e.attr('extension'),
@@ -76,6 +79,7 @@ def demographics(ccda):
         source_line=sourceline,
         name=patient_name_dict,
         ids=ids,
+        ssn=SSN,
         dob=dob,
         gender=gender,
         marital_status=marital_status,

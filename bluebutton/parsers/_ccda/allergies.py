@@ -8,9 +8,8 @@
 Parser for the CCDA allergies section
 """
 
-from ...documents import parse_date
-from ...core import wrappers
-from ... import core
+from ...core import wrappers, ccda_enum
+from ... import core, documents
 
 
 def allergies(ccda):
@@ -19,11 +18,10 @@ def allergies(ccda):
 
     allergies = ccda.section('allergies')
 
-    for entry in allergies.entries():
+    for i, entry in ccda_enum(allergies.entries(), ccda):
 
         el = entry.tag('effectiveTime')
-        start_date = parse_date(el.tag('low').attr('value'))
-        end_date = parse_date(el.tag('high').attr('value'))
+        start_date, end_date = documents.parse_effectiveTime(el)
 
         el = entry.template('2.16.840.1.113883.10.20.22.4.7').tag('code')
         name = el.attr('displayName')
@@ -80,6 +78,7 @@ def allergies(ccda):
                 start=start_date,
                 end=end_date
             ),
+            entry_index=str(i),
             name=name,
             code=code,
             code_system=code_system,

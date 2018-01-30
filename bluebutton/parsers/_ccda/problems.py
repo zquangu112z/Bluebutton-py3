@@ -8,23 +8,20 @@
 Parser for the CCDA problems section
 """
 
-from ...core import wrappers
+from ...core import wrappers, ccda_enum, strip_whitespace
 from ... import documents
 
 
 def problems(ccda):
-
-    parse_date = documents.parse_date
     data = wrappers.ListWrapper()
 
     problems = ccda.section('problems')
 
-    for problem_entry in problems.entries():
+    for i, problem_entry in ccda_enum(problems.entries(), ccda):
 
         entry = problem_entry.tag('act')
         el = entry.tag('effectiveTime')
-        start_date = parse_date(el.tag('low').attr('value'))
-        end_date = parse_date(el.tag('high').attr('value'))
+        start_date, end_date = documents.parse_effectiveTime(el)
 
         el = entry.tag('code')
         name = el.attr('displayName')
@@ -32,12 +29,17 @@ def problems(ccda):
         code_system = el.attr('codeSystem')
         code_system_name = el.attr('codeSystemName')
 
+        # Parse entryRelationship parts
+        findings = documents.parse_findings(entry, start_date, end_date)
+
         data.append(wrappers.ObjectWrapper(
             section_title=problems.tag('title')._element.text,
             date_range=wrappers.ObjectWrapper(
                 start=start_date,
                 end=end_date
             ),
+            entry_index=str(i),
+            findings=findings,
             source_line=entry._element.sourceline,
             name=name,
             code=code,

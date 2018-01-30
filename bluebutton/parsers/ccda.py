@@ -25,6 +25,8 @@ from ..core import wrappers
 def run(ccda):
     data = wrappers.ObjectWrapper()
 
+    ccda._entry_counter = 0
+
     data.document = document(ccda)
 
     data.allergies = allergies(ccda)
