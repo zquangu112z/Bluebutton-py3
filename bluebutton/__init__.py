@@ -7,7 +7,13 @@
 from . import core
 from . import documents
 from . import parsers
-import logging
+
+from fii.cfg import getConfig
+from fii.log import getLogger
+
+config = getConfig(__name__)
+logger = getLogger(__name__)
+
 
 __version__ = '0.5.1'
 
@@ -27,20 +33,20 @@ class BlueButton(object):
         else:
             cdaType = documents.detect(parsed_data)
             if 'c32' == cdaType:
-                logging.info("c32")
+                logger.info("c32")
                 parsed_data = documents.c32.process(parsed_data)
                 # @TODO: add specific parser for C32
                 parsed_document = parsers.ccda.run(parsed_data)
             elif 'ccda' == cdaType:
-                logging.warning("ccda")
+                logger.info("ccda")
                 parsed_data = documents.ccda.process(parsed_data)
                 parsed_document = parsers.ccda.run(parsed_data)
             elif 'json' == cdaType:
-                logging.warning("json")
+                logger.info("json")
                 # @TODO: add support for JSON
                 pass
             else:
-                logging.warning(cdaType)
+                logger.warning(cdaType)
 
         self.type = cdaType
         self.data = parsed_document

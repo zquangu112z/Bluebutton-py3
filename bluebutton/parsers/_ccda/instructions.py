@@ -7,7 +7,7 @@
 """
 Parser for the CCDA "plan of care" section
 """
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import core
 
 
@@ -17,7 +17,7 @@ def instructions(ccda):
 
     instructions = ccda.section('instructions')
 
-    for i, entry in enumerate(instructions.entries()):
+    for i, entry in ccda_enum(instructions.entries(), ccda):
 
         el = entry.tag('code')
         name = el.attr('displayName')

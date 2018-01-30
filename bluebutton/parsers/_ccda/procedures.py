@@ -8,7 +8,7 @@
 Parser for the CCDA procedures section
 """
 
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import core
 from ... import documents
 
@@ -21,7 +21,7 @@ def procedures(ccda):
 
     procedures = ccda.section('procedures')
 
-    for i, entry in enumerate(procedures.entries()):
+    for i, entry in ccda_enum(procedures.entries(), ccda):
 
         el = entry.tag('effectiveTime')
         date = parse_date(el.attr('value'))

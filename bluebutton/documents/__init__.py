@@ -90,7 +90,8 @@ def parse_name(name_element):
     )
 
 
-def extractUnit(string):
+def extract_uom(string):
+    ''' Extract unit of measure from text '''
     words = str.split(string, " ")
     if len(words) > 1 and is_number(words[0]) and not is_number(words[1]):
         return words[0], words[1]

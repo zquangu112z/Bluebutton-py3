@@ -8,7 +8,7 @@
 Parser for the CCDA vitals section
 """
 
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import documents
 
 
@@ -19,7 +19,7 @@ def vitals(ccda):
 
     vitals = ccda.section('vitals')
 
-    for i, entry in enumerate(vitals.entries()):
+    for entry in vitals.entries():
 
         el = entry.tag('effectiveTime')
         entry_date = parse_date(el.attr('value'))
@@ -27,8 +27,7 @@ def vitals(ccda):
         results = entry.els_by_tag('component')
         results_data = wrappers.ListWrapper()
 
-        for result in results:
-
+        for i, result in ccda_enum(results, ccda):
             el = result.tag('code')
             name = el.attr('displayName')
             code = el.attr('code')

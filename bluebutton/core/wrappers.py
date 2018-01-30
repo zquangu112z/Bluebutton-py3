@@ -31,7 +31,7 @@ class FixedOffset(datetime.tzinfo):
             return cls.UTC()
 
         hour = int(stripped[1:3])
-        minutes = hour*60 + int(stripped[3:5])
+        minutes = hour * 60 + int(stripped[3:5])
         if stripped[0] == '-':
             minutes *= -1
 

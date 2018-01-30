@@ -8,7 +8,7 @@
 Parser for the CCDA immunizations section
 """
 from ... import documents
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import core
 
 
@@ -20,7 +20,7 @@ def immunizations(ccda):
 
     immunizations = ccda.section('immunizations')
 
-    for i, entry in enumerate(immunizations.entries()):
+    for i, entry in ccda_enum(immunizations.entries(), ccda):
 
         # date
         el = entry.tag('effectiveTime')

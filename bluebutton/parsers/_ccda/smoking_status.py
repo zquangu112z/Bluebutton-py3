@@ -8,7 +8,7 @@
 Parser for the CCDA smoking status in social history section
 """
 
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import documents
 
 
@@ -28,7 +28,7 @@ def smoking_status(ccda):
     data = wrappers.ListWrapper()
     social_history = ccda.section('social_history')
     entries = social_history.entries()
-    for i, entry in enumerate(entries):
+    for i, entry in ccda_enum(entries, ccda):
 
         smoking_status_ = entry.template('2.16.840.1.113883.10.20.22.4.78')
         if smoking_status_.is_empty():

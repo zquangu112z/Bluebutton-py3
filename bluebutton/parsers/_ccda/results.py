@@ -7,7 +7,7 @@
 """
 Parser for the CCDA results (labs) section
 """
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import core
 from ... import documents
 
@@ -19,7 +19,7 @@ def results(ccda):
 
     results = ccda.section('results')
 
-    for i, entry in enumerate(results.entries()):
+    for entry in results.entries():
 
         # panel
         el = entry.tag('code')
@@ -32,7 +32,7 @@ def results(ccda):
         tests = entry.els_by_tag('observation')
         tests_data = wrappers.ListWrapper()
 
-        for observation in tests:
+        for i, observation in ccda_enum(tests, ccda):
 
             date = parse_date(observation.tag('effectiveTime').attr('value'))
 
@@ -59,11 +59,12 @@ def results(ccda):
             el = observation.tag('value')
             # value = el.attr('value')  # old code
             # unit = el.attr('unit')
-            # if el.val() is not None and el.attr('unit') is None and el.attr("xsi:type") in documents.unstructerdValueTypes :
+            # if el.val() is not None and el.attr('unit') is None and \
+            # el.attr("xsi:type") in documents.unstructerdValueTypes :
             if el.attr("xsi:type") in documents.unstructerdValueTypes and \
                     el.val() is not None:
                 # manual parse value tag
-                value, unit = documents.extractUnit(el.val())
+                value, unit = documents.extract_uom(el.val())
             else:
                 value = el.attr('value')
                 unit = el.attr('unit')

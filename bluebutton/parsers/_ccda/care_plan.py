@@ -5,7 +5,7 @@
 ###############################################################################
 
 from bluebutton import core
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 
 
 def care_plan(ccda):
@@ -14,7 +14,7 @@ def care_plan(ccda):
 
     care_plan = ccda.section('care_plan')
 
-    for i, entry in enumerate(care_plan.entries()):
+    for i, entry in ccda_enum(care_plan.entries(), ccda):
 
         name = None
         code = None

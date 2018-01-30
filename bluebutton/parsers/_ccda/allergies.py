@@ -9,7 +9,7 @@ Parser for the CCDA allergies section
 """
 
 from ...documents import parse_date
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import core
 
 
@@ -19,7 +19,7 @@ def allergies(ccda):
 
     allergies = ccda.section('allergies')
 
-    for i, entry in enumerate(allergies.entries()):
+    for i, entry in ccda_enum(allergies.entries(), ccda):
 
         el = entry.tag('effectiveTime')
         start_date = parse_date(el.tag('low').attr('value'))

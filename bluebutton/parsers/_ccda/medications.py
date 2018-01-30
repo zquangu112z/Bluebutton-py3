@@ -8,7 +8,7 @@
 Parser for the CCDA medications section
 """
 
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import core
 from ... import documents
 
@@ -20,7 +20,7 @@ def medications(ccda):
 
     medications = ccda.section('medications')
 
-    for i, entry in enumerate(medications.entries()):
+    for i, entry in ccda_enum(medications.entries(), ccda):
 
         el = entry.tag('text')
         sig = core.strip_whitespace(el.val())

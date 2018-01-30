@@ -8,7 +8,7 @@
 Parser for the CCDA encounters section
 """
 
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ...documents import parse_address, parse_date
 
 
@@ -18,7 +18,7 @@ def encounters(ccda):
 
     encounters = ccda.section('encounters')
 
-    for i, entry in enumerate(encounters.entries()):
+    for i, entry in ccda_enum(encounters.entries(), ccda):
 
         date = parse_date(entry.tag('effectiveTime').attr('value'))
 

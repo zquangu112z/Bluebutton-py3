@@ -8,7 +8,7 @@
 Parser for the CCDA problems section
 """
 
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 from ... import core
 from ... import documents
 
@@ -20,7 +20,7 @@ def problems(ccda):
 
     problems = ccda.section('problems')
 
-    for i, problem_entry in enumerate(problems.entries()):
+    for i, problem_entry in ccda_enum(problems.entries(), ccda):
 
         entry = problem_entry.tag('act')
         el = entry.tag('effectiveTime')

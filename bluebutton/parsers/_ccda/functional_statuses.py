@@ -8,7 +8,7 @@
 Parser for the CCDA functional & cognitive status
 """
 from ... import documents
-from ...core import wrappers
+from ...core import wrappers, ccda_enum
 
 
 def functional_statuses(ccda):
@@ -18,7 +18,7 @@ def functional_statuses(ccda):
 
     statuses = ccda.section('functional_statuses')
 
-    for i, entry in enumerate(statuses.entries()):
+    for i, entry in ccda_enum(statuses.entries(), ccda):
 
         date = parse_date(entry.tag('effectiveTime').attr('value'))
 
