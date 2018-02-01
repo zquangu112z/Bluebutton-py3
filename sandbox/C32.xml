@@ -1,0 +1,1902 @@
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 http://xreg2.nist.gov:8080/hitspValidation/schema/cdar2c32/infrastructure/cda/C32_CDA.xsd" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <realmCode code="US" />
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <templateId root="2.16.840.1.113883.3.27.1776" assigningAuthorityName="CDA/R2" />
+  <templateId root="2.16.840.1.113883.10.20.3" assigningAuthorityName="HL7/CDT Header" />
+  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.1" assigningAuthorityName="IHE/PCC" />
+  <templateId root="2.16.840.1.113883.3.88.11.32.1" assigningAuthorityName="HITSP/C32" />
+  <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_CLINICALSUMMARY" extension="4255" assigningAuthorityName="NIST Healthcare Project" />
+  <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Summarization of episode note" />
+  <title>Summarization of  LIZARRAGA MELISSA</title>
+  <effectiveTime value="20160829165615-0700" />
+  <confidentialityCode code="N" />
+  <languageCode code="nn-CC" />
+  <!--*****************************PATIENT MODULE *********************-->
+  <recordTarget typeCode="RCT" contextControlCode="OP">
+    <patientRole>
+      <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_PatientID_4255" extension="4255" />
+      <addr use="HP">
+        <streetAddressLine>4921 E SAN JUAN ST</streetAddressLine>
+        <city>COMPTON</city>
+        <state>CA</state>
+        <postalCode>90221</postalCode>
+        <country>US</country>
+      </addr>
+      <telecom value="tel:+1-562-508-2406" use="HP" />
+      <patient>
+        <name use="L">
+          <prefix>Ms.</prefix>
+          <given qualifier="CL">MELISSA</given>
+          <family qualifier="BR">LIZARRAGA</family>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7 AdministrativeGenderCodes" displayName="Female">
+        </administrativeGenderCode>
+        <birthTime value="20080604" />
+        <maritalStatusCode code="S" codeSystem="2.16.840.1.113883.5.2" codeSystemName="MaritalStatusCode" displayName="Never Married" />
+        <religiousAffiliationCode nullFlavor="NI" />
+        <raceCode code="2106-3" codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDC Race and Ethnicity" displayName="White" />
+        <ethnicGroupCode code="2135-2" codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDC Race and Ethnicity" displayName="Hispanic or Latino" />
+        <languageCommunication>
+          <templateId root="2.16.840.1.113883.3.88.11.83.2" assigningAuthorityName="HITSP/C83" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.1" assigningAuthorityName="IHE/PCC" />
+          <languageCode code="eng" />
+          <preferenceInd value="true" />
+        </languageCommunication>
+        <guardian>
+          <Code code="MTH" codeSystem="2.16.840.1.113883.5.111" codeSystemName="RoleCode" displayName="Mother">
+          </Code>
+          <addr use="HP">
+            <streetAddressLine>4921 E SAN JUAN ST</streetAddressLine>
+            <city>COMPTON</city>
+            <state>CA</state>
+            <postalCode>90221</postalCode>
+            <country>US</country>
+          </addr>
+          <telecom value="tel:+1-562-508-2406" use="HP" />
+          <guardianPerson>
+            <name use="L">
+              <given qualifier="CL">Roxanne</given>
+              <family qualifier="BR">Ojeda</family>
+            </name>
+          </guardianPerson>
+        </guardian>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <!--*****************************AUTHOR INFORMATION**************************-->
+  <author>
+    <time value="20160829165148" />
+    <assignedAuthor>
+      <id root="" extension="" />
+      <addr>
+        <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
+        <city>Paramount</city>
+        <state>CA</state>
+        <postalCode>90723</postalCode>
+        <country />
+      </addr>
+      <telecom value="tel:+1-562-633-5438" />
+      <assignedPerson>
+        <name>
+          <prefix />
+          <given>Bryan</given>
+          <family>Santoyo</family>
+          <suffix />
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id extension="ccf2ae98-71c7-414f-8086-69a0bbd893be" />
+        <name>J &amp;  L DE LEON MEDICAL CORP.</name>
+        <telecom value="tel:+1-562-633-5438" />
+        <addr>
+          <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
+          <city>Paramount</city>
+          <state>CA</state>
+          <postalCode>90723-5469</postalCode>
+          <country />
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <!--*****************************CUSTODIAN INFORMATION**************************-->
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id extension="38fbbbf4-b552-48c5-9a0b-c50af40e9439" />
+        <name>J &amp;  L DE LEON MEDICAL CORP.</name>
+        <telecom value="tel:+1-562-633-5438" />
+        <addr>
+          <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
+          <city>Paramount</city>
+          <state>CA</state>
+          <postalCode>90723-5469</postalCode>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <!--*****************************HEALTHCARE PROVIDER MODULE*********************-->
+  <documentationOf>
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="20160427" />
+        <high value="20160427" />
+      </effectiveTime>
+      <performer typeCode="PRF">
+        <templateId root="2.16.840.1.113883.3.88.11.83.4" assigningAuthorityName="HITSP/C83" />
+        <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.3" assigningAuthorityName="IHE/PCC" />
+        <functionCode code="PP" displayName="Primary Care Provider" codeSystemName="Provider Role" codeSystem="2.16.840.1.113883.12.443" />
+        <time>
+          <low value="1115" />
+          <high value="1115" />
+        </time>
+        <assignedEntity>
+          <id extension="af8f2af5-ff55-4ecc-9de8-2af946305318" />
+          <addr>
+            <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
+            <city>Paramount</city>
+            <state>CA</state>
+            <postalCode>90723-5469</postalCode>
+            <country>USA</country>
+          </addr>
+          <telecom />
+          <assignedPerson>
+            <name>
+              <prefix>Dr.</prefix>
+              <given>LIBERATION</given>
+              <family>DE LEON</family>
+              <suffix>
+              </suffix>
+            </name>
+          </assignedPerson>
+          <representedOrganization>
+            <id extension="02c55d07-4a23-4a76-81c6-ab2e03dc6160" />
+            <name>J &amp;  L DE LEON MEDICAL CORP.</name>
+            <telecom value="tel:+1-562-633-5438" />
+            <addr>
+              <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
+              <city>Paramount</city>
+              <state>CA</state>
+              <postalCode>90723-5469</postalCode>
+            </addr>
+          </representedOrganization>
+        </assignedEntity>
+      </performer>
+    </serviceEvent>
+  </documentationOf>
+  <component>
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+      <!--*****************************CONDITION MODULE*********************-->
+      <component>
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.3.88.11.83.103" assigningAuthorityName="HITSP/C83" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.6" assigningAuthorityName="IHE PCC" />
+          <templateId root="2.16.840.1.113883.10.20.1.11" assigningAuthorityName="HL7 CCD" />
+          <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Problem list" />
+          <title>Conditions or Problems</title>
+          <text mediaType="text/x-hl7-text+xml">
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Patient Problem</th>
+                  <th>SNOMED CT</th>
+                  <th>ICD-9 Code</th>
+                  <th>Date Diagnosed </th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ID="problem-21364">
+                  <td>
+                  </td>
+                  <td>Hyperglycemia, unspecified</td>
+                  <td>
+                  </td>
+                  <td>R73.9</td>
+                  <td>20151201</td>
+                  <td>Active</td>
+                </tr>
+                <tr ID="problem-24299">
+                  <td>
+                  </td>
+                  <td>Other viral agents as the cause of diseases classified elsewhere</td>
+                  <td>
+                  </td>
+                  <td>B97.89</td>
+                  <td>20160401</td>
+                  <td>Active</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId assigningAuthorityName="HITSP C83" root="2.16.840.1.113883.3.88.11.83.7" />
+              <templateId assigningAuthorityName="CCD" root="2.16.840.1.113883.10.20.1.27" />
+              <templateId assigningAuthorityName="IHE PCC" root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId assigningAuthorityName="IHE PCC" root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_ProblemID_21364" extension="21364" />
+              <code nullFlavor="NA" />
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20151201" />
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId assigningAuthorityName="HL7 CCD" root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId assigningAuthorityName="IHE PCC" root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_ProblemID_21364" extension="21364" />
+                  <translation code="R73.9" codeSystem="2.16.840.1.113883.6.103" displayName="Hyperglycemia, unspecified" />
+                  <text>Hyperglycemia, unspecified<reference value="#problem-21364" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20151201" />
+                  </effectiveTime>
+                  <value xsi:type="CD" />
+                  <originalText>
+                    <reference value="#problem-21364" />
+                  </originalText>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.50" />
+                      <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="SNOMED CT" displayName="Status" />
+                      <text>Active<reference value="#problem-21364" /></text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId assigningAuthorityName="HITSP C83" root="2.16.840.1.113883.3.88.11.83.7" />
+              <templateId assigningAuthorityName="CCD" root="2.16.840.1.113883.10.20.1.27" />
+              <templateId assigningAuthorityName="IHE PCC" root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" />
+              <templateId assigningAuthorityName="IHE PCC" root="1.3.6.1.4.1.19376.1.5.3.1.4.5.2" />
+              <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_ProblemID_24299" extension="24299" />
+              <code nullFlavor="NA" />
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="20160401" />
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="false">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId assigningAuthorityName="HL7 CCD" root="2.16.840.1.113883.10.20.1.28" />
+                  <templateId assigningAuthorityName="IHE PCC" root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                  <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_ProblemID_24299" extension="24299" />
+                  <translation code="B97.89" codeSystem="2.16.840.1.113883.6.103" displayName="Other viral agents as the cause of diseases classified elsewhere" />
+                  <text>Other viral agents as the cause of diseases classified elsewhere<reference value="#problem-24299" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low value="20160401" />
+                  </effectiveTime>
+                  <value xsi:type="CD" />
+                  <originalText>
+                    <reference value="#problem-24299" />
+                  </originalText>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.50" />
+                      <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="SNOMED CT" displayName="Status" />
+                      <text>Active<reference value="#problem-24299" /></text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!--*****************************ALLERGY MODULE************************-->
+      <component>
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.3.88.11.83.102" assigningAuthorityName="HITSP/C83" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.13" assigningAuthorityName="IHE PCC" />
+          <templateId root="2.16.840.1.113883.10.20.1.2" assigningAuthorityName="HL7 CCD" />
+          <!--Allergies/Reactions section template-->
+          <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies" />
+          <text mediaType="text/x-hl7-text+xml">
+            <content ID="noallergies">
+No Known Drug Allergies
+</content>
+          </text>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.3.88.11.83.6" assigningAuthorityName="HITSP C83" />
+              <templateId root="2.16.840.1.113883.10.20.1.27" assigningAuthorityName="CCD" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.1" assigningAuthorityName="IHE PCC" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5.3" assigningAuthorityName="IHE PCC" />
+              <!--Allergy act template -->
+              <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_AllergyID_999999" extension="999999" />
+              <code xsi:type="CE" nullFlavor="NA" />
+              <statusCode code="active" />
+              <effectiveTime>
+                <low value="UNK" />
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ" inversionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.18" />
+                  <templateId root="2.16.840.1.113883.10.20.1.28" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" assigningAuthorityName="IHE PCC" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.6" assigningAuthorityName="IHE PCC" />
+                  <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_AllergyID_999999" extension="999999" />
+                  <code xsi:type="CE" code="409137002" codeSystem="2.16.840.1.113883.6.96" displayName="No Known Drug Allergies" />
+                  <text> No Known Drug Allergies <reference value="allergy-999999" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime>
+                    <low nullFlavor="UNK" />
+                  </effectiveTime>
+                  <value xsi:type="CD" code="409137002" codeSystem="2.16.840.1.113883.6.96" displayName="No Known Drug Allergies">
+                    <originalText>
+                      <reference value="#noallergies" />
+                    </originalText>
+                  </value>
+                  <entryRelationship typeCode="REFR" inversionInd="false">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.1.39" />
+                      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.1.1" />
+                      <!--Alert status observation template -->
+                      <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status" />
+                      <text>Active<reference value="#55561003" /></text>
+                      <statusCode code="completed" />
+                      <value xsi:type="CE" code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active" />
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <!--*****************************MEDICATION MODULE*********************-->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.3.88.11.83.112" assigningAuthorityName="HITSP/C83" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.19" assigningAuthorityName="IHE PCC" />
+          <templateId root="2.16.840.1.113883.10.20.1.8" assigningAuthorityName="HL7 CCD" />
+          <!--Medications section template-->
+          <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of medication use" />
+          <title>Medications</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>RxNorm Code</th>
+                  <th>Medication</th>
+                  <th>Dose</th>
+                  <th>Route</th>
+                  <th>Frequency</th>
+                  <th>Patient Instructions</th>
+                  <th>Status</th>
+                  <th>Start Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ID="medication-1865cf9d-1f1d-4009-8cb6-a5782fa66138">
+                  <td>876690</td>
+                  <td>ZOFRAN ODT 4 mg Tablet Dispersible</td>
+                  <td>1 tab</td>
+                  <td>ORAL</td>
+                  <td>Q6h</td>
+                  <td>
+                  </td>
+                  <td>Active</td>
+                  <td>4/27/2016 11:51:49 AM</td>
+                </tr>
+                <tr ID="medication-bbbf3265-849a-4267-83c9-98a74b72ef29">
+                  <td>992446</td>
+                  <td>Phenergan 12.5 mg Suppository</td>
+                  <td>1 suppository</td>
+                  <td>RECTAL</td>
+                  <td>Q6h</td>
+                  <td>prn</td>
+                  <td>Active</td>
+                  <td>4/29/2016 9:57:27 AM</td>
+                </tr>
+                <tr ID="medication-3ca4475e-876b-4afc-b367-a96ab2ed5455">
+                  <td>
+                  </td>
+                  <td>Tylenol Childrens Cold/Cough (O)</td>
+                  <td>
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                  </td>
+                  <td>Complete</td>
+                  <td>
+                  </td>
+                </tr>
+                <tr ID="medication-d02c4ddd-bbba-42a2-9e57-4c45a3e460f6">
+                  <td>991528</td>
+                  <td>promethazine-DM 6.25-15 MG/5ML Syrup</td>
+                  <td>5 ml</td>
+                  <td>ORAL</td>
+                  <td>TID</td>
+                  <td>
+                  </td>
+                  <td>Complete</td>
+                  <td>9/11/2015 11:36:33 AM</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.3.88.11.83.8" assigningAuthorityName="HITSP C83" />
+              <templateId root="2.16.840.1.113883.10.20.1.24" assigningAuthorityName="CCD" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" assigningAuthorityName="IHE PCC" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" assigningAuthorityName="IHE PCC" />
+              <!--Medication activity template -->
+              <id extension="306a7df3-1ab3-416a-8930-e31e3ac4548e" />
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20160427" />
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" operator="A" institutionSpecified="false">
+                <period value="Q6h" unit="0" />
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="FDA RouteOfAdministration" displayName="ORAL">
+              </routeCode>
+              <doseQuantity value="1" unit="tab" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.2" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" assigningAuthorityName="IHE PCC" />
+                  <!-- Product template -->
+                  <manufacturedMaterial>
+                    <code code="876690" codeSystem="2.16.840.1.113883.6.88" displayName="ZOFRAN ODT 4 mg Tablet Dispersible" codeSystemName="RxNorm">
+                      <originalText>ZOFRAN ODT 4 mg Tablet Dispersible<reference /></originalText>
+                    </code>
+                    <name>ZOFRAN ODT</name>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.47" />
+                  <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <value xsi:type="CE" code="55561003" displayName="Active" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+                </observation>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.1.34" assigningAuthorityName="CCD" />
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.3" assigningAuthorityName="HITSP C83" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3" assigningAuthorityName="IHE PCC" />
+                  <id extension="d9f3b228-bd81-498d-8ad0-cbb192569895" />
+                  <statusCode code="completed" />
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="20160427" />
+                    <high nullFlavor="UNK" />
+                  </effectiveTime>
+                  <repeatNumber value="0" />
+                  <quantity value="12.0" unit="Tablet" />
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.1" assigningAuthorityName="HITSP C83" />
+                  <code code="329505003" codeSystem="2.16.840.1.113883.6.96" displayName="Over the counter product" />
+                </observation>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.3.88.11.83.8" assigningAuthorityName="HITSP C83" />
+              <templateId root="2.16.840.1.113883.10.20.1.24" assigningAuthorityName="CCD" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" assigningAuthorityName="IHE PCC" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" assigningAuthorityName="IHE PCC" />
+              <!--Medication activity template -->
+              <id extension="bfa4084a-0c03-4265-802e-d3ac259c30ab" />
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20160429" />
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" operator="A" institutionSpecified="false">
+                <period value="Q6h" unit="0" />
+              </effectiveTime>
+              <routeCode code="C38295" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="FDA RouteOfAdministration" displayName="RECTAL">
+              </routeCode>
+              <doseQuantity value="1" unit="suppository" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.2" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" assigningAuthorityName="IHE PCC" />
+                  <!-- Product template -->
+                  <manufacturedMaterial>
+                    <code code="992446" codeSystem="2.16.840.1.113883.6.88" displayName="Phenergan 12.5 mg Suppository" codeSystemName="RxNorm">
+                      <originalText>Phenergan 12.5 mg Suppository<reference /></originalText>
+                    </code>
+                    <name>Phenergan</name>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.47" />
+                  <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <value xsi:type="CE" code="55561003" displayName="Active" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+                </observation>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.1.34" assigningAuthorityName="CCD" />
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.3" assigningAuthorityName="HITSP C83" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3" assigningAuthorityName="IHE PCC" />
+                  <id extension="779400a7-e646-42ec-85f3-2ce2b7534ac9" />
+                  <statusCode code="completed" />
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="20160429" />
+                    <high nullFlavor="UNK" />
+                  </effectiveTime>
+                  <repeatNumber value="0" />
+                  <quantity value="1.0" unit="Suppository" />
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.1" assigningAuthorityName="HITSP C83" />
+                  <code code="73639000" codeSystem="2.16.840.1.113883.6.96" displayName="Prescription Drug" />
+                </observation>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.3.88.11.83.8" assigningAuthorityName="HITSP C83" />
+              <templateId root="2.16.840.1.113883.10.20.1.24" assigningAuthorityName="CCD" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" assigningAuthorityName="IHE PCC" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" assigningAuthorityName="IHE PCC" />
+              <!--Medication activity template -->
+              <id extension="ce5c6148-7477-4c7b-afee-a61815693dec" />
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="UNK" />
+                <high value="20151228" />
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" operator="A" institutionSpecified="false">
+                <period value="" unit="" />
+              </effectiveTime>
+              <routeCode code="" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="FDA RouteOfAdministration" displayName="">
+              </routeCode>
+              <doseQuantity value="" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.2" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" assigningAuthorityName="IHE PCC" />
+                  <!-- Product template -->
+                  <manufacturedMaterial>
+                    <code code="" codeSystem="2.16.840.1.113883.6.88" displayName="Tylenol Childrens Cold/Cough (O)" codeSystemName="RxNorm">
+                      <originalText>
+                        <reference />
+                      </originalText>
+                    </code>
+                    <name>
+                    </name>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.47" />
+                  <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <value xsi:type="CE" code="73425007" displayName="No Longer Active" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+                </observation>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.1.34" assigningAuthorityName="CCD" />
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.3" assigningAuthorityName="HITSP C83" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3" assigningAuthorityName="IHE PCC" />
+                  <id extension="9511a822-80ee-4740-b31e-9fafbdd10604" />
+                  <statusCode code="completed" />
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="" />
+                    <high nullFlavor="UNK" />
+                  </effectiveTime>
+                  <repeatNumber value="0" />
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.1" assigningAuthorityName="HITSP C83" />
+                  <code code="329505003" codeSystem="2.16.840.1.113883.6.96" displayName="Over the counter product" />
+                </observation>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.3.88.11.83.8" assigningAuthorityName="HITSP C83" />
+              <templateId root="2.16.840.1.113883.10.20.1.24" assigningAuthorityName="CCD" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7" assigningAuthorityName="IHE PCC" />
+              <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.1" assigningAuthorityName="IHE PCC" />
+              <!--Medication activity template -->
+              <id extension="33aaa36b-3a10-4090-8b69-fbe45fcb8be3" />
+              <statusCode code="completed" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low value="20150911" />
+                <high value="20151228" />
+              </effectiveTime>
+              <effectiveTime xsi:type="PIVL_TS" operator="A" institutionSpecified="false">
+                <period value="TID" unit="0" />
+              </effectiveTime>
+              <routeCode code="C38288" codeSystem="2.16.840.1.113883.3.26.1.1" codeSystemName="FDA RouteOfAdministration" displayName="ORAL">
+              </routeCode>
+              <doseQuantity value="5" unit="ml" />
+              <consumable>
+                <manufacturedProduct>
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.2" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.53" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" assigningAuthorityName="IHE PCC" />
+                  <!-- Product template -->
+                  <manufacturedMaterial>
+                    <code code="991528" codeSystem="2.16.840.1.113883.6.88" displayName="promethazine-DM 6.25-15 MG/5ML Syrup" codeSystemName="RxNorm">
+                      <originalText>promethazine-DM 6.25-15 MG/5ML Syrup<reference /></originalText>
+                    </code>
+                    <name>promethazine-DM</name>
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+              <entryRelationship typeCode="REFR">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.1.47" />
+                  <code code="33999-4" displayName="Status" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <value xsi:type="CE" code="73425007" displayName="No Longer Active" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+                </observation>
+              </entryRelationship>
+              <entryRelationship typeCode="REFR">
+                <supply classCode="SPLY" moodCode="INT">
+                  <templateId root="2.16.840.1.113883.10.20.1.34" assigningAuthorityName="CCD" />
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.3" assigningAuthorityName="HITSP C83" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.3" assigningAuthorityName="IHE PCC" />
+                  <id extension="1d97ab33-ea9c-44c4-8c0f-adc58758fadf" />
+                  <statusCode code="completed" />
+                  <effectiveTime xsi:type="IVL_TS">
+                    <low value="20150911" />
+                    <high nullFlavor="UNK" />
+                  </effectiveTime>
+                  <repeatNumber value="0" />
+                  <quantity value="240.0" unit="Milliliter" />
+                </supply>
+              </entryRelationship>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.8.1" assigningAuthorityName="HITSP C83" />
+                  <code code="329505003" codeSystem="2.16.840.1.113883.6.96" displayName="Over the counter product" />
+                </observation>
+              </entryRelationship>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <!--*****************************RESULTS MODULE************************-->
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.3.88.11.83.122" assigningAuthorityName="HITSP/C83" />
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.28" assigningAuthorityName="IHE PCC" />
+          <!--Diagnostic Results section template-->
+          <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Results" />
+          <title>Test Results</title>
+          <text>
+            <paragraph>Lab Results</paragraph>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>LOINC Code</th>
+                  <th>Lab Test</th>
+                  <th>Normal Range</th>
+                  <th>Result</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ID="result-06bf2b4c-d545-44d5-89c6-19ca55b556ea">
+                  <td>Chemistry</td>
+                  <td>005025</td>
+                  <td>WBC</td>
+                  <td>4.3-12.4</td>
+                  <td>9.2 x10E3/uL</td>
+                  <td>12.Sep.2015</td>
+                </tr>
+                <tr ID="result-3d99bdc3-7e23-4ffc-a5b1-c83605df6585">
+                  <td>Chemistry</td>
+                  <td>013060</td>
+                  <td>Specific Gravity</td>
+                  <td>1.005-1.030</td>
+                  <td>1.031 </td>
+                  <td>12.Sep.2015</td>
+                </tr>
+                <tr ID="result-d9920318-a60b-459a-a641-38b1b2b8e974">
+                  <td>Chemistry</td>
+                  <td>013128</td>
+                  <td>WBC</td>
+                  <td>0 -  5</td>
+                  <td>6-10 /hpf</td>
+                  <td>12.Sep.2015</td>
+                </tr>
+                <tr ID="result-82e008a4-77ff-466d-8eb9-8cfec3d1837f">
+                  <td>Chemistry</td>
+                  <td>005025</td>
+                  <td>WBC</td>
+                  <td>4.3-12.4</td>
+                  <td>7.2 x10E3/uL</td>
+                  <td>10.Dec.2015</td>
+                </tr>
+                <tr ID="result-d3dc02d6-9a87-4b38-aa66-68105a9feb66">
+                  <td>Chemistry</td>
+                  <td>001032</td>
+                  <td>Glucose, Serum</td>
+                  <td>65-99</td>
+                  <td>131 mg/dL</td>
+                  <td>10.Dec.2015</td>
+                </tr>
+                <tr ID="result-238eabae-f203-47ae-82a0-02d8da99333b">
+                  <td>Chemistry</td>
+                  <td>013060</td>
+                  <td>Specific Gravity</td>
+                  <td>1.005-1.030</td>
+                  <td>1.030 </td>
+                  <td>10.Dec.2015</td>
+                </tr>
+                <tr ID="result-84e528d0-6ce9-454c-843f-0fdb9fb07d9a">
+                  <td>Chemistry</td>
+                  <td>013128</td>
+                  <td>WBC</td>
+                  <td>0 -  5</td>
+                  <td>11-30 /hpf</td>
+                  <td>10.Dec.2015</td>
+                </tr>
+                <tr ID="result-d5a5200e-1fea-48d4-9370-4dfb06abdbc0">
+                  <td>Chemistry</td>
+                  <td>004264</td>
+                  <td>TSH</td>
+                  <td>0.600-4.840</td>
+                  <td>2.770 uIU/mL</td>
+                  <td>10.Dec.2015</td>
+                </tr>
+                <tr ID="result-a26ad2fe-ea2f-4b89-bb3d-9fec9efb733c">
+                  <td>Chemistry</td>
+                  <td>005215</td>
+                  <td>Sedimentation Rate-Westergren</td>
+                  <td>0-32</td>
+                  <td>3 mm/hr</td>
+                  <td>10.Dec.2015</td>
+                </tr>
+                <tr ID="result-f1b12ec1-b5b9-430b-9922-e070e45504db">
+                  <td>Chemistry</td>
+                  <td>001396</td>
+                  <td>Amylase, Serum</td>
+                  <td>31-124</td>
+                  <td>60 U/L</td>
+                  <td>10.Dec.2015</td>
+                </tr>
+                <tr ID="result-9705b346-93dc-4939-889c-8098299824d3">
+                  <td>Chemistry</td>
+                  <td>001404</td>
+                  <td>Lipase, Serum</td>
+                  <td>0-59</td>
+                  <td>27 U/L</td>
+                  <td>10.Dec.2015</td>
+                </tr>
+                <tr ID="result-cb4585f0-1bde-47f8-92a7-b283e654fb26">
+                  <td>Chemistry</td>
+                  <td>010991</td>
+                  <td>pH, Stool</td>
+                  <td>7.0-7.5</td>
+                  <td>7.0 </td>
+                  <td>18.Dec.2015</td>
+                </tr>
+                <tr ID="result-aa883500-b98d-4a11-b6e1-9a75a30eb310">
+                  <td>Chemistry</td>
+                  <td>182950</td>
+                  <td>Occult Blood, Fecal, IA</td>
+                  <td>Negative</td>
+                  <td>Negative </td>
+                  <td>12.Dec.2015</td>
+                </tr>
+                <tr ID="result-d90bb907-ff9a-46d3-81ff-131ae75c3f61">
+                  <td>Chemistry</td>
+                  <td>008623</td>
+                  <td>Ova + Parasite Exam</td>
+                  <td>
+                  </td>
+                  <td>Final report </td>
+                  <td>17.Dec.2015</td>
+                </tr>
+                <tr ID="result-e0d79b8e-b882-48a0-835e-91f31ba5dbf2">
+                  <td>Chemistry</td>
+                  <td>008656</td>
+                  <td>White Blood Cells (WBC), Stool</td>
+                  <td>None Seen</td>
+                  <td>Final report </td>
+                  <td>15.Dec.2015</td>
+                </tr>
+                <tr ID="result-4c7a8855-5f46-4d06-8111-2bdef611ab05">
+                  <td>Chemistry</td>
+                  <td>001032</td>
+                  <td>Glucose, Serum</td>
+                  <td>
+                  </td>
+                  <td>TNP mg/dL</td>
+                  <td>18.Dec.2015</td>
+                </tr>
+                <tr ID="result-48764a71-85b7-4bc4-b875-739f992e0ddf">
+                  <td>Chemistry</td>
+                  <td>001481</td>
+                  <td>Hemoglobin A1c</td>
+                  <td>4.8-5.6</td>
+                  <td>5.5 %</td>
+                  <td>18.Dec.2015</td>
+                </tr>
+                <tr ID="result-00b5250b-8638-4c11-a3c7-7fd98904fd67">
+                  <td>Chemistry</td>
+                  <td>100552</td>
+                  <td>Request Problem</td>
+                  <td>
+                  </td>
+                  <td>TNP </td>
+                  <td>18.Dec.2015</td>
+                </tr>
+                <tr ID="result-ca36246f-5969-4b1a-b78a-69466cc11bdd">
+                  <td>Chemistry</td>
+                  <td>001032</td>
+                  <td>Glucose, Serum</td>
+                  <td>65-99</td>
+                  <td>75 mg/dL</td>
+                  <td>19.Dec.2015</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="977709" codeSystem="2.16.840.1.113883.6.1" displayName="CBC/Diff Ambiguous Default" />
+              <statusCode code="completed" />
+              <effectiveTime value="20150912" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="e7296cd5-72c9-47de-ae2a-dd24a905c5aa" />
+                  <code code="977709" codeSystem="2.16.840.1.113883.6.1" displayName="CBC/Diff Ambiguous Default">
+                    <originalText>CBC/Diff Ambiguous Default<reference value="result-06bf2b4c-d545-44d5-89c6-19ca55b556ea" /></originalText>
+                  </code>
+                  <text>CBC/Diff Ambiguous Default<reference value="result-06bf2b4c-d545-44d5-89c6-19ca55b556ea" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20150912" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="3d44c8a0-00cc-4ced-b91a-d9a60c909507" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="e7296cd5-72c9-47de-ae2a-dd24a905c5aa" />
+                  <code code="005025" codeSystem="2.16.840.1.113883.6.1" displayName="WBC" />
+                  <text>
+                    <reference value="result-06bf2b4c-d545-44d5-89c6-19ca55b556ea" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20150912" />
+                  <value xsi:type="PQ" value="9.2" unit="x10E3/uL" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="4.3" unit="x10E3/uL" />
+                        <high value="12.4" unit="x10E3/uL" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="003772" codeSystem="2.16.840.1.113883.6.1" displayName="Urinalysis, Complete" />
+              <statusCode code="completed" />
+              <effectiveTime value="20150912" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="d71bab71-8b22-4e58-b555-4feb3c025262" />
+                  <code code="003772" codeSystem="2.16.840.1.113883.6.1" displayName="Urinalysis, Complete">
+                    <originalText>Urinalysis, Complete<reference value="result-3d99bdc3-7e23-4ffc-a5b1-c83605df6585" /></originalText>
+                  </code>
+                  <text>Urinalysis, Complete<reference value="result-3d99bdc3-7e23-4ffc-a5b1-c83605df6585" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20150912" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="c80ba30c-8c19-46f3-bfe9-b7a907381e2b" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="d71bab71-8b22-4e58-b555-4feb3c025262" />
+                  <code code="013060" codeSystem="2.16.840.1.113883.6.1" displayName="Specific Gravity" />
+                  <text>
+                    <reference value="result-3d99bdc3-7e23-4ffc-a5b1-c83605df6585" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20150912" />
+                  <value xsi:type="PQ" value="1.031" />
+                  <interpretationCode code="H" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="1.005" />
+                        <high value="1.030" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="333328" codeSystem="2.16.840.1.113883.6.1" displayName="Urinalysis, Complete - Microscopic Examination" />
+              <statusCode code="completed" />
+              <effectiveTime value="20150912" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="39187447-92e4-49e9-894f-9b124c4df8b7" />
+                  <code code="333328" codeSystem="2.16.840.1.113883.6.1" displayName="Urinalysis, Complete - Microscopic Examination">
+                    <originalText>Urinalysis, Complete - Microscopic Examination<reference value="result-d9920318-a60b-459a-a641-38b1b2b8e974" /></originalText>
+                  </code>
+                  <text>Urinalysis, Complete - Microscopic Examination<reference value="result-d9920318-a60b-459a-a641-38b1b2b8e974" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20150912" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="54e0b55c-2a70-4352-bf9c-db8126b8ef42" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="39187447-92e4-49e9-894f-9b124c4df8b7" />
+                  <code code="013128" codeSystem="2.16.840.1.113883.6.1" displayName="WBC" />
+                  <text>
+                    <reference value="result-d9920318-a60b-459a-a641-38b1b2b8e974" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20150912" />
+                  <value xsi:type="ST">6-10</value>
+                  <interpretationCode code="A" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="0 " unit="/hpf" />
+                        <high value="  5" unit="/hpf" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="005009" codeSystem="2.16.840.1.113883.6.1" displayName="CBC With Differential/Platelet" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151210" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="f6135cf5-8b88-4da0-8a7e-8e1f486d8452" />
+                  <code code="005009" codeSystem="2.16.840.1.113883.6.1" displayName="CBC With Differential/Platelet">
+                    <originalText>CBC With Differential/Platelet<reference value="result-82e008a4-77ff-466d-8eb9-8cfec3d1837f" /></originalText>
+                  </code>
+                  <text>CBC With Differential/Platelet<reference value="result-82e008a4-77ff-466d-8eb9-8cfec3d1837f" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="4caf6b0e-81eb-4d24-bdca-9b209bc64755" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="f6135cf5-8b88-4da0-8a7e-8e1f486d8452" />
+                  <code code="005025" codeSystem="2.16.840.1.113883.6.1" displayName="WBC" />
+                  <text>
+                    <reference value="result-82e008a4-77ff-466d-8eb9-8cfec3d1837f" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <value xsi:type="PQ" value="7.2" unit="x10E3/uL" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="4.3" unit="x10E3/uL" />
+                        <high value="12.4" unit="x10E3/uL" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="322000" codeSystem="2.16.840.1.113883.6.1" displayName="Comp. Metabolic Panel (14)" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151210" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="a52768b7-de1c-4c0e-9db0-a6d3925ce35c" />
+                  <code code="322000" codeSystem="2.16.840.1.113883.6.1" displayName="Comp. Metabolic Panel (14)">
+                    <originalText>Comp. Metabolic Panel (14)<reference value="result-d3dc02d6-9a87-4b38-aa66-68105a9feb66" /></originalText>
+                  </code>
+                  <text>Comp. Metabolic Panel (14)<reference value="result-d3dc02d6-9a87-4b38-aa66-68105a9feb66" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="aece87fd-f96a-4baa-ac07-f1b5aed587ba" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="a52768b7-de1c-4c0e-9db0-a6d3925ce35c" />
+                  <code code="001032" codeSystem="2.16.840.1.113883.6.1" displayName="Glucose, Serum" />
+                  <text>
+                    <reference value="result-d3dc02d6-9a87-4b38-aa66-68105a9feb66" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <value xsi:type="PQ" value="131" unit="mg/dL" />
+                  <interpretationCode code="H" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="65" unit="mg/dL" />
+                        <high value="99" unit="mg/dL" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="003038" codeSystem="2.16.840.1.113883.6.1" displayName="Urinalysis, Routine" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151210" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="2ceb4e1f-6752-42f2-aa19-236aafcec5ae" />
+                  <code code="003038" codeSystem="2.16.840.1.113883.6.1" displayName="Urinalysis, Routine">
+                    <originalText>Urinalysis, Routine<reference value="result-238eabae-f203-47ae-82a0-02d8da99333b" /></originalText>
+                  </code>
+                  <text>Urinalysis, Routine<reference value="result-238eabae-f203-47ae-82a0-02d8da99333b" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="bbbdddf4-5e5e-4d10-9fa0-22ee46818486" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="2ceb4e1f-6752-42f2-aa19-236aafcec5ae" />
+                  <code code="013060" codeSystem="2.16.840.1.113883.6.1" displayName="Specific Gravity" />
+                  <text>
+                    <reference value="result-238eabae-f203-47ae-82a0-02d8da99333b" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <value xsi:type="PQ" value="1.030" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="1.005" />
+                        <high value="1.030" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="333328" codeSystem="2.16.840.1.113883.6.1" displayName="Urinalysis, Routine - Microscopic Examination" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151210" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="222daf7d-d9f8-477e-9f96-a3cfacf72640" />
+                  <code code="333328" codeSystem="2.16.840.1.113883.6.1" displayName="Urinalysis, Routine - Microscopic Examination">
+                    <originalText>Urinalysis, Routine - Microscopic Examination<reference value="result-84e528d0-6ce9-454c-843f-0fdb9fb07d9a" /></originalText>
+                  </code>
+                  <text>Urinalysis, Routine - Microscopic Examination<reference value="result-84e528d0-6ce9-454c-843f-0fdb9fb07d9a" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="495ccf64-736c-4333-9d03-17276a291233" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="222daf7d-d9f8-477e-9f96-a3cfacf72640" />
+                  <code code="013128" codeSystem="2.16.840.1.113883.6.1" displayName="WBC" />
+                  <text>
+                    <reference value="result-84e528d0-6ce9-454c-843f-0fdb9fb07d9a" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <value xsi:type="ST">11-30</value>
+                  <interpretationCode code="A" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="0 " unit="/hpf" />
+                        <high value="  5" unit="/hpf" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="004259" codeSystem="2.16.840.1.113883.6.1" displayName="TSH" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151210" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="b8b9b9b7-2431-4310-87b2-c17b4d004b49" />
+                  <code code="004259" codeSystem="2.16.840.1.113883.6.1" displayName="TSH">
+                    <originalText>TSH<reference value="result-d5a5200e-1fea-48d4-9370-4dfb06abdbc0" /></originalText>
+                  </code>
+                  <text>TSH<reference value="result-d5a5200e-1fea-48d4-9370-4dfb06abdbc0" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="b5b3e066-bdf1-49b6-a4e7-5d6cf7716c82" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="b8b9b9b7-2431-4310-87b2-c17b4d004b49" />
+                  <code code="004264" codeSystem="2.16.840.1.113883.6.1" displayName="TSH" />
+                  <text>
+                    <reference value="result-d5a5200e-1fea-48d4-9370-4dfb06abdbc0" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <value xsi:type="PQ" value="2.770" unit="uIU/mL" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="0.600" unit="uIU/mL" />
+                        <high value="4.840" unit="uIU/mL" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="005215" codeSystem="2.16.840.1.113883.6.1" displayName="Sedimentation Rate-Westergren" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151210" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="97f8205b-8216-4596-aef1-305a44fb595a" />
+                  <code code="005215" codeSystem="2.16.840.1.113883.6.1" displayName="Sedimentation Rate-Westergren">
+                    <originalText>Sedimentation Rate-Westergren<reference value="result-a26ad2fe-ea2f-4b89-bb3d-9fec9efb733c" /></originalText>
+                  </code>
+                  <text>Sedimentation Rate-Westergren<reference value="result-a26ad2fe-ea2f-4b89-bb3d-9fec9efb733c" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="a0713836-ebd5-4cd9-82a1-90cd95a22e9c" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="97f8205b-8216-4596-aef1-305a44fb595a" />
+                  <code code="005215" codeSystem="2.16.840.1.113883.6.1" displayName="Sedimentation Rate-Westergren" />
+                  <text>
+                    <reference value="result-a26ad2fe-ea2f-4b89-bb3d-9fec9efb733c" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <value xsi:type="PQ" value="3" unit="mm/hr" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="0" unit="mm/hr" />
+                        <high value="32" unit="mm/hr" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="001396" codeSystem="2.16.840.1.113883.6.1" displayName="Amylase, Serum" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151210" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="3bfcdf70-07a4-4c28-bfa5-4ca75876a53e" />
+                  <code code="001396" codeSystem="2.16.840.1.113883.6.1" displayName="Amylase, Serum">
+                    <originalText>Amylase, Serum<reference value="result-f1b12ec1-b5b9-430b-9922-e070e45504db" /></originalText>
+                  </code>
+                  <text>Amylase, Serum<reference value="result-f1b12ec1-b5b9-430b-9922-e070e45504db" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="60f21f0c-35aa-4551-9952-e40d9aac5117" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="3bfcdf70-07a4-4c28-bfa5-4ca75876a53e" />
+                  <code code="001396" codeSystem="2.16.840.1.113883.6.1" displayName="Amylase, Serum" />
+                  <text>
+                    <reference value="result-f1b12ec1-b5b9-430b-9922-e070e45504db" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <value xsi:type="PQ" value="60" unit="U/L" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="31" unit="U/L" />
+                        <high value="124" unit="U/L" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="001404" codeSystem="2.16.840.1.113883.6.1" displayName="Lipase, Serum" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151210" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="3d296311-4f0a-42dc-b89d-e09606b2c14f" />
+                  <code code="001404" codeSystem="2.16.840.1.113883.6.1" displayName="Lipase, Serum">
+                    <originalText>Lipase, Serum<reference value="result-9705b346-93dc-4939-889c-8098299824d3" /></originalText>
+                  </code>
+                  <text>Lipase, Serum<reference value="result-9705b346-93dc-4939-889c-8098299824d3" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="ea1330c0-a374-47fd-b002-cf98fce08af6" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="3d296311-4f0a-42dc-b89d-e09606b2c14f" />
+                  <code code="001404" codeSystem="2.16.840.1.113883.6.1" displayName="Lipase, Serum" />
+                  <text>
+                    <reference value="result-9705b346-93dc-4939-889c-8098299824d3" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151210" />
+                  <value xsi:type="PQ" value="27" unit="U/L" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="0" unit="U/L" />
+                        <high value="59" unit="U/L" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="008433" codeSystem="2.16.840.1.113883.6.1" displayName="pH + Reducing Substance,Stool" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151218" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="e8d83814-4366-422c-b026-35982c992fa6" />
+                  <code code="008433" codeSystem="2.16.840.1.113883.6.1" displayName="pH + Reducing Substance,Stool">
+                    <originalText>pH + Reducing Substance,Stool<reference value="result-cb4585f0-1bde-47f8-92a7-b283e654fb26" /></originalText>
+                  </code>
+                  <text>pH + Reducing Substance,Stool<reference value="result-cb4585f0-1bde-47f8-92a7-b283e654fb26" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151218" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="b7bdeeec-dffd-46e8-9852-9a55d60d0a4c" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="e8d83814-4366-422c-b026-35982c992fa6" />
+                  <code code="010991" codeSystem="2.16.840.1.113883.6.1" displayName="pH, Stool" />
+                  <text>
+                    <reference value="result-cb4585f0-1bde-47f8-92a7-b283e654fb26" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151218" />
+                  <value xsi:type="PQ" value="7.0" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="7.0" />
+                        <high value="7.5" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="182949" codeSystem="2.16.840.1.113883.6.1" displayName="Occult Blood, Fecal, IA" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151212" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="006c0565-f36c-40ae-9ca2-018d7de50f1c" />
+                  <code code="182949" codeSystem="2.16.840.1.113883.6.1" displayName="Occult Blood, Fecal, IA">
+                    <originalText>Occult Blood, Fecal, IA<reference value="result-aa883500-b98d-4a11-b6e1-9a75a30eb310" /></originalText>
+                  </code>
+                  <text>Occult Blood, Fecal, IA<reference value="result-aa883500-b98d-4a11-b6e1-9a75a30eb310" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151212" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="248c48ef-aa8f-4802-a759-100f167c4e13" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="006c0565-f36c-40ae-9ca2-018d7de50f1c" />
+                  <code code="182950" codeSystem="2.16.840.1.113883.6.1" displayName="Occult Blood, Fecal, IA" />
+                  <text>
+                    <reference value="result-aa883500-b98d-4a11-b6e1-9a75a30eb310" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151212" />
+                  <value xsi:type="ST">Negative</value>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <text>Negative</text>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="008623" codeSystem="2.16.840.1.113883.6.1" displayName="Ova + Parasite Exam" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151217" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="40761f3a-1b1c-456e-a2a3-0de685f76c6f" />
+                  <code code="008623" codeSystem="2.16.840.1.113883.6.1" displayName="Ova + Parasite Exam">
+                    <originalText>Ova + Parasite Exam<reference value="result-d90bb907-ff9a-46d3-81ff-131ae75c3f61" /></originalText>
+                  </code>
+                  <text>Ova + Parasite Exam<reference value="result-d90bb907-ff9a-46d3-81ff-131ae75c3f61" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151217" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="0cb4bd81-673b-4c18-9b5b-ce791b7e20ea" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="40761f3a-1b1c-456e-a2a3-0de685f76c6f" />
+                  <code code="008623" codeSystem="2.16.840.1.113883.6.1" displayName="Ova + Parasite Exam" />
+                  <text>
+                    <reference value="result-d90bb907-ff9a-46d3-81ff-131ae75c3f61" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151217" />
+                  <value xsi:type="ST">Final report</value>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="008656" codeSystem="2.16.840.1.113883.6.1" displayName="White Blood Cells (WBC), Stool" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151215" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="0cc93783-c0e2-4ef2-95b1-9c5f0ec5365f" />
+                  <code code="008656" codeSystem="2.16.840.1.113883.6.1" displayName="White Blood Cells (WBC), Stool">
+                    <originalText>White Blood Cells (WBC), Stool<reference value="result-e0d79b8e-b882-48a0-835e-91f31ba5dbf2" /></originalText>
+                  </code>
+                  <text>White Blood Cells (WBC), Stool<reference value="result-e0d79b8e-b882-48a0-835e-91f31ba5dbf2" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151215" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="e1c2a8d7-831c-45d7-9d49-7d8246986a26" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="0cc93783-c0e2-4ef2-95b1-9c5f0ec5365f" />
+                  <code code="008656" codeSystem="2.16.840.1.113883.6.1" displayName="White Blood Cells (WBC), Stool" />
+                  <text>
+                    <reference value="result-e0d79b8e-b882-48a0-835e-91f31ba5dbf2" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151215" />
+                  <value xsi:type="ST">Final report</value>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <text>None Seen</text>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="322000" codeSystem="2.16.840.1.113883.6.1" displayName="Comp. Metabolic Panel (14)" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151218" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="72804bce-1b83-4e5b-b209-16d1463975f3" />
+                  <code code="322000" codeSystem="2.16.840.1.113883.6.1" displayName="Comp. Metabolic Panel (14)">
+                    <originalText>Comp. Metabolic Panel (14)<reference value="result-4c7a8855-5f46-4d06-8111-2bdef611ab05" /></originalText>
+                  </code>
+                  <text>Comp. Metabolic Panel (14)<reference value="result-4c7a8855-5f46-4d06-8111-2bdef611ab05" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151218" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="3c68491e-e8ff-4667-8e56-41cf6bf4d52f" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="72804bce-1b83-4e5b-b209-16d1463975f3" />
+                  <code code="001032" codeSystem="2.16.840.1.113883.6.1" displayName="Glucose, Serum" />
+                  <text>
+                    <reference value="result-4c7a8855-5f46-4d06-8111-2bdef611ab05" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151218" />
+                  <value xsi:type="ST">TNP</value>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="102525" codeSystem="2.16.840.1.113883.6.1" displayName="Hgb A1c with eAG Estimation" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151218" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="ed9d7198-f9de-4076-8daf-21da18489f09" />
+                  <code code="102525" codeSystem="2.16.840.1.113883.6.1" displayName="Hgb A1c with eAG Estimation">
+                    <originalText>Hgb A1c with eAG Estimation<reference value="result-48764a71-85b7-4bc4-b875-739f992e0ddf" /></originalText>
+                  </code>
+                  <text>Hgb A1c with eAG Estimation<reference value="result-48764a71-85b7-4bc4-b875-739f992e0ddf" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151218" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="2b881910-f226-4689-af99-717d2e57ee67" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="ed9d7198-f9de-4076-8daf-21da18489f09" />
+                  <code code="001481" codeSystem="2.16.840.1.113883.6.1" displayName="Hemoglobin A1c" />
+                  <text>
+                    <reference value="result-48764a71-85b7-4bc4-b875-739f992e0ddf" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151218" />
+                  <value xsi:type="PQ" value="5.5" unit="%" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="4.8" unit="%" />
+                        <high value="5.6" unit="%" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="100552" codeSystem="2.16.840.1.113883.6.1" displayName="Request Problem" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151218" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="bad867e2-35bf-4771-8886-9d1028b246a9" />
+                  <code code="100552" codeSystem="2.16.840.1.113883.6.1" displayName="Request Problem">
+                    <originalText>Request Problem<reference value="result-00b5250b-8638-4c11-a3c7-7fd98904fd67" /></originalText>
+                  </code>
+                  <text>Request Problem<reference value="result-00b5250b-8638-4c11-a3c7-7fd98904fd67" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151218" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="1317983a-abba-41b2-adc5-a505e6445886" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="bad867e2-35bf-4771-8886-9d1028b246a9" />
+                  <code code="100552" codeSystem="2.16.840.1.113883.6.1" displayName="Request Problem" />
+                  <text>
+                    <reference value="result-00b5250b-8638-4c11-a3c7-7fd98904fd67" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151218" />
+                  <value xsi:type="ST">TNP</value>
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.1.32" />
+              <!--Result organizer template -->
+              <id extension="a40027e0-67a5-11db-bd13-0800200c9a66" />
+              <code code="322000" codeSystem="2.16.840.1.113883.6.1" displayName="Comp. Metabolic Panel (14)" />
+              <statusCode code="completed" />
+              <effectiveTime value="20151219" />
+              <component>
+                <procedure classCode="PROC" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.17" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.29" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.19" assigningAuthorityName="IHE PCC" />
+                  <id extension="19de693e-f908-4413-9c59-01e228c7ac34" />
+                  <code code="322000" codeSystem="2.16.840.1.113883.6.1" displayName="Comp. Metabolic Panel (14)">
+                    <originalText>Comp. Metabolic Panel (14)<reference value="result-ca36246f-5969-4b1a-b78a-69466cc11bdd" /></originalText>
+                  </code>
+                  <text>Comp. Metabolic Panel (14)<reference value="result-ca36246f-5969-4b1a-b78a-69466cc11bdd" /></text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151219" />
+                  <performer>
+                    <assignedEntity>
+                      <id extension="7f4f26f9-e33a-4953-ba07-34081307f405" />
+                      <addr />
+                      <telecom />
+                    </assignedEntity>
+                  </performer>
+                </procedure>
+              </component>
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.3.88.11.83.15.1" assigningAuthorityName="HITSP C83" />
+                  <templateId root="2.16.840.1.113883.10.20.1.31" assigningAuthorityName="CCD" />
+                  <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.13" assigningAuthorityName="IHE PCC" />
+                  <!--Result observation template -->
+                  <id extension="19de693e-f908-4413-9c59-01e228c7ac34" />
+                  <code code="001032" codeSystem="2.16.840.1.113883.6.1" displayName="Glucose, Serum" />
+                  <text>
+                    <reference value="result-ca36246f-5969-4b1a-b78a-69466cc11bdd" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime value="20151219" />
+                  <value xsi:type="PQ" value="75" unit="mg/dL" />
+                  <interpretationCode code="N" codeSystem="2.16.840.1.113883.5.83" />
+                  <referenceRange>
+                    <observationRange>
+                      <value xsi:type="IVL_PQ">
+                        <low value="65" unit="mg/dL" />
+                        <high value="99" unit="mg/dL" />
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>
