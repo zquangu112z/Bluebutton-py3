@@ -1,5 +1,7 @@
+TEST_RUNNER:=PYTHONPATH=./ pytest --self-contained-html
+
 install:
 	python setup.py install
 
 test:
-	PYTHONPATH=./ python sandbox/mytest.py
+	PYTHONPATH=./ pytest sandbox/*.py
