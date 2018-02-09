@@ -7,19 +7,19 @@
     <templateId root="2.16.840.1.113883.10.20.22.1.2" />
     <id root="1.1.1.1.1.1.1.1.1" extension="1013" />
     <code code="34133-9" displayName="Summarization of Episode Note" codeSystem="2.16.840.1.113883.6.1" />
-    <title>BEAUTY SWE, M.D., INC.: Health Summary</title>
+    <title>Summarization of Khanh H</title>
     <effectiveTime value="20170824000512+0700" />
     <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" />
     <languageCode code="en-US" />
     <recordTarget>
         <patientRole>
-            <id root="2.16.840.1.113883.3.6309.1610" extension="1013" />
+            <id root="2.16.840.1.113883.3.6309.1669" extension="6969" />
             <addr use="HP">
-                <streetAddressLine>4827 Grand Ave. </streetAddressLine>
-                <city>La Canada Flt</city>
-                <state>CA</state>
-                <postalCode>91011-2324</postalCode>
-                <country>US</country>
+                <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                <city>Da Nang</city>
+                <state>DN</state>
+                <postalCode>510000</postalCode>
+                <country>VN</country>
             </addr>
             <addr nullFlavor="UNK" />
             <telecom use="HP" value="tel:(818)354-2544" />
@@ -28,9 +28,9 @@
             <telecom value="mailto:mrayman@alumni.princeton.edu" />
             <patient>
                 <name use="L">
-                    <prefix>Mr.</prefix>
-                    <given>MARC</given>
-                    <family>RAYMAN</family>
+                    <prefix>Ms.</prefix>
+                    <given>Khanh</given>
+                    <family>H</family>
                 </name>
                 <administrativeGenderCode code="M" displayName="Male" codeSystem="2.16.840.1.113883.5.1" />
                 <birthTime value="19561010" />
@@ -54,13 +54,13 @@
             <telecom value="tel:(626) 356-4000" />
             <assignedPerson>
                 <name>
-                    <given qualifier="BR">Beauty</given>
-                    <family qualifier="BR">Swe, M.D.</family>
+                    <given qualifier="BR">Hien</given>
+                    <family qualifier="BR">Ho, M.D.</family>
                 </name>
             </assignedPerson>
             <representedOrganization>
                 <id root="1.2.826.0.1.3680043.2.911" />
-                <name>301 S. Fair Oaks Avenue, Suite 203</name>
+                <name>ABX</name>
             </representedOrganization>
         </assignedAuthor>
     </author>
@@ -68,13 +68,14 @@
         <assignedCustodian>
             <representedCustodianOrganization>
                 <id root="1.2.826.0.1.3680043.2.911" />
-                <name>BEAUTY SWE, M.D., INC.</name>
+                <name>Hien Ho, M.D., INC.</name>
                 <telecom use="HP" value="tel:(855) 525-3120" />
                 <addr>
-                    <streetAddressLine>PO BOX 661015</streetAddressLine>
-                    <city>ARCADIA</city>
-                    <state>CA</state>
-                    <postalCode>91066-1015</postalCode>
+                    <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                    <city>Da Nang</city>
+                    <state>DN</state>
+                    <postalCode>510000</postalCode>
+                    <country>VN</country>
                 </addr>
             </representedCustodianOrganization>
         </assignedCustodian>
@@ -90,17 +91,17 @@
                     <id root="2.16.840.1.113883.4.6" />
                     <code code="208D00000X" displayName="General Practice" codeSystemName="Provider Codes" codeSystem="2.16.840.1.113883.6.101" />
                     <addr>
-                        <streetAddressLine>301 S. Fair Oaks Avenue, Suite 203 </streetAddressLine>
-                        <city>PASADENA</city>
-                        <state>CA</state>
-                        <postalCode>91105</postalCode>
-                        <country>US</country>
+                        <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                        <city>Da Nang</city>
+                        <state>DN</state>
+                        <postalCode>510000</postalCode>
+                        <country>VN</country>
                     </addr>
                     <telecom value="tel:(626) 356-4000" use="WP" />
                     <assignedPerson>
                         <name>
-                            <given>Beauty</given>
-                            <family>Swe</family>
+                            <given>Hien</given>
+                            <family>Ho</family>
                         </name>
                     </assignedPerson>
                 </assignedEntity>
@@ -124,17 +125,17 @@
                     <id root="2.16.840.1.113883.4.6" />
                     <code code="208D00000X" displayName="General Practice" codeSystemName="Provider Codes" codeSystem="2.16.840.1.113883.6.101" />
                     <addr>
-                        <streetAddressLine>301 S. Fair Oaks Ave., Suite 203 </streetAddressLine>
-                        <city>Pasadena</city>
-                        <state>CA</state>
-                        <postalCode>91105</postalCode>
-                        <country>US</country>
+                        <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                        <city>Da Nang</city>
+                        <state>DN</state>
+                        <postalCode>510000</postalCode>
+                        <country>VN</country>
                     </addr>
                     <telecom value="tel:(626) 356-4000" use="WP" />
                     <assignedPerson>
                         <name>
-                            <given>Maria</given>
-                            <family>Castro</family>
+                            <given>Thien</given>
+                            <family>Huynh</family>
                         </name>
                     </assignedPerson>
                 </assignedEntity>
@@ -172,17 +173,17 @@
                     <id root="2.16.840.1.113883.4.6" />
                     <code code="208D00000X" displayName="General Practice" codeSystemName="Provider Codes" codeSystem="2.16.840.1.113883.6.101" />
                     <addr>
-                        <streetAddressLine>301 S. Fair Oaks Ave., Suite 203 </streetAddressLine>
-                        <city>PASADENA</city>
-                        <state>CA</state>
-                        <postalCode>91105</postalCode>
-                        <country>US</country>
+                        <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                        <city>Da Nang</city>
+                        <state>DN</state>
+                        <postalCode>510000</postalCode>
+                        <country>VN</country>
                     </addr>
                     <telecom value="tel:(626) 356-4000" use="WP" />
                     <assignedPerson>
                         <name>
-                            <given>Felicia</given>
-                            <family>Goodall</family>
+                            <given>Linh</given>
+                            <family>Le</family>
                         </name>
                     </assignedPerson>
                 </assignedEntity>
@@ -194,17 +195,17 @@
                 <assignedEntity>
                     <id root="2.16.840.1.113883.4.6" extension="1548234479" />
                     <addr>
-                        <streetAddressLine>301 S. Fair Oaks Avenue, Suite 203</streetAddressLine>
-                        <city>PASADENA</city>
-                        <state>CA</state>
-                        <postalCode>91105</postalCode>
-                        <country>US</country>
+                        <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                        <city>Da Nang</city>
+                        <state>DN</state>
+                        <postalCode>510000</postalCode>
+                        <country>VN</country>
                     </addr>
                     <telecom value="tel:(626) 356-4000" use="WP" />
                     <assignedPerson>
                         <name>
-                            <given>Beauty</given>
-                            <family>Swe</family>
+                            <given>Hien</given>
+                            <family>Ho</family>
                         </name>
                     </assignedPerson>
                 </assignedEntity>

@@ -1,15 +1,18 @@
 ## BlueButton.py3: a python3-based version of BlueButton.py
 
 ### What's new?
-- Python3 support
-- Parse C32 format
-- Fix logic bugs
+- Support Python3
+- Support C32 format
+- Parse more sections and entries
 
 ### Initially, install the library:
 
 ```bash
 make install
 ```
+
+### Usage
+You can view the mapping in */docs* folder
 
 ### Example
 
