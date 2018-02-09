@@ -7,27 +7,27 @@
   <templateId root="2.16.840.1.113883.3.88.11.32.1" assigningAuthorityName="HITSP/C32" />
   <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_CLINICALSUMMARY" extension="4255" assigningAuthorityName="NIST Healthcare Project" />
   <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Summarization of episode note" />
-  <title>Summarization of  LIZARRAGA MELISSA</title>
+  <title>Summarization of  Ngu Truong</title>
   <effectiveTime value="20160829165615-0700" />
   <confidentialityCode code="N" />
   <languageCode code="nn-CC" />
   <!--*****************************PATIENT MODULE *********************-->
   <recordTarget typeCode="RCT" contextControlCode="OP">
     <patientRole>
-      <id root="VIJ_BR_ADAPTAMEDEMR_PracticeID_241_PatientID_4255" extension="4255" />
+      <id root="HI_PracticeID_241_PatientID_4255" extension="6869" />
       <addr use="HP">
-        <streetAddressLine>4921 E SAN JUAN ST</streetAddressLine>
-        <city>COMPTON</city>
-        <state>CA</state>
-        <postalCode>90221</postalCode>
-        <country>US</country>
+        <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+        <city>Da Nang</city>
+        <state>DN</state>
+        <postalCode>510000</postalCode>
+        <country>VN</country>
       </addr>
       <telecom value="tel:+1-562-508-2406" use="HP" />
       <patient>
         <name use="L">
-          <prefix>Ms.</prefix>
-          <given qualifier="CL">MELISSA</given>
-          <family qualifier="BR">LIZARRAGA</family>
+          <prefix>Mr.</prefix>
+          <given qualifier="CL">Ngu</given>
+          <family qualifier="BR">Truong</family>
         </name>
         <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7 AdministrativeGenderCodes" displayName="Female">
         </administrativeGenderCode>
@@ -46,17 +46,17 @@
           <Code code="MTH" codeSystem="2.16.840.1.113883.5.111" codeSystemName="RoleCode" displayName="Mother">
           </Code>
           <addr use="HP">
-            <streetAddressLine>4921 E SAN JUAN ST</streetAddressLine>
-            <city>COMPTON</city>
-            <state>CA</state>
-            <postalCode>90221</postalCode>
-            <country>US</country>
+                        <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                        <city>Da Nang</city>
+                        <state>DN</state>
+                        <postalCode>510000</postalCode>
+                        <country>VN</country>
           </addr>
           <telecom value="tel:+1-562-508-2406" use="HP" />
           <guardianPerson>
             <name use="L">
-              <given qualifier="CL">Roxanne</given>
-              <family qualifier="BR">Ojeda</family>
+              <given qualifier="CL">Khanh</given>
+              <family qualifier="BR">H</family>
             </name>
           </guardianPerson>
         </guardian>
@@ -69,31 +69,31 @@
     <assignedAuthor>
       <id root="" extension="" />
       <addr>
-        <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
-        <city>Paramount</city>
-        <state>CA</state>
-        <postalCode>90723</postalCode>
-        <country />
+        <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+        <city>Da Nang</city>
+        <state>DN</state>
+        <postalCode>510000</postalCode>
+        <country>VN</country>
       </addr>
       <telecom value="tel:+1-562-633-5438" />
       <assignedPerson>
         <name>
           <prefix />
-          <given>Bryan</given>
-          <family>Santoyo</family>
+          <given>Hung</given>
+          <family>Le</family>
           <suffix />
         </name>
       </assignedPerson>
       <representedOrganization>
         <id extension="ccf2ae98-71c7-414f-8086-69a0bbd893be" />
-        <name>J &amp;  L DE LEON MEDICAL CORP.</name>
+        <name>J &amp;  ABX MEDICAL CORP.</name>
         <telecom value="tel:+1-562-633-5438" />
         <addr>
-          <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
-          <city>Paramount</city>
-          <state>CA</state>
-          <postalCode>90723-5469</postalCode>
-          <country />
+          <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+          <city>Da Nang</city>
+          <state>DN</state>
+          <postalCode>510000</postalCode>
+          <country>VN</country>
         </addr>
       </representedOrganization>
     </assignedAuthor>
@@ -103,13 +103,14 @@
     <assignedCustodian>
       <representedCustodianOrganization>
         <id extension="38fbbbf4-b552-48c5-9a0b-c50af40e9439" />
-        <name>J &amp;  L DE LEON MEDICAL CORP.</name>
+        <name>J &amp;  ABX MEDICAL CORP.</name>
         <telecom value="tel:+1-562-633-5438" />
         <addr>
-          <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
-          <city>Paramount</city>
-          <state>CA</state>
-          <postalCode>90723-5469</postalCode>
+          <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+          <city>Da Nang</city>
+          <state>DN</state>
+          <postalCode>510000</postalCode>
+          <country>VN</country>
         </addr>
       </representedCustodianOrganization>
     </assignedCustodian>
@@ -132,31 +133,32 @@
         <assignedEntity>
           <id extension="af8f2af5-ff55-4ecc-9de8-2af946305318" />
           <addr>
-            <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
-            <city>Paramount</city>
-            <state>CA</state>
-            <postalCode>90723-5469</postalCode>
-            <country>USA</country>
+<streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                        <city>Da Nang</city>
+                        <state>DN</state>
+                        <postalCode>510000</postalCode>
+                        <country>VN</country>
           </addr>
           <telecom />
           <assignedPerson>
             <name>
               <prefix>Dr.</prefix>
-              <given>LIBERATION</given>
-              <family>DE LEON</family>
+              <given>Minh</given>
+              <family>Le</family>
               <suffix>
               </suffix>
             </name>
           </assignedPerson>
           <representedOrganization>
             <id extension="02c55d07-4a23-4a76-81c6-ab2e03dc6160" />
-            <name>J &amp;  L DE LEON MEDICAL CORP.</name>
+            <name>J &amp;  ABX CORP.</name>
             <telecom value="tel:+1-562-633-5438" />
             <addr>
-              <streetAddressLine>16660 Paramount Blvd.</streetAddressLine>
-              <city>Paramount</city>
-              <state>CA</state>
-              <postalCode>90723-5469</postalCode>
+              <streetAddressLine>82 Nguyen Luong Bang</streetAddressLine>
+                        <city>Da Nang</city>
+                        <state>DN</state>
+                        <postalCode>510000</postalCode>
+                        <country>VN</country>
             </addr>
           </representedOrganization>
         </assignedEntity>
