@@ -5,7 +5,7 @@
 ###############################################################################
 
 """
-Parser for the CCDA smoking status in social history section
+Parser for the CCDA social history section
 """
 
 from ...core import wrappers, ccda_enum
@@ -13,15 +13,15 @@ from ... import documents
 
 
 # @TODO: rename this method to social_history
-def smoking_status(ccda):
+def social_historys(ccda):
     name = None
     code = None
     code_system = None
     code_system_name = None
 
     data = wrappers.ListWrapper()
-    social_history = ccda.section('social_history')
-    entries = social_history.entries()
+    social_historys = ccda.section('social_historys')
+    entries = social_historys.entries()
     for i, entry in ccda_enum(entries, ccda):
 
         observation = entry.tag("observation")
@@ -40,7 +40,7 @@ def smoking_status(ccda):
         value = el.attr('displayName')
 
         data.append(wrappers.ObjectWrapper(
-            section_title=social_history.tag('title')._element.text,
+            section_title=social_historys.tag('title')._element.text,
             date_range=wrappers.ObjectWrapper(
                 start=start_date,
                 end=end_date

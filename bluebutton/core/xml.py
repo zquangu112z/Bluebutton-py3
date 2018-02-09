@@ -103,6 +103,15 @@ class _Element(object):
             ".//{ns}{name}".format(name=tag, ns='{urn:hl7-org:v3}'))
         return self._wrap_element(els)
 
+    def els_by_tag_1level(self, tag):
+        '''
+            Search in direct child elements
+            (not including grand-child and deeper descendant elements)
+        '''
+        els = self._element.findall(
+            "./{ns}{name}".format(name=tag, ns='{urn:hl7-org:v3}'))
+        return self._wrap_element(els)
+
     @classmethod
     def empty(cls):
         return cls(etree.Element('empty'), root=None)

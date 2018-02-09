@@ -4,7 +4,7 @@ import logging
 
 def test_simple():
     try:
-        with open('./sandbox/CDA.xml') as fp:
+        with open('./tests/CDA.xml') as fp:
             ccd = BlueButton(fp)
 
             print(ccd.data.demographics.name.family)

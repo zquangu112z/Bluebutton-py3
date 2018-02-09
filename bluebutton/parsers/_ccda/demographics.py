@@ -42,12 +42,24 @@ def demographics(ccda):
     el = patient.tag('addr')
     patient_address_dict = parse_address(el)
 
-    el = patient.tag('telecom')
-    home = el.attr('value')
-    work = None
-    mobile = None
-
-    email = None
+    home, work, mobile, email = None, None, None, None
+    els = patient.els_by_tag_1level('telecom')
+    for el in els:
+        uses = el.attr('use')
+        uri = el.attr('value')
+        tel = str.split(uri, ':')
+        tel = tel[len(tel) - 1]
+        # Attribute "use" can have multiple value. e.g. use="WP MC"
+        if uses:
+            for use in str.split(uses):
+                if use in ['H', 'HP', 'HV']:
+                    home = tel
+                if use in ['WP', 'DIR', 'PUB']:
+                    work = tel
+                if use in ['MC']:
+                    mobile = tel
+        if uri.startswith('mailto:'):
+            email = tel
 
     language = patient.tag('languageCommunication').tag(
         'languageCode').attr('code')

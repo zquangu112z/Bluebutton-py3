@@ -28,7 +28,7 @@ def section(ccda, name):
         el = ccda.template('2.16.840.1.113883.10.20.22.2.6.1')
         el.entries = entries
         return el
-    if 'care_plan' == name:
+    if 'care_plans' == name:
         el = ccda.template('2.16.840.1.113883.10.20.22.2.10')
         el.entries = entries
         return el
@@ -84,7 +84,7 @@ def section(ccda, name):
             el = ccda.template('2.16.840.1.113883.10.20.22.2.7')
         el.entries = entries
         return el
-    if 'social_history' == name:
+    if 'social_historys' == name:
         el = ccda.template('2.16.840.1.113883.10.20.22.2.17')
         el.entries = entries
         return el
