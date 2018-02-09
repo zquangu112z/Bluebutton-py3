@@ -2,4 +2,4 @@ install:
 	python setup.py install
 
 test:
-	PYTHONPATH=./ python sandbox/mytest.py
+	PYTHONPATH=./ pytest ./tests/*.py

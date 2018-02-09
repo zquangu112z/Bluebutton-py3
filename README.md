@@ -1,5 +1,9 @@
 ## BlueButton.py3: a python3-based version of BlueButton.py
 
+### What's new?
+- Python3 support
+- Parse C32 format
+- Fix logic bugs
 
 ### Initially, install the library:
 

@@ -5,7 +5,7 @@
 ###############################################################################
 
 from ._ccda.allergies import allergies
-from ._ccda.care_plan import care_plan
+from ._ccda.care_plans import care_plans
 from ._ccda.demographics import demographics
 from ._ccda.document import document
 from ._ccda.encounters import encounters
@@ -17,7 +17,7 @@ from ._ccda.medications import medications
 from ._ccda.problems import problems
 from ._ccda.procedures import procedures
 from ._ccda.results import results
-from ._ccda.smoking_status import smoking_status
+from ._ccda.social_historys import social_historys
 from ._ccda.vitals import vitals
 from ..core import wrappers
 
@@ -31,7 +31,7 @@ def run(ccda):
 
     data.allergies = allergies(ccda)
 
-    data.care_plan = care_plan(ccda)
+    data.care_plans = care_plans(ccda)
 
     data.chief_complaint = free_text(ccda, 'chief_complaint')
 
@@ -55,7 +55,7 @@ def run(ccda):
 
     data.procedures = procedures(ccda)
 
-    data.smoking_status = smoking_status(ccda)
+    data.social_historys = social_historys(ccda)
 
     data.vitals = vitals(ccda)
 

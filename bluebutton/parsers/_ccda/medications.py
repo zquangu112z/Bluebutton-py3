@@ -59,6 +59,7 @@ def medications(ccda):
         product_name = el.attr('displayName')
         product_code = el.attr('code')
         product_code_system = el.attr('codeSystem')
+        product_code_system_name = el.attr('codeSystemName')
 
         product_original_text = None
         el = entry.tag('manufacturedProduct').tag('originalText')
@@ -140,6 +141,7 @@ def medications(ccda):
                 name=product_name,
                 code=product_code,
                 code_system=product_code_system,
+                code_system_name=product_code_system_name,
                 text=product_original_text,
                 translations=translations,
                 findings=findings

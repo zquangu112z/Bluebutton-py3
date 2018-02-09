@@ -83,8 +83,11 @@ def parse_address(address_element):
     :param address_element:
     :return:
     """
-    els = address_element.els_by_tag('streetAddressLine')
-    street = [e.val() for e in els if e.val()]
+    # Parse all streetAdressLine
+    # els = address_element.els_by_tag('streetAddressLine')
+    # street = [e.val() for e in els if e.val()]
+
+    street = address_element.tag('streetAddressLine').val()
 
     city = address_element.tag('city').val()
     state = address_element.tag('state').val()

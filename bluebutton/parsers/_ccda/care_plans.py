@@ -8,13 +8,13 @@ from ...core import wrappers, ccda_enum, strip_whitespace
 from ... import documents
 
 
-def care_plan(ccda):
+def care_plans(ccda):
 
     data = []
 
-    care_plan = ccda.section('care_plan')
+    care_plans = ccda.section('care_plans')
 
-    for i, entry in ccda_enum(care_plan.entries(), ccda):
+    for i, entry in ccda_enum(care_plans.entries(), ccda):
 
         name = None
         code = None
@@ -37,7 +37,7 @@ def care_plan(ccda):
 
         data.append(
             wrappers.ObjectWrapper(
-                section_title=care_plan.tag('title')._element.text,
+                section_title=care_plans.tag('title')._element.text,
                 date_range=wrappers.ObjectWrapper(
                     start=start_date,
                     end=end_date

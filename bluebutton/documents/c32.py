@@ -32,9 +32,9 @@ def section(c32, name):
         el.entries = entries
         return el
 
-    # @TODO this section is not avail in C32 format. However, try to parse it
-    if 'care_plan' == name:
-        el = c32.template('2.16.840.1.113883.10.20.22.2.10')
+    # @TODO review the OID
+    if 'care_plans' == name:
+        el = c32.template('2.16.840.1.113883.3.88.11.83.124')
         el.entries = entries
         return el
 
@@ -104,7 +104,7 @@ def section(c32, name):
         return el
 
     # @TODO this section is not avail in C32 format. However, try to parse it
-    if 'social_history' == name:
+    if 'social_historys' == name:
         el = c32.template('2.16.840.1.113883.10.20.22.2.17')
         el.entries = entries
         return el
