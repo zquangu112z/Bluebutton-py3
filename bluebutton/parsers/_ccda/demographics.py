@@ -47,6 +47,8 @@ def demographics(ccda):
     for el in els:
         uses = el.attr('use')
         uri = el.attr('value')
+        if not uri:
+            continue
         tel = str.split(uri, ':')
         tel = tel[len(tel) - 1]
         # Attribute "use" can have multiple value. e.g. use="WP MC"
